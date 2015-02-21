@@ -36,7 +36,7 @@
             android:adjustViewBounds="false" />
 
         <ImageView
-            android:layout_width="150dp"
+            android:layout_width="151dp"
             android:layout_height="150dp"
             android:id="@+id/imageView4"
             android:background="#ff10ff12"/>
