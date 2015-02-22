@@ -17,7 +17,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:textColor="#151554"/>
 
         <ImageButton
             android:layout_width="50dp"
@@ -36,7 +37,7 @@
         android:layout_marginTop="0dp"
         android:gravity="center">
 
-        <ImageView
+        <ImageButton
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:id="@+id/imageView2"
@@ -45,7 +46,7 @@
 />
 
 
-        <ImageView
+        <ImageButton
             android:layout_width="140dp"
             android:layout_height="140dp"
         android:id="@+id/imageView"
@@ -59,7 +60,7 @@
             />
 
 
-        <ImageView
+        <ImageButton
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:id="@+id/imageView3"
@@ -72,7 +73,7 @@
 
            />
 
-        <ImageView
+        <ImageButton
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:id="@+id/imageView4"
@@ -93,14 +94,14 @@
     >
 
     <ImageButton
-    android:layout_width="32dp"
-    android:layout_height="32dp"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
     android:id="@+id/imageButton16"
     android:background="#ffffffff" />
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton17"
         android:background="#ffffffff"
         android:layout_alignParentTop="true"
@@ -109,8 +110,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton18"
         android:background="#ffffffff"
         android:layout_alignTop="@+id/imageButton17"
@@ -119,8 +120,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton19"
         android:background="#ffffffff"
         android:layout_alignParentTop="true"
@@ -129,8 +130,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton20"
         android:background="#ffffffff"
         android:layout_alignParentTop="true"
@@ -139,8 +140,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton21"
         android:background="#ffffffff"
         android:layout_alignTop="@+id/imageButton20"
@@ -149,8 +150,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton22"
         android:background="#ffffffff"
         android:layout_alignTop="@+id/imageButton21"
@@ -159,8 +160,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton23"
         android:background="#ffffffff"
         android:layout_alignTop="@+id/imageButton22"
@@ -169,8 +170,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton24"
         android:background="#ffffffff"
         android:layout_alignParentTop="true"
@@ -179,8 +180,8 @@
         android:layout_marginLeft="5dp"/>
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:id="@+id/imageButton25"
         android:background="#ffffffff"
         android:layout_toRightOf="@+id/imageButton24"
@@ -328,6 +329,6 @@
 
     </RelativeLayout>
 
-    
+
 
 </LinearLayout>
