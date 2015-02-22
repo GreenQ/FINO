@@ -144,9 +144,9 @@ public class Picture {
     private void getPictureById(String wordId)
     {
         //sources = new List<String>();
-        sources.add("@+res/assets/" + wordId + "/1.jpg");
-        sources.add("@+res/assets/" + wordId + "/2.jpg");
-        sources.add("@+res/assets/" + wordId + "/3.jpg");
-        sources.add("@+res/assets/" + wordId + "/4.jpg");
+        sources.add("@+res/assets/w" + wordId + "_1.jpg");
+        sources.add("@+res/assets/w" + wordId + "_2.jpg");
+        sources.add("@+res/assets/w" + wordId + "_3.jpg");
+        sources.add("@+res/assets/w" + wordId + "_4.jpg");
     }
 }
