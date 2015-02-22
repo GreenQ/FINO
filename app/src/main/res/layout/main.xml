@@ -7,33 +7,33 @@
     android:background="#ff446787">
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
         android:id="@+id/imageButtonPlay"
         android:src="@drawable/play"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="133dp" />
+        android:layout_marginTop="133dp"
+
+        />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="магазин"
         android:id="@+id/button"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton"
-        android:layout_marginTop="20dp" />
+        android:layout_below="@+id/imageButtonPlay"
+        android:layout_alignLeft="@+id/imageButtonPlay"
+        android:layout_alignStart="@+id/imageButtonPlay" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="о нас"
         android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
-        />
+        android:layout_below="@+id/imageButtonPlay"
+        android:layout_alignRight="@+id/imageButtonPlay"
+        android:layout_alignEnd="@+id/imageButtonPlay" />
 
 
 </RelativeLayout>
