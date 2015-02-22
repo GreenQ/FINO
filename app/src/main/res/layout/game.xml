@@ -100,6 +100,14 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:background="#fffcda1a"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton18"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/imageButton4"
+            android:layout_toEndOf="@+id/imageButton4" />
     </RelativeLayout>
 
 </LinearLayout>
