@@ -30,7 +30,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="330dp"
         android:clickable="false"
         android:layout_marginTop="0dp"
@@ -41,7 +41,6 @@
             android:layout_height="140dp"
             android:id="@+id/imageView2"
             android:background="#ffff0a11"
-            android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
 />
 
@@ -56,21 +55,21 @@
             android:layout_below="@+id/imageView2"
             android:layout_toRightOf="@+id/imageView2"
             android:layout_toEndOf="@+id/imageView2"
-            android:layout_margin="5dp"
-  />
+            android:layout_marginLeft="5dp"
+            />
+
 
         <ImageView
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:id="@+id/imageView3"
             android:background="#ffff23ce"
-            android:adjustViewBounds="false"
-            android:baselineAlignBottom="false"
+
             android:clickable="false"
             android:layout_below="@+id/imageView2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_margin="5dp"
+
            />
 
         <ImageView
@@ -78,11 +77,12 @@
             android:layout_height="140dp"
             android:id="@+id/imageView4"
             android:background="#ff10ff12"
-            android:layout_gravity="bottom"
+
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/imageView2"
             android:layout_toEndOf="@+id/imageView2"
-            android:layout_margin="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"/>
 
 
     </RelativeLayout>
