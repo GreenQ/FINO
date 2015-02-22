@@ -18,7 +18,7 @@
         />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="магазин"
         android:id="@+id/button"
@@ -29,7 +29,7 @@
         android:layout_marginStart="48dp" />
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="о нас"
         android:id="@+id/button2"
