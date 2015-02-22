@@ -1,17 +1,32 @@
 package com.example.greenq.fino;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.ImageButton;
 
 public class MainActivity extends ActionBarActivity {
-
+    ImageButton imgBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        imgBtn = (ImageButton) findViewById(R.id.imageButtonPlay);
+        imgBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+        public void onClick(View view){
+                Intent i = new Intent (MainActivity.this, GameActivity.class);
+                //i = new Intent(main.this, )
+                startActivity(i);
+
+                overridePendingTransition(R.animator.layouts_transition1, R.animator.layout_transition2);
+            }
+        });
     }
 
 
