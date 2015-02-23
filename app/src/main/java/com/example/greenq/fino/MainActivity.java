@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        imgBtn = (ImageButton) findViewById(R.id.imageButtonPlay);
+        imgBtn = (ImageButton) findViewById(R.id.imageButton);
         imgBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override

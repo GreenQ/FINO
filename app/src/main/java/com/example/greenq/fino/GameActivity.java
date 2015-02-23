@@ -14,18 +14,18 @@ import java.lang.reflect.Field;
  * Created by GreenQ on 21.02.2015.
  */
 public class GameActivity extends Activity {
-    ImageView image1;
-    ImageView image2;
-    ImageView image3;
-    ImageView image4;
+    ImageButton image1;
+    ImageButton image2;
+    ImageButton image3;
+    ImageButton image4;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
 
-        image1 = (ImageView) findViewById(R.id.imageView2);
-        image2 = (ImageView) findViewById(R.id.imageView4);
-        image3 = (ImageView) findViewById(R.id.imageView3);
-        image4 = (ImageView) findViewById(R.id.imageView);
+        image1 = (ImageButton) findViewById(R.id.imageView2);
+        image2 = (ImageButton) findViewById(R.id.imageView4);
+        image3 = (ImageButton) findViewById(R.id.imageView3);
+        image4 = (ImageButton) findViewById(R.id.imageView);
 
         getImages("1");
     }
