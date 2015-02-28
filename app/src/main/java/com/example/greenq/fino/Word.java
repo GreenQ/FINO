@@ -9,11 +9,16 @@ public class Word {
     //public Picture picture3;
     //public Picture picture4;
     public String wordId;
+    ..public String[] werbs =  { };
+
+
 
     public Word(String wordId)
     {
         this.wordId = wordId;
         this.picture = getWord();
+
+        //werbs
     }
     public Picture getWord()
     {

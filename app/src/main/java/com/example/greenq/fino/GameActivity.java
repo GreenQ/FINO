@@ -1,14 +1,14 @@
 package com.example.greenq.fino;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.lang.reflect.Field;
 
@@ -16,10 +16,18 @@ import java.lang.reflect.Field;
  * Created by GreenQ on 21.02.2015.
  */
 public class GameActivity extends Activity {
+    public static final String curLevel = "Current Level1";
+
+
+    View.OnClickListener CentralImagesOCL;
     ImageButton image1;
     ImageButton image2;
     ImageButton image3;
     ImageButton image4;
+    TextView textView;
+    int DefaultLevel = 1;
+    SharedPreferences preferences;
+    String Lvl = "LVL";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -30,56 +38,83 @@ public class GameActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.game);
+        preferences = this.getSharedPreferences(Lvl, Context.MODE_PRIVATE);
 
-        image1 = (ImageButton) findViewById(R.id.imageView2);
-        image2 = (ImageButton) findViewById(R.id.imageView4);
+        image1 = (ImageButton) findViewById(R.id.imageView1);
+        image2 = (ImageButton) findViewById(R.id.imageView2);
         image3 = (ImageButton) findViewById(R.id.imageView3);
-        image4 = (ImageButton) findViewById(R.id.imageView);
+        image4 = (ImageButton) findViewById(R.id.imageView4);
+        textView = (TextView) findViewById(R.id.textView);
+        CentralImagesOCL = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //int curLevel = GetCurrentLevel();
+                switch (v.getId()) {
+                    case R.id.imageView1:
+                        EditLevel(GetCurrentLevel() + 1);
+                        SetImagesByLevel(GetCurrentLevel());
+                        //textView.setText(String.valueOf(GetCurrentLevel()));
+                        break;
+                    case R.id.imageView2:
+                        EditLevel(GetCurrentLevel() - 1);
+                        SetImagesByLevel(GetCurrentLevel());
+                        //textView.setText(String.valueOf(GetCurrentLevel()));
+                        break;
+                    case R.id.imageView3:
+                        break;
+                    case R.id.imageView4:
+                        break;
+                }
+            }
+        };
+        image1.setOnClickListener(CentralImagesOCL);
+        image2.setOnClickListener(CentralImagesOCL);
+        image3.setOnClickListener(CentralImagesOCL);
+        image4.setOnClickListener(CentralImagesOCL);
+        DefaultLevel = GetCurrentLevel();
 
-        getImages("1");
+
+
+        SetImagesByLevel(GetCurrentLevel());
+
     }
 
-    protected  void getImages(String id)
+
+
+    private void SetImagesByLevel(int lvl)
     {
-        Word v = new Word("1");
-        int i = 0;
-       // for (String s : v.picture.sources) {
-         //   System.out.println("Next item: " + s);
-            //image4.setImageResource(getResId("w1_1", Drawable.class));
-        //Drawable d = getResources().getDrawable(android.R.drawable.ic_dialog_email);
-        //ImageView image = (ImageView)findViewById(R.id.image);
-        //image.setImageDrawable(d);
-       // getDrawable(22);
-        //getSt
-        int curLev = R.string.currentLevel;
-        int s = getResources().getIdentifier("w1_1", "drawable", this.getPackageName());
-        image1.setImageResource(s);
-        int ss = getResources().getIdentifier("w1_2", "drawable", this.getPackageName());
-        image2.setImageResource(ss);
-        int sss = getResources().getIdentifier("w1_3", "drawable", this.getPackageName());
-        image3.setImageResource(sss);
-        int ssss = getResources().getIdentifier("w1_4", "drawable", this.getPackageName());
-        image4.setImageResource(ssss);
-
-
-        //image4.setImageResource(getResId("w1_1", Drawable.class));
-    //image2.setImageResource(R.drawable.w1_2);
-            //image2.setImageResource();
-        //}
-       // v.picture.sources(1);
-
-
+        image1.setImageResource(getResources().getIdentifier("w" + lvl + "_1", "drawable", this.getPackageName()));
+        image2.setImageResource(getResources().getIdentifier("w" + lvl + "_2", "drawable", this.getPackageName()));
+        image3.setImageResource(getResources().getIdentifier("w" + lvl + "_3", "drawable", this.getPackageName()));
+        image4.setImageResource(getResources().getIdentifier("w" + lvl + "_4", "drawable", this.getPackageName()));
     }
 
-    public static int getResId(String variableName, Class<?> c) {
-
-        try {
-            Field idField = c.getDeclaredField(variableName);
-            return idField.getInt(idField);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        }
+    private boolean CheckLevelRange(int i)
+    {
+        if(i > 0 && i <400)
+            return true;
+        else
+            return false;
     }
 
+    public int GetCurrentLevel()
+    {
+        int temp = preferences.getInt(Lvl, 1) ;
+
+        if (CheckLevelRange(temp))
+            return temp;
+        else
+            return DefaultLevel;
+        //return preferences.getInt(curLevel, 1);
+    }
+
+    private void EditLevel(int i)
+    {
+        if (!CheckLevelRange(i))
+            return;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(Lvl, i);
+        editor.commit();
+        DefaultLevel = i;
+    }
 }
