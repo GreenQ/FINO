@@ -32,23 +32,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="350dp"
         android:clickable="false"
         android:layout_marginTop="0dp"
         android:gravity="center">
 
         <ImageButton
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:id="@+id/imageView2"
             android:background="#ffff0a11"
+
             android:layout_marginBottom="5dp"
+
+            android:onClick="onAnimationImageThree"
+
 />
 
 
         <ImageButton
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
         android:id="@+id/imageView"
         android:background="#ff0512ff"
             android:adjustViewBounds="false"
@@ -61,8 +65,8 @@
 
 
         <ImageButton
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:id="@+id/imageView3"
             android:background="#ffff23ce"
 
@@ -74,8 +78,8 @@
            />
 
         <ImageButton
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:id="@+id/imageView4"
             android:background="#ff10ff12"
 
