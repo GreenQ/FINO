@@ -2,17 +2,24 @@ package com.example.greenq.fino;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.*;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 public class MainActivity extends Activity {
-    ImageButton imgBtn;
+    ImageView imgBtn;
+    ImageView buttonImage;
+    AnimationDrawable animation;
+    private static int SPLASH_TIME_OUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +32,41 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
 
+//загрузка ImageView заранее подготовленной анимацией из ресурса:
+        buttonImage = (ImageView) findViewById(R.id.imageButtonPlay);
+        buttonImage.setBackgroundResource(R.drawable.btnanim);
+//загрузка объекта анимации:
+        animation = (AnimationDrawable) buttonImage.getBackground();
+//анимация будет проигрываться только 1 раз:
 
 
-        imgBtn = (ImageButton) findViewById(R.id.imageButtonPlay);
+        imgBtn = (ImageView) findViewById(R.id.imageButtonPlay);
         imgBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
-        public void onClick(View view){
+            public void onClick(View view){
                 Intent i = new Intent (MainActivity.this, GameActivity.class);
                 //i = new Intent(main.this, )
-                startActivity(i);
-
+                //startActivity(i);
+                new android.os.Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(MainActivity.this, GameActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
+                }, SPLASH_TIME_OUT);
                 overridePendingTransition(R.animator.layouts_transition1, R.animator.layout_transition2);
             }
         });
     }
 
+    public void animButtonClick(View v)
+    {
+        Log.d("animButton", "Click");
+        animation.stop();
+        animation.start();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

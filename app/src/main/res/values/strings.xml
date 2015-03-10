@@ -4,7 +4,28 @@
     <string name="app_name">FINO</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="w1">Архитектура</string>
+    <string name="w1" id="1">АРХИТЕКТУРА</string>
+    <string name="w2" id="2">АФРИКА</string>
+    <string name="w3" id="3">БАЛКОН</string>
+    <string name="w4" id="4">БИРЖА</string>
     <string name="currentLevel">1</string>
 
+    <!-- Actions -->
+    <string name="action_toggle">Toggle indicator</string>
+    <string name="action_add_item">Add item</string>
+    <string name="action_remove_item">Remove item</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+    <string name="action_info">Photo info</string>
+    <string name="action_photo">View photo</string>
+
+    <!-- Messages -->
+    <string name="message_empty_layout_changes">Add an item above to get started.</string>
+    <string name="message_zoom_touch_expand">Touch a photo to expand it.</string>
+
+    <!-- Accessibility-only descriptions -->
+    <string name="description_image_1">Image 1</string>
+    <string name="description_image_2">Image 2</string>
+    <string name="description_zoom_touch_close">Expanded image (touch to close)</string>
 </resources>

@@ -9,7 +9,8 @@ public class Word {
     //public Picture picture3;
     //public Picture picture4;
     public String wordId;
-    ..public String[] werbs =  { };
+    public String[] werbs =  {"А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М",
+            "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я"};
 
 
 
