@@ -13,6 +13,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
@@ -63,6 +64,7 @@ public class GameActivity extends Activity {
     Letters letters;
     int buttonLetterCounter = 0;
     private Animator mCurrentAnimator;
+    private final static int actualLettertId = 200;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +96,6 @@ public class GameActivity extends Activity {
         image2 = (ImageButton) findViewById(R.id.imageView2);
         image3 = (ImageButton) findViewById(R.id.imageView3);
         image4 = (ImageButton) findViewById(R.id.imageView4);
-        textView = (TextView) findViewById(R.id.textView);
         textViewCurrentLevel = (TextView) findViewById(R.id.textViewCurLevel);
         textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
 
@@ -160,7 +161,7 @@ public class GameActivity extends Activity {
         return -1;
     }
 
-    public int getRandContainerId(String particleId, int numOfDigits) {
+    public int getRandContainerId(String particleId/*, int numOfDigits*/) {
         String result;
         char[] chars = particleId.toCharArray();
         Scanner in = new Scanner(particleId).useDelimiter("[^0-9]+");
@@ -169,35 +170,49 @@ public class GameActivity extends Activity {
         //{
 
         //}
-        switch (numOfDigits) {
-            case 1:
-                return Integer.valueOf(String.valueOf(in.nextInt()).toCharArray()[1]);
-            case 2:
+        //switch (numOfDigits) {
+          //  case 1:
+            //    return Integer.valueOf(String.valueOf(in.nextInt()).toCharArray()[1]);
+            //case 2:
                 return Integer.valueOf(in.nextInt());
-            default:
-                return 1;
-        }
+            //default:
+              //  return 1;
+        //}
 
     }
 
     //public int
-    public void onClick(View v) {
+
+    private int getEmptyGuessLetterContainer()
+    {
+        Button guessButton;
+        for(int i = 0; i < word.length; i++) {
+            guessButton = (Button) findViewById(i);
+
+            if (guessButton.getText() == "")
+                return i;
+            //storedLetters[containerId][1] = "";
+        }
+        return 5;
+    }
+    public void onClickActualLetter(View v) {
 
         if (buttonLetterCounter <= word.length - 1) {
-            int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", getPackageName());
-            Button guessLetter = (Button) findViewById(id);
+            int id = getResources().getIdentifier(String.valueOf(/*actualLettertId +*/ buttonLetterCounter), "id", getPackageName());
+            Button guessLetter = (Button) findViewById(getEmptyGuessLetterContainer());
             Button actualLetter = (Button) findViewById((v.getId()));
             guessLetter.setText((actualLetter).getText());
             String name = actualLetter.getResources().getResourceName(actualLetter.getId());
             String containerId = name.substring(name.length() - 2, name.length());
             // randLettersSet[getRandContainerId(containerId)] = String.valueOf(actualLetter.getText());
-            storedLetters[getRandContainerId(containerId, 2)][1] = String.valueOf(id);
+            int randContainerId = getRandContainerId(containerId/*, 2*/);
+            storedLetters[randContainerId][1] = String.valueOf(guessLetter.getId());
             actualLetter.setText("");
             //do {
                 //buttonLetterCounter
             //}
             //while(!checkStringEmpty(String.valueOf(guessLetter.getText())));
-            buttonLetterCounter++;
+            //buttonLetterCounter++;
             //использовать двумерный массиив для хранения адреса ячейки рандомной буквы, буквы и адреса ячейки буквы-догадки
         }
     }
@@ -212,7 +227,7 @@ public class GameActivity extends Activity {
 
     public void MoveLetterToGuess()
     {
-        int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", this.getPackageName());
+        int id = getResources().getIdentifier(String.valueOf(/*actualLettertId +*/ buttonLetterCounter), "id", this.getPackageName());
         Button temp = (Button) findViewById(id);
         temp.setText(((Button) findViewById(R.id.buttonLetter0)).getText());
         buttonLetterCounter++;
@@ -264,21 +279,28 @@ public class GameActivity extends Activity {
         int maxJ = word.length;
         for (int j = 0; j < maxJ; j++) {
             final Button btnTag = new Button(getBaseContext());
-            btnTag.setId(200 + j);
+            btnTag.setId(/*actualLettertId +*/ j);
             btnTag.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
-                    String name = getResources().getResourceName(v.getId());
-                    String containerId = name.substring(name.length() - 2, name.length());
-                    storedLetters[getRandContainerId(containerId, 1)][1] = "";
+                    //String name = getResources().getResourceName(v.getId());
+                    int containerId = v.getId();//.substring(String.valueOf(v.getId()).length() - 2, String.valueOf(v.getId()).length());
+                    //for(int i = 0; i < 12; i++) {
 
-                    int id = getResources().getIdentifier("buttonLetter" + containerId, "id", getPackageName());
+//                        storedLetters[containerId][1] = "";
+  //                  }
+
+                    int actualLetterIndex = getActualLettertArrayIndex(containerId);
+                    int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
                     Button temp = (Button) findViewById(id);
-                    temp.setText(storedLetters[Integer.valueOf(containerId)][0]);
+                    temp.setText(storedLetters[Integer.valueOf(actualLetterIndex)][0]);
 
+                    storedLetters[actualLetterIndex][0] = temp.getText().toString();
+                    storedLetters[actualLetterIndex][1] = "";
                     btnTag.setText("");
+
                     //int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", getPackageName());
                     //Button temp = (Button) findViewById(id);
                     //temp.setText(((Button) findViewById(R.id.buttonLetter0)).getText());
@@ -286,6 +308,7 @@ public class GameActivity extends Activity {
             });
             //btnTag.setScaleX(0.5f);
             //btnTag.setScaleY(0.5f);
+
             btnTag.setTextSize(12);
             btnTag.setPadding(0,0,0,0);
             //btnTag.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
@@ -342,6 +365,15 @@ public class GameActivity extends Activity {
 
 
     }
+
+    private int getActualLettertArrayIndex(int guessLetterIndex){
+        for(int i = 0; i < 13; i++) {
+            if(storedLetters[i][1] == String.valueOf(guessLetterIndex))
+                return i;
+        }
+        return 0;
+    }
+
     private boolean CheckLevelRange(int i)
     {
         if(i > 0 && i <400)
