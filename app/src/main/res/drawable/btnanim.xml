@@ -2,5 +2,5 @@
     android:id="@+id/loading"
     android:oneshot="false" >
     <item android:drawable="@drawable/playbtn" android:duration="300"/>
-    <item android:drawable="@drawable/btnclick" android:duration="300"/>
+    <item android:drawable="@drawable/playbtn_pressed" android:duration="300"/>
 </animation-list>

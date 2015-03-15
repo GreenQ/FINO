@@ -11,9 +11,12 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
@@ -22,6 +25,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import java.util.Scanner;
@@ -65,6 +69,7 @@ public class GameActivity extends Activity {
     int buttonLetterCounter = 0;
     private Animator mCurrentAnimator;
     private final static int actualLettertId = 200;
+    int occupiedContainerCounter = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,9 +147,42 @@ public class GameActivity extends Activity {
         image2.setOnClickListener(CentralImagesOCL);
         image3.setOnClickListener(CentralImagesOCL);
         image4.setOnClickListener(CentralImagesOCL);
+
+        DrawLevel();
+    }
+
+    private void ShowWinPopUp()
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        View popupView = layoutInflater.inflate(R.layout.win, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.buttonClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                NextLevelClick(null);
+                popupWindow.dismiss();
+            }});
+
+
+        //popupWindow.showAsDropDown(findViewById(R.id.), 0, -45);
+
+        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,0);
+    }
+
+    private void DrawLevel()
+    {
         DefaultLevel = GetCurrentLevel();
-
-
         SetImagesByLevel(GetCurrentLevel());
         CreateGuessWordContainers(GetCurrentLevel());
         GuessWordHandler wordHandler = new GuessWordHandler();
@@ -153,6 +191,50 @@ public class GameActivity extends Activity {
         SetLetterImages(randLettersSet);
     }
 
+    public void NextLevelClick(View view)
+    {
+        randLettersSet = null;
+        word = null;
+        storedLetters = null;
+        letters = null;
+        buttonLetterCounter = 0;
+        occupiedContainerCounter = 0;
+
+        EditLevel(GetCurrentLevel() + 1);
+        SetImagesByLevel(GetCurrentLevel());
+        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
+        CreateGuessWordContainers(GetCurrentLevel());
+
+        DrawLevel();
+    }
+
+    public void NextLevel()
+    {
+        ShowWinPopUp();
+
+    }
+
+    public void PrevLevelClick(View view)
+    {
+        randLettersSet = null;
+        word = null;
+        storedLetters = null;
+        letters = null;
+        buttonLetterCounter = 0;
+        occupiedContainerCounter = 0;
+
+        EditLevel(GetCurrentLevel() - 1);
+        SetImagesByLevel(GetCurrentLevel());
+        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
+        CreateGuessWordContainers(GetCurrentLevel());
+
+        DrawLevel();
+    }
+
+    public void PrevLevel()
+    {
+
+    }
     public int getRandLetterIndex(String letter) {
         for (int i = 0; i < randLettersSet.length; i++) {
             if (randLettersSet[i] == letter)
@@ -193,27 +275,85 @@ public class GameActivity extends Activity {
                 return i;
             //storedLetters[containerId][1] = "";
         }
-        return 5;
+        return -1;
+    }
+
+    private int findRandContainerID(String letter)
+    {
+        for(int i = 0; i < storedLetters.length; i++)
+        {
+            if(storedLetters[i][0] == letter)
+                return i;
+        }
+        return -1;
+    }
+    private boolean checkWordCorrectness()
+    {
+        String guessLetter;
+        String guessButtonText;
+        Button guessButton;
+        String storredArrayLetter;
+
+        /*for(int i = 0; i < word.length; i++){
+            guessButton = (Button) findViewById(i);
+            guessButtonText = String.valueOf(guessButton.getText());
+            storredArrayLetter = storedLetters[findRandContainerID(word[i])][1];
+            String wordArrayLetter = word[i];
+            //guessLetter = storedLetters[getRandContainerId()][1];
+            if(wordArrayLetter != storredArrayLetter)
+                return false;
+        }*/
+
+        for(int i = 0; i < word.length; i++) {
+            guessButton = (Button) findViewById(i);
+            guessButtonText = String.valueOf(guessButton.getText());
+            guessLetter = word[i];
+            if (!guessButtonText.equals(guessLetter)){
+                return false;
+            }
+            //storedLetters[containerId][1] = "";
+            //guessButton = null;
+        }
+
+        return true;
     }
     public void onClickActualLetter(View v) {
 
-        if (buttonLetterCounter <= word.length - 1) {
-            int id = getResources().getIdentifier(String.valueOf(/*actualLettertId +*/ buttonLetterCounter), "id", getPackageName());
-            Button guessLetter = (Button) findViewById(getEmptyGuessLetterContainer());
-            Button actualLetter = (Button) findViewById((v.getId()));
-            guessLetter.setText((actualLetter).getText());
-            String name = actualLetter.getResources().getResourceName(actualLetter.getId());
-            String containerId = name.substring(name.length() - 2, name.length());
-            // randLettersSet[getRandContainerId(containerId)] = String.valueOf(actualLetter.getText());
-            int randContainerId = getRandContainerId(containerId/*, 2*/);
-            storedLetters[randContainerId][1] = String.valueOf(guessLetter.getId());
-            actualLetter.setText("");
-            //do {
+        if (occupiedContainerCounter < word.length) {
+            //Button tempButton = (Button) v;
+            if(((Button) v).getText() !="") {
+
+                int id = getResources().getIdentifier(String.valueOf(/*actualLettertId +*/ buttonLetterCounter), "id", getPackageName());
+                Button guessLetter = (Button) findViewById(getEmptyGuessLetterContainer());
+                Button actualLetter = (Button) findViewById((v.getId()));
+                guessLetter.setText((actualLetter).getText());
+                String name = actualLetter.getResources().getResourceName(actualLetter.getId());
+                String containerId = name.substring(name.length() - 2, name.length());
+                // randLettersSet[getRandContainerId(containerId)] = String.valueOf(actualLetter.getText());
+                int randContainerId = getRandContainerId(containerId/*, 2*/);
+                storedLetters[randContainerId][1] = String.valueOf(guessLetter.getId());
+                actualLetter.setText("");
+                //do {
                 //buttonLetterCounter
-            //}
-            //while(!checkStringEmpty(String.valueOf(guessLetter.getText())));
-            //buttonLetterCounter++;
-            //использовать двумерный массиив для хранения адреса ячейки рандомной буквы, буквы и адреса ячейки буквы-догадки
+                //}
+                //while(!checkStringEmpty(String.valueOf(guessLetter.getText())));
+                //buttonLetterCounter++;
+                //использовать двумерный массиив для хранения адреса ячейки рандомной буквы, буквы и адреса ячейки буквы-догадки
+
+
+                occupiedContainerCounter++;
+
+               // if(occupiedContainerCounter == word.length) {
+                    if (checkWordCorrectness()) {
+                        /*EditLevel(GetCurrentLevel() + 1);
+                        SetImagesByLevel(GetCurrentLevel());
+                        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
+                        CreateGuessWordContainers(GetCurrentLevel());*/
+                        ShowWinPopUp();
+                        //NextLevel();
+                    }
+                //}
+            }
         }
     }
 
@@ -284,32 +424,35 @@ public class GameActivity extends Activity {
                 @Override
                 public void onClick(View v) {
 
+                    if (((Button) v).getText() != "") {
 
-                    //String name = getResources().getResourceName(v.getId());
-                    int containerId = v.getId();//.substring(String.valueOf(v.getId()).length() - 2, String.valueOf(v.getId()).length());
-                    //for(int i = 0; i < 12; i++) {
+                        //String name = getResources().getResourceName(v.getId());
+                        int containerId = v.getId();//.substring(String.valueOf(v.getId()).length() - 2, String.valueOf(v.getId()).length());
+                        //for(int i = 0; i < 12; i++) {
 
 //                        storedLetters[containerId][1] = "";
-  //                  }
+                        //                  }
 
-                    int actualLetterIndex = getActualLettertArrayIndex(containerId);
-                    int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
-                    Button temp = (Button) findViewById(id);
-                    temp.setText(storedLetters[Integer.valueOf(actualLetterIndex)][0]);
+                        int actualLetterIndex = getActualLettertArrayIndex(containerId);
+                        int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
+                        Button temp = (Button) findViewById(id);
+                        temp.setText(storedLetters[Integer.valueOf(actualLetterIndex)][0]);
 
-                    storedLetters[actualLetterIndex][0] = temp.getText().toString();
-                    storedLetters[actualLetterIndex][1] = "";
-                    btnTag.setText("");
-
-                    //int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", getPackageName());
-                    //Button temp = (Button) findViewById(id);
-                    //temp.setText(((Button) findViewById(R.id.buttonLetter0)).getText());
+                        storedLetters[actualLetterIndex][0] = temp.getText().toString();
+                        storedLetters[actualLetterIndex][1] = "";
+                        btnTag.setText("");
+                        occupiedContainerCounter--;
+                        //int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", getPackageName());
+                        //Button temp = (Button) findViewById(id);
+                        //temp.setText(((Button) findViewById(R.id.buttonLetter0)).getText());
+                    }
                 }
             });
             //btnTag.setScaleX(0.5f);
             //btnTag.setScaleY(0.5f);
 
-            btnTag.setTextSize(12);
+            btnTag.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION_PARENT, 12);
+
             btnTag.setPadding(0,0,0,0);
             //btnTag.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
             //btnTag = View.inflate(getBaseContext(), layout, )
@@ -317,7 +460,7 @@ public class GameActivity extends Activity {
 
             btnTag.setLayoutParams(new LinearLayout.LayoutParams(AbsoluteLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             //btnTag.setImageResource(R.drawable.w1_5);//setText("Button " + (j + 1 + (i * 4)));
-            btnTag.setBackgroundColor(Color.GREEN);
+            btnTag.setBackgroundColor(Color.BLACK);
 
             //btnTag.isInEditMode();
             //btnTag.
@@ -331,11 +474,16 @@ public class GameActivity extends Activity {
             //btnTag.setMaxHeight(5);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(btnTag.getLayoutParams());
             //ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(btnTag.getLayoutParams());
-            params.height = 70;
-            params.width = 70;
+
+            //float scaleRatio = getResources().getDisplayMetrics().density;
+            //int dps = 10;
+            //int pixels = (int) (dps * 7 + 0.5f);
+            params.width = getResources().getDimensionPixelSize(R.dimen.guess_letter_width);
+            params.height = getResources().getDimensionPixelSize(R.dimen.guess_letter_height);
+           // params.width = 70;
            // params.
             //params.gravity = Gravity.CENTER_HORIZONTAL;
-            params.setMargins(3,3,3,3);
+            params.setMargins(2,2,2,2);
             //params.setMargin()
 
             //btnTag.

@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.PROGRESS_VISIBILITY_OFF);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -40,11 +41,12 @@ public class MainActivity extends Activity {
 //анимация будет проигрываться только 1 раз:
 
 
-        imgBtn = (ImageView) findViewById(R.id.imageButtonPlay);
-        imgBtn.setOnClickListener(new View.OnClickListener()
+        //imgBtn = (ImageView) findViewById(R.id.imageButtonPlay);
+      /*  imgBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view){
+
                 Intent i = new Intent (MainActivity.this, GameActivity.class);
                 //i = new Intent(main.this, )
                 //startActivity(i);
@@ -58,7 +60,8 @@ public class MainActivity extends Activity {
                 }, SPLASH_TIME_OUT);
                 overridePendingTransition(R.animator.layouts_transition1, R.animator.layout_transition2);
             }
-        });
+        });*/
+        animation.setOneShot(true);
     }
 
     public void animButtonClick(View v)
@@ -66,6 +69,17 @@ public class MainActivity extends Activity {
         Log.d("animButton", "Click");
         animation.stop();
         animation.start();
+        Intent i = new Intent (MainActivity.this, GameActivity.class);
+        //i = new Intent(main.this, )
+        //startActivity(i);
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(i);
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
     }
 
     @Override
