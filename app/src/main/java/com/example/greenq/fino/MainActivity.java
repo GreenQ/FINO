@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
             public void run() {
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         }, SPLASH_TIME_OUT);
     }
