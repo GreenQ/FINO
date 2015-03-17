@@ -8,15 +8,15 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:id="@+id/imageButtonPlay"
         android:background="@drawable/btnanim"
         android:onClick="animButtonClick"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
 
         android:id="@+id/button"
         android:layout_below="@+id/imageButtonPlay"
@@ -26,9 +26,9 @@
         android:background="@drawable/istore"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-       android:id="@+id/button2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/button2"
         android:layout_alignTop="@+id/button"
         android:layout_alignRight="@+id/imageButtonPlay"
         android:layout_alignEnd="@+id/imageButtonPlay"

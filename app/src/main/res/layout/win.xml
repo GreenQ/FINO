@@ -1,25 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#000000"
-    android:alpha="0.5">
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.7"></RelativeLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="close"
-        android:id="@+id/buttonClose"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp"
-        android:alpha="2"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отлично!"
+            android:textSize="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:id="@+id/textView3"
+            android:textColor="#ffffffff"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы отгадали"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="А Ф Р И К А"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="65dp"
+            android:layout_below="@+id/textView4"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView6" />
+
+
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:text="Продолжить"
+            android:id="@+id/buttonClose"
+            android:textSize="20sp"
+            android:textColor="#ffffffff"
+            android:background="#ffff8214"
+            android:layout_below="@+id/textView6"
+            android:layout_centerHorizontal="true"
+             />
+
+
+        </RelativeLayout>
+
+
 </RelativeLayout>

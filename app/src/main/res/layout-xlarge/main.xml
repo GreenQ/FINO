@@ -14,25 +14,25 @@
         android:background="@drawable/btnanim"
         android:onClick="animButtonClick"/>
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="магазин"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
         android:id="@+id/button"
         android:layout_below="@+id/imageButtonPlay"
         android:layout_alignLeft="@+id/imageButtonPlay"
         android:layout_alignStart="@+id/imageButtonPlay"
         android:layout_marginTop="20dp"
-        android:background="#549214"/>
+        android:background="@drawable/istore"/>
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="о нас" android:id="@+id/button2"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button2"
         android:layout_alignTop="@+id/button"
         android:layout_alignRight="@+id/imageButtonPlay"
         android:layout_alignEnd="@+id/imageButtonPlay"
-        android:background="#114852"/>
+        android:background="@drawable/infa"/>
 
 
 </RelativeLayout>
