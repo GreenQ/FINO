@@ -2,17 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="@drawable/fon1"
-    android:gravity="center"
-    android:id="@+id/rootLayoutMain">
+    android:background="@drawable/fonmenu"
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top"/>
+
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/imageButtonPlay"
         android:background="@drawable/btnanim"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:onClick="animButtonClick"/>
 
     <ImageView
@@ -24,8 +32,8 @@
         android:layout_alignLeft="@+id/imageButtonPlay"
         android:layout_alignStart="@+id/imageButtonPlay"
         android:layout_marginTop="20dp"
-        android:background="@drawable/istore"
-        android:onClick="ShowGameshopPopUp"/>
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/istore"/>
 
     <ImageView
         android:layout_width="50dp"
@@ -34,8 +42,8 @@
         android:layout_alignTop="@+id/button"
         android:layout_alignRight="@+id/imageButtonPlay"
         android:layout_alignEnd="@+id/imageButtonPlay"
-        android:background="@drawable/infa"
-        android:onClick="ShowAboutPopUp"/>
+        android:layout_marginRight="10dp"
+        android:background="@drawable/infa"/>
 
 
 </RelativeLayout>

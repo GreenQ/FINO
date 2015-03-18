@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
     ImageView imgBtn;
     ImageView buttonImage;
     AnimationDrawable animation;
-    private static int SPLASH_TIME_OUT = 1000;
+    private static int SPLASH_TIME_OUT = 220;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
