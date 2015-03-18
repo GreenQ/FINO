@@ -6,14 +6,19 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.*;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 public class MainActivity extends Activity {
     ImageView imgBtn;
@@ -62,6 +67,10 @@ public class MainActivity extends Activity {
             }
         });*/
         animation.setOneShot(true);
+
+        //ShowWinPopUp();
+
+
     }
 
     public void animButtonClick(View v)
@@ -80,6 +89,57 @@ public class MainActivity extends Activity {
                 //finish();
             }
         }, SPLASH_TIME_OUT);
+    }
+
+
+    public void ShowGameshopPopUp(View view)
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        View popupView = layoutInflater.inflate(R.layout.gameshop, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //NextLevelClick(null);
+                popupWindow.dismiss();
+            }});
+
+        popupWindow.showAtLocation(findViewById(R.id.rootLayoutMain), 0,0,-10);
+    }
+
+    public void ShowAboutPopUp(View view)
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        View popupView = layoutInflater.inflate(R.layout.about, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //NextLevelClick(null);
+                popupWindow.dismiss();
+            }});
+
+        popupWindow.showAtLocation(findViewById(R.id.rootLayoutMain), 0,0,-10);
     }
 
     @Override

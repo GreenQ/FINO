@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -174,10 +175,108 @@ public class GameActivity extends Activity {
                 popupWindow.dismiss();
             }});
 
+        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+    }
 
-        //popupWindow.showAsDropDown(findViewById(R.id.), 0, -45);
+    public void ShowHintsPopUp(View view)
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,0);
+        View popupView = layoutInflater.inflate(R.layout.hints, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }});
+
+        Button btnOpenLetter = (Button)popupView.findViewById(R.id.btnOpenLetter);
+        btnOpenLetter.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+               // new android.os.Handler().postDelayed(new Runnable() {
+                  //  @Override
+                   // public void run() {
+                   //
+                openLetter();
+                if (checkWordCorrectness()) {
+                    ShowWinPopUp();
+                }
+                        //finish();
+                   // }
+                //}, 3000);
+                popupWindow.dismiss();
+            }});
+
+        Button btnOpenWord = (Button)popupView.findViewById(R.id.btnOpenLetter);
+        btnOpenLetter.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // new android.os.Handler().postDelayed(new Runnable() {
+                //  @Override
+                // public void run() {
+                //
+                openLetter();
+                if (checkWordCorrectness()) {
+                    ShowWinPopUp();
+                }
+                //finish();
+                // }
+                //}, 3000);
+                popupWindow.dismiss();
+            }});
+
+        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+    }
+
+    private void openWord() {
+        for (int i = 0; i < word.length; i++)
+        {
+            Button tempGuessButton = (Button) findViewById(i);
+            if(tempGuessButton.getText() == "")
+            {
+            //    for(int j = 0; )
+            }
+        }
+    }
+
+    private void openLetter() {
+        for (int i = 0; i < word.length; i++)
+        {
+            Button tempGuessButton = (Button) findViewById(i);
+
+            if(!word[i].equals(tempGuessButton.getText()))
+            {
+                tempGuessButton.setText(word[i]);
+
+                for(int j = 0; i < storedLetters.length; j++)
+                {
+                    if(storedLetters[j][0].equals(word[i]))
+                    {
+                        int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                        Button tempActualButton = (Button) findViewById(id);
+                        storedLetters[j][1] = String.valueOf(i);
+                        tempActualButton.setVisibility(View.INVISIBLE);
+                        tempActualButton.setText("");
+                        //tempGuessButton.setBackgroundColor(Color.RED);
+                        break;
+                    }
+                }
+                break;
+            }
+
+        }
     }
 
     private void DrawLevel()
@@ -239,6 +338,13 @@ public class GameActivity extends Activity {
         for (int i = 0; i < randLettersSet.length; i++) {
             if (randLettersSet[i] == letter)
                 return i;
+        }
+        return -1;
+    }
+    public int getRandContinerIdInStoredLetters(String letter) {
+        for (int i = 0; i < storedLetters.length; i++) {
+            if (storedLetters[i][0] == letter)
+                return Integer.valueOf(storedLetters[i][1]);
         }
         return -1;
     }
@@ -333,6 +439,7 @@ public class GameActivity extends Activity {
                 int randContainerId = getRandContainerId(containerId/*, 2*/);
                 storedLetters[randContainerId][1] = String.valueOf(guessLetter.getId());
                 actualLetter.setText("");
+                actualLetter.setVisibility(View.INVISIBLE);
                 //do {
                 //buttonLetterCounter
                 //}
@@ -386,6 +493,7 @@ public class GameActivity extends Activity {
                 //temp.
                 //temp.setImageResource(getResources().getIdentifier("letter_" + letters.GetLetterIndex(wordArray[i]), "drawable", this.getPackageName()));
                 temp.setText(wordArray[i]);
+            temp.setVisibility(View.VISIBLE);
             storedLetters[i][0] = wordArray[i];
            // }
         }
@@ -437,6 +545,7 @@ public class GameActivity extends Activity {
                         int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
                         Button temp = (Button) findViewById(id);
                         temp.setText(storedLetters[Integer.valueOf(actualLetterIndex)][0]);
+                        temp.setVisibility(View.VISIBLE);
 
                         storedLetters[actualLetterIndex][0] = temp.getText().toString();
                         storedLetters[actualLetterIndex][1] = "";
@@ -478,6 +587,7 @@ public class GameActivity extends Activity {
             //float scaleRatio = getResources().getDisplayMetrics().density;
             //int dps = 10;
             //int pixels = (int) (dps * 7 + 0.5f);
+
             params.width = getResources().getDimensionPixelSize(R.dimen.guess_letter_width);
             params.height = getResources().getDimensionPixelSize(R.dimen.guess_letter_height);
            // params.width = 70;
@@ -504,6 +614,7 @@ public class GameActivity extends Activity {
 
         }
 
+        createEaraserButton(row);
         //LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(row.getLayoutParams());
 
         //row.setScaleX(25);
@@ -514,6 +625,56 @@ public class GameActivity extends Activity {
 
     }
 
+    private void createEaraserButton(LinearLayout row)
+    {
+
+        final Button btnTag = new Button(getBaseContext());
+        btnTag.setId(R.id.earaseButton);
+
+        btnTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+//тут закончил
+                for(int i = 0; i < 13; i++) {
+                    if(storedLetters[i][1] != null) {
+                       // int containerId = v.getId();
+                        //int actualLetterIndex = getActualLettertArrayIndex(containerId);
+                        //int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
+                        Button temp = (Button) findViewById(Integer.valueOf(storedLetters[i][1]));
+                        temp.setText("");
+
+
+                        storedLetters[i][1] = null;
+                    }
+                }
+               //storedLetters = null;
+                occupiedContainerCounter = 0;
+                SetLetterImages(randLettersSet);
+                }
+
+        });
+        //btnTag.setScaleX(0.5f);
+        //btnTag.setScaleY(0.5f);
+
+        btnTag.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION_PARENT, 12);
+
+        btnTag.setPadding(0,0,0,0);
+
+        btnTag.setLayoutParams(new LinearLayout.LayoutParams(AbsoluteLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        btnTag.setBackgroundColor(Color.BLACK);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(btnTag.getLayoutParams());
+
+        params.width = getResources().getDimensionPixelSize(R.dimen.guess_letter_width);
+        params.height = getResources().getDimensionPixelSize(R.dimen.guess_letter_height);
+        params.setMargins(2,2,2,2);
+        row.setGravity(Gravity.CENTER);
+        row.addView(btnTag, params);
+
+
+    }
     private int getActualLettertArrayIndex(int guessLetterIndex){
         for(int i = 0; i < 13; i++) {
             if(storedLetters[i][1] == String.valueOf(guessLetterIndex))
