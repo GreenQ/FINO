@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fonnew">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="Ифна о нас"
         android:id="@+id/textView"
+        android:textColor="#ffffff"
+        android:layout_marginTop="45dp"
         android:layout_gravity="center_horizontal"
         android:textSize="36dp" />
+
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#ffaeabad"
+        android:text="Страница о себе... Но что же вам сказать о нас? Врятли вы нажмете на кнопку о нас, а тем более прочитаете эту бесполезную информацию, но все же мы решили написать всякую лабуду о себе, типо какие мы классные девелоперы и обезательно оставим свое мыло для того что бы вы якобы писали туда свои жалобы и предложения, но вы настолько ленивые юзеры что даже не поплагодарите разрабов за бесплатную игру своим положительным коментом в гуглплее. Всем спасибо за внимание!"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Закрыть"
+        android:background="#ff2b394a"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="Закрыть этот экран навсегда"
+        android:textColor="#ffffff"
         android:id="@+id/btnClose"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

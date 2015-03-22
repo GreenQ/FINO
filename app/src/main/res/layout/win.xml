@@ -19,7 +19,7 @@
             android:text="Отлично!"
             android:textSize="40dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/textView3"
             android:textColor="#ffffffff"/>
         <TextView
@@ -56,6 +56,13 @@
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView6" />
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:background="@drawable/coins"
+            android:id="@+id/imageView5"
+            android:layout_below="@+id/textView6"
+            android:layout_centerHorizontal="true" />
 
 
         <Button
@@ -65,10 +72,11 @@
             android:id="@+id/buttonClose"
             android:textSize="20sp"
             android:textColor="#ffffffff"
-            android:background="#ffff8214"
-            android:layout_below="@+id/textView6"
-            android:layout_centerHorizontal="true"
-             />
+            android:background="#2b394a"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/imageView5"
+            android:layout_alignRight="@+id/textView3"
+            android:layout_alignEnd="@+id/textView3" />
 
 
         </RelativeLayout>

@@ -188,14 +188,14 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/imageButton8"
-            android:background="@drawable/znak"
             android:textColor="#ffffffff"
-
+            android:background="#ffffff"
             android:textSize="30dp"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/buttonLetter5"
             android:layout_toEndOf="@+id/buttonLetter5"
-            android:onClick="onClickActualLetter" />
+            android:onClick="onClickActualLetter"
+            android:text="\?"/>
 
         <Button
             android:layout_width="40dp"

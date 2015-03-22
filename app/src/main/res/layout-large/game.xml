@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fonmenu"
+    android:background="@drawable/fonnew"
     android:id="@+id/rootLayout">
 
     <RelativeLayout
@@ -162,13 +162,14 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/imageButton8"
-            android:background="#fffc0628"
+
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/buttonLetter5"
             android:layout_toEndOf="@+id/buttonLetter5"
             android:onClick="ShowHintsPopUp"
             android:textSize="@dimen/actual_letter_text_size"
-            android:text="\?" />
+            android:text="\?"
+            android:background="#fffc0628"/>
 
         <Button
             android:layout_width="60dp"
