@@ -53,6 +53,15 @@
         android:layout_below="@+id/btnClose"
         android:layout_centerHorizontal="true" />
 
-</RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Убрать лишние буквы"
+            android:id="@+id/btnRemoveUnnecessary"
+            android:layout_above="@+id/btnClose"
+            android:layout_centerHorizontal="true"
+            android:onClick="RemoveUnnecessaryLetters"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

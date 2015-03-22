@@ -244,7 +244,95 @@ public class GameActivity extends Activity {
                 popupWindow.dismiss();
             }});
 
+        /*Button removeUnnecessarryLetters = (Button) findViewById(R.id.btnRemoveUnnecessary);
+        removeUnnecessarryLetters.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+               // removeUnnecessaryLetters();
+                popupWindow.dismiss();
+            }});*/
+
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+    }
+
+    public void RemoveUnnecessaryLetters(View view)
+    {
+        int lettersAmount = 0;
+        String[][] tempArray = new String[word.length][2];
+        for(int i = 0; i < word.length; i++)
+        {
+            tempArray[i][0] = word[i];
+            tempArray[i][1] = null;
+        }
+
+        for(int i = 0; i < tempArray.length; i++)
+        {
+
+        int index = getLastOccupiedArrayIndex(i, tempArray, tempArray[i][0]);
+            if(index == 0)
+            {
+                for (int j = 0; j < storedLetters.length; j++) {
+                    int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                    Button tempActualButton = (Button) findViewById(id);
+                    if (String.valueOf(tempActualButton.getText()).equals(tempArray[i][0])) {
+                        if (tempArray[i][1] == null) {
+                            //int index = getLastOccupiedArrayIndex()
+                            tempArray[i][1] = String.valueOf(j);
+
+                        }
+                    }
+
+                }
+            }
+            else {
+                for (int j = index+1; j < storedLetters.length; j++) {
+                    int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                    Button tempActualButton = (Button) findViewById(id);
+                    if (String.valueOf(tempActualButton.getText()).equals(tempArray[i][0])) {
+                        if (tempArray[i][1] == null) {
+                            //int index = getLastOccupiedArrayIndex()
+                            tempArray[i][1] = String.valueOf(j);
+
+                        }
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i < storedLetters.length; i++)
+        {
+            int id = getResources().getIdentifier("buttonLetter" + i, "id", this.getPackageName());
+            Button tempActualButton = (Button) findViewById(id);
+
+            if(!checkExistance(String.valueOf(i), tempArray))
+            {
+               tempActualButton.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+    private int getLastOccupiedArrayIndex(int currentIndex, String[][] array, String key)
+    {
+        int index = 0;
+        for(int i = 0; i < currentIndex; i++)
+        {
+            if(String.valueOf(array[i][0]).equals(String.valueOf(key)))
+            {
+                index = Integer.valueOf(array[i][1]);
+            }
+        }
+        return index;
+    }
+
+    private boolean checkExistance(String key, String[][] array)
+    {
+        for(int i = 0; i < array.length; i++)
+        {
+            if(String.valueOf(array[i][1]).equals(String.valueOf(key)))
+                return true;
+        }
+        return false;
     }
 
     private void openWord() {
