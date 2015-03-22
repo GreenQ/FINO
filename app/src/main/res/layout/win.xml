@@ -42,7 +42,7 @@
             android:layout_marginTop="15dp"
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
-            android:id="@+id/textView5" />
+            android:id="@+id/guessWordTextView" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -170,6 +170,9 @@ public class GameActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
+
+
+       printGuessedWord(popupWindow);
         Button btnDismiss = (Button)popupView.findViewById(R.id.buttonClose);
         btnDismiss.setOnClickListener(new Button.OnClickListener(){
 
@@ -183,6 +186,18 @@ public class GameActivity extends Activity {
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
 
+    private void printGuessedWord(PopupWindow popupWindow)
+    {
+        //setContentView(R.layout.win);
+        TextView winWord = (TextView) popupWindow.getContentView().findViewById(R.id.guessWordTextView);
+        StringBuilder builder = new StringBuilder();
+        builder.append(" ");
+        for(String s : word) {
+            builder.append(s);
+            builder.append(" ");
+        }
+        winWord.setText(builder.toString());
+    }
     public void ShowHintsPopUp(View view)
     {
         LayoutInflater layoutInflater
