@@ -8,6 +8,10 @@
     <string name="w2" id="2">АФРИКА</string>
     <string name="w3" id="3">БАЛКОН</string>
     <string name="w4" id="4">БИРЖА</string>
+    <string name="w5" id="5">ПАРА</string>
+    <string name="w6" id="6">ОСЕНЬ</string>
+    <string name="w7" id="7">ОБОНЯНИЕ</string>
+    <string name="w8" id="8">ИСТОРИЯ</string>
     <string name="currentLevel">1</string>
 
     <!-- Actions -->

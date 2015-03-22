@@ -29,6 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -62,7 +63,9 @@ public class GameActivity extends Activity {
     TextView textViewCurrentLevel;
     int DefaultLevel = 1;
     SharedPreferences preferences;
+    SharedPreferences preferencesOpenedLetters;
     String Lvl = "LVL";
+    String openedLetters = "OPENED_LETTERS";
     String[] randLettersSet;
     String[] word;
     String[][] storedLetters;
@@ -80,9 +83,11 @@ public class GameActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.game);
         preferences = this.getSharedPreferences(Lvl, Context.MODE_PRIVATE);
+        preferencesOpenedLetters = this.getSharedPreferences(openedLetters, Context.MODE_PRIVATE);
 
         imageLetter1 = (Button) findViewById(R.id.buttonLetter0);
         imageLetter2 = (Button) findViewById(R.id.buttonLetter1);
@@ -218,8 +223,8 @@ public class GameActivity extends Activity {
                 popupWindow.dismiss();
             }});
 
-        Button btnOpenWord = (Button)popupView.findViewById(R.id.btnOpenLetter);
-        btnOpenLetter.setOnClickListener(new Button.OnClickListener(){
+        Button btnOpenWord = (Button)popupView.findViewById(R.id.btnOpenWord);
+        btnOpenWord.setOnClickListener(new Button.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -227,8 +232,10 @@ public class GameActivity extends Activity {
                 //  @Override
                 // public void run() {
                 //
-                openLetter();
+                //openLetter();
+                openWord();
                 if (checkWordCorrectness()) {
+
                     ShowWinPopUp();
                 }
                 //finish();
@@ -244,25 +251,129 @@ public class GameActivity extends Activity {
         for (int i = 0; i < word.length; i++)
         {
             Button tempGuessButton = (Button) findViewById(i);
-            if(tempGuessButton.getText() == "")
-            {
-            //    for(int j = 0; )
-            }
-        }
-    }
-
-    private void openLetter() {
-        for (int i = 0; i < word.length; i++)
-        {
-            Button tempGuessButton = (Button) findViewById(i);
-
-            if(!word[i].equals(tempGuessButton.getText()))
+            tempGuessButton.setText(word[i]);
+            /*if(!word[i].equals(tempGuessButton.getText()))
             {
                 tempGuessButton.setText(word[i]);
+
 
                 for(int j = 0; i < storedLetters.length; j++)
                 {
                     if(storedLetters[j][0].equals(word[i]))
+                    {
+                       // if(storedLetters[j][1].equals(null)) {
+                            int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                            Button tempActualButton = (Button) findViewById(id);
+                            storedLetters[j][1] = String.valueOf(i);
+                            tempActualButton.setVisibility(View.INVISIBLE);
+                            tempActualButton.setText("");
+                            //tempGuessButton.setBackgroundColor(Color.RED);
+                            //return;
+                        }
+                    //}
+                }
+               // return;
+            }*/
+        }
+    }
+
+    private int getAmountOfCorrectLetters()
+    {
+        for(int i = 0; i < word.length; i++)
+        {
+            Button tempGuessButton = (Button) findViewById(i);
+
+            if(!word[i].equals(tempGuessButton.getText())) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    private String[] getParticallyGuessedLetters(int length)
+    {
+        String[] tempArray = new String[length+1];
+
+        for (int i = 0; i < tempArray.length; i++) {
+            Button tempGuessButton = (Button) findViewById(i);
+            tempArray[i] = String.valueOf(tempGuessButton.getText());
+            //if(word[i] == tempGuessButton.getText()) {
+              //  tempArray[i] = String.valueOf(tempGuessButton.getText());
+
+               /* for (int j = 0; j < storedLetters.length; j++) {
+
+                    if ((storedLetters[j][0] == tempArray[i]) && (storedLetters[j][1] == null)) {
+                        int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                        Button tempActualButton = (Button) findViewById(id);
+                        tempActualButton.performClick();
+                       // storedLetters[j][1] = String.valueOf(i);
+                        //tempActualButton.setVisibility(View.INVISIBLE);
+                        //tempActualButton.setText("");
+                        //tempGuessButton.setBackgroundColor(Color.RED);
+                    }*/
+               // }
+            //}
+            //else return tempArray;
+        }
+        return tempArray;
+    }
+
+    private void moveActualLetter(int i)
+    {
+        for (int j = 0; j < storedLetters.length; j++) {
+
+            if ((storedLetters[j][0].equals(word[i])) && (storedLetters[j][1] == null)) {
+                int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                Button tempActualButton = (Button) findViewById(id);
+                tempActualButton.performClick();
+                return;
+            }
+        }
+    }
+    private void openLetter() {
+
+
+        int length = getAmountOfCorrectLetters();
+
+        CreateGuessWordContainers(GetCurrentLevel());
+        //String[] temp = getParticallyGuessedLetters(length);
+        SetLetterImages(randLettersSet);
+
+        occupiedContainerCounter = 0;
+
+        for(int i = 0; i < length+1; i++) {
+
+           moveActualLetter(i);
+        }
+       /* for (int i = 0; i < word.length; i++) {
+            Button tempGuessButton = (Button) findViewById(i);
+        }*/
+
+
+/*
+        for (int i = getAmountOfCorrectLetters(); i < word.length; i++)
+        {
+            Button tempGuessButton = (Button) findViewById(i);
+
+            if(!(word[i] == tempGuessButton.getText()))
+            {
+               /* if(!word[i].equals(""))
+                {
+                    for(int j = 0; j < storedLetters.length; j++) {
+                        if(storedLetters[j][0].equals(word[i]) && (storedLetters[j][1].equals(String.valueOf(i))) ) {
+                            int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
+                            Button tempActualButton = (Button) findViewById(id);
+                            tempActualButton.setText(storedLetters[j][0]);
+                            tempActualButton.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+                }*/
+                /*tempGuessButton.setText(word[i]);
+
+                for(int j = 0; j < storedLetters.length; j++)
+                {
+                    if((storedLetters[j][0] == word[i]))
                     {
                         int id = getResources().getIdentifier("buttonLetter" + j, "id", this.getPackageName());
                         Button tempActualButton = (Button) findViewById(id);
@@ -276,7 +387,7 @@ public class GameActivity extends Activity {
                 break;
             }
 
-        }
+        }*/
     }
 
     private void DrawLevel()
@@ -638,7 +749,8 @@ public class GameActivity extends Activity {
 
 
 //тут закончил
-                for(int i = 0; i < 13; i++) {
+                CreateGuessWordContainers(GetCurrentLevel());
+               /* for(int i = 0; i < 13; i++) {
                     if(storedLetters[i][1] != null) {
                        // int containerId = v.getId();
                         //int actualLetterIndex = getActualLettertArrayIndex(containerId);
@@ -649,7 +761,7 @@ public class GameActivity extends Activity {
 
                         storedLetters[i][1] = null;
                     }
-                }
+                }*/
                //storedLetters = null;
                 occupiedContainerCounter = 0;
                 SetLetterImages(randLettersSet);
@@ -691,6 +803,11 @@ public class GameActivity extends Activity {
             return false;
     }
 
+    /*public String[] GetOpenedLettersForLevel(int lvl)
+    {
+        String[] openedLetters = preferencesOpenedLetters.getStringSet(preferencesOpenedLetters, openedLetters)
+
+    }*/
     public int GetCurrentLevel()
     {
         int temp = preferences.getInt(Lvl, 1) ;
@@ -702,6 +819,11 @@ public class GameActivity extends Activity {
         //return preferences.getInt(curLevel, 1);
     }
 
+    private void EditOpenedLettersForLevel(int lvl)
+    {
+        SharedPreferences.Editor editor = preferencesOpenedLetters.edit();
+
+    }
     private void EditLevel(int i)
     {
         if (!CheckLevelRange(i))
