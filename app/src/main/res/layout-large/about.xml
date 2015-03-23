@@ -1,8 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"  tools:context=".MainActivity"
-    android:background="@drawable/fullfon"
-    android:id="@+id/rootLayoutMain">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fullfon">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,7 +39,23 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/coni"
+            android:layout_marginLeft="5dp">
 
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageButton3"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:alpha="0.7"
+                android:background="@drawable/arr"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="85dp"
@@ -86,39 +102,33 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ифна о нас"
+        android:id="@+id/textView"
+        android:textColor="#ffffff"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp" />
 
-    <ImageView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:id="@+id/imageButtonPlay"
-        android:background="@drawable/btnanim"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="animButtonClick"/>
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="#ffaeabad"
+        android:text="Страница о себе... Но что же вам сказать о нас? Врятли вы нажмете на кнопку о нас, а тем более прочитаете эту бесполезную информацию, но все же мы решили написать всякую лабуду о себе, типо какие мы классные девелоперы и обезательно оставим свое мыло для того что бы вы якобы писали туда свои жалобы и предложения, но вы настолько ленивые юзеры что даже не поплагодарите разрабов за бесплатную игру своим положительным коментом в гуглплее. Всем спасибо за внимание!"/>
 
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-
-        android:id="@+id/button"
-        android:layout_below="@+id/imageButtonPlay"
-        android:layout_alignLeft="@+id/imageButtonPlay"
-        android:layout_alignStart="@+id/imageButtonPlay"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/istore"
-        android:onClick="ShowGameshopPopUp"
-        android:layout_marginLeft="10dp"/>
-
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignRight="@+id/imageButtonPlay"
-        android:layout_alignEnd="@+id/imageButtonPlay"
-        android:background="@drawable/infa"
-        android:onClick="ShowAboutPopUp"
-        android:layout_marginRight="10dp"/>
-
-
-</RelativeLayout>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="#ff2b394a"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="Закрыть этот экран навсегда"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:id="@+id/btnClose"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

@@ -12,103 +12,96 @@
         android:alpha="0.0"></RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="345dp"
+        android:layout_width="500dp"
+        android:layout_height="595dp"
         android:background="@drawable/bestbuy"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        >
 
-       <RelativeLayout
-           android:layout_width="match_parent"
-           android:layout_height="40dp"
-           android:background="@drawable/shadow"
-           android:id="@+id/relativeLayout">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@drawable/shadow"
+            android:id="@+id/relativeLayout">
 
-           <ImageView
-               android:layout_width="30dp"
-               android:layout_height="30dp"
-               android:background="@drawable/coin"
-               android:layout_centerVertical="true"
-               android:layout_marginLeft="5dp"/>
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/coin"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"/>
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Магазин"
-               android:textSize="25sp"
-               android:textColor="#ffffff"
-               android:layout_centerHorizontal="true"
-               android:layout_centerVertical="true"
-               android:id="@+id/textView8" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магазин"
+                android:textSize="50sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
-           <ImageView
-               android:layout_width="30dp"
-               android:layout_height="30dp"
-               android:background="@drawable/coin"
-               android:layout_centerVertical="true"
-               android:layout_marginRight="5dp"
-               android:layout_alignParentRight="true"/>
-           </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="450dp"
+            android:layout_height="85dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m1"
+            android:layout_marginTop="85dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="45sp"
+                android:id="@+id/textView7" />
 
             <RelativeLayout
-                android:layout_width="230dp"
-                android:layout_height="41dp"
-                android:background="@drawable/btncon"
-                android:id="@+id/m1"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="10dp"
-                android:layout_centerHorizontal="true"
-                >
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1000 монет"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:paddingLeft="10dp"
-                    android:textSize="20sp"
-                    android:id="@+id/textView7" />
-
-                <RelativeLayout
-                    android:layout_width="70dp"
-                    android:layout_height="41dp"
-                    android:background="@drawable/baks"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true">
-
-                    <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.99 $"
                     android:layout_marginRight="5dp"
-                    android:textSize="20sp"
+                    android:textSize="45sp"
                     android:textColor="#ffffff"
-                        android:layout_centerVertical="true"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" /></RelativeLayout>
 
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="75dp"
             android:background="@drawable/shadow2"
             android:text="Закрыть"
             android:id="@+id/btnClose"
             android:textColor="#ffffff"
             android:layout_gravity="center_horizontal"
-
+            android:textSize="30sp"
             android:layout_below="@+id/m5"
-             />
+            />
 
         <RelativeLayout
-            android:layout_width="230dp"
-            android:layout_height="41dp"
+            android:layout_width="450dp"
+            android:layout_height="75dp"
             android:background="@drawable/btncon"
             android:id="@+id/m2"
             android:layout_below="@+id/m1"
@@ -122,10 +115,11 @@
                 android:textColor="#ffffff"
                 android:layout_centerVertical="true"
                 android:paddingLeft="10dp"
-                android:textSize="20sp"/>
+                android:textSize="45sp"/>
+
             <RelativeLayout
-                android:layout_width="70dp"
-                android:layout_height="41dp"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -136,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:text="1.99 $"
                     android:layout_marginRight="5dp"
-                    android:textSize="20sp"
+                    android:textSize="45sp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -145,8 +139,8 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="230dp"
-            android:layout_height="41dp"
+            android:layout_width="450dp"
+            android:layout_height="75dp"
             android:background="@drawable/btncon"
             android:id="@+id/m3"
             android:layout_below="@+id/m2"
@@ -160,10 +154,10 @@
                 android:textColor="#ffffff"
                 android:layout_centerVertical="true"
                 android:paddingLeft="10dp"
-                android:textSize="20sp"/>
+                android:textSize="45sp"/>
             <RelativeLayout
-                android:layout_width="70dp"
-                android:layout_height="41dp"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -174,16 +168,19 @@
                     android:layout_height="wrap_content"
                     android:text="2.99 $"
                     android:layout_marginRight="5dp"
-                    android:textSize="20sp"
+                    android:textSize="45sp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" /></RelativeLayout>
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="230dp"
-            android:layout_height="41dp"
+            android:layout_width="450dp"
+            android:layout_height="75dp"
             android:background="@drawable/btncon"
             android:id="@+id/m4"
             android:layout_below="@+id/m3"
@@ -197,11 +194,11 @@
                 android:textColor="#ffffff"
                 android:layout_centerVertical="true"
                 android:paddingLeft="10dp"
-                android:textSize="20sp"/>
+                android:textSize="45sp"/>
 
             <RelativeLayout
-                android:layout_width="70dp"
-                android:layout_height="41dp"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -212,16 +209,18 @@
                     android:layout_height="wrap_content"
                     android:text="5.99 $"
                     android:layout_marginRight="5dp"
-                    android:textSize="20sp"
+                    android:textSize="45sp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" /></RelativeLayout>
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="230dp"
-            android:layout_height="41dp"
+            android:layout_width="450dp"
+            android:layout_height="75dp"
             android:background="@drawable/btncon"
             android:id="@+id/m5"
             android:layout_below="@+id/m4"
@@ -230,16 +229,16 @@
             android:layout_marginBottom="10dp">
 
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="25000 монет"
-            android:textColor="#ffffff"
-            android:layout_centerVertical="true"
-            android:paddingLeft="10dp"
-            android:textSize="20sp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="45sp"/>
             <RelativeLayout
-                android:layout_width="70dp"
-                android:layout_height="41dp"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -250,7 +249,7 @@
                     android:layout_height="wrap_content"
                     android:text="9.99 $"
                     android:layout_marginRight="5dp"
-                    android:textSize="20sp"
+                    android:textSize="45sp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"

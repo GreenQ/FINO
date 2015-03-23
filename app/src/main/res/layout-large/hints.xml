@@ -9,8 +9,8 @@
         android:alpha="0.0"></RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="220dp"
+        android:layout_width="400dp"
+        android:layout_height="320dp"
         android:background="@drawable/bestbuy"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -18,58 +18,59 @@
 
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/shadow"
+            android:id="@+id/relativeLayout">
+
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/shadow"
-                android:id="@+id/relativeLayout">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/vopros">
-
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="40dp"
-                        android:text="\?"
-                        android:textSize="25sp"
-                        android:textColor="#ffffff"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="10dp"
-                        />
-
-                    </RelativeLayout>
-
-
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:background="@drawable/vopros">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Магазин"
-                    android:textSize="25sp"
+                    android:layout_width="25dp"
+                    android:layout_height="60dp"
+                    android:text="\?"
+                    android:textSize="40sp"
                     android:textColor="#ffffff"
+                    android:layout_marginTop="5dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/textView8" />
-
+                    />
 
             </RelativeLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Закрыть"
-        android:textColor="#FFFFFFFF"
-        android:id="@+id/btnClose"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/shadow2"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магазин"
+                android:textSize="35sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/textView8" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Закрыть"
+            android:textColor="#FFFFFFFF"
+            android:id="@+id/btnClose"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shadow2"/>
 
         <RelativeLayout
-            android:layout_width="280dp"
-            android:layout_height="40dp"
+            android:layout_width="370dp"
+            android:layout_height="60dp"
             android:background="@drawable/btncon"
             android:id="@+id/btnOpenLetter"
             android:layout_below="@+id/relativeLayout"
@@ -81,14 +82,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Открыть букву"
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="#ffffffff"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:layout_centerVertical="true"/>
 
             <RelativeLayout
-                android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -99,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:text="50"
                     android:textColor="#ffffffff"
-                    android:textSize="17sp"
+                    android:textSize="25sp"
                     android:layout_alignTop="@+id/imageView6"
                     android:layout_toLeftOf="@+id/imageView6"
                     android:layout_toStartOf="@+id/imageView6"
@@ -107,11 +108,10 @@
                     />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/coin"
-                    android:layout_marginRight="3dp"
-                    android:textSize="20sp"
+                    android:layout_marginRight="5dp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -119,33 +119,32 @@
                     android:id="@+id/imageView6" />
             </RelativeLayout>
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
         <RelativeLayout
 
-            android:layout_width="280dp"
-            android:layout_height="40dp"
+            android:layout_width="370dp"
+            android:layout_height="60dp"
             android:background="@drawable/btncon"
             android:id="@+id/btnRemoveUnnecessary"
             android:layout_below="@+id/btnOpenLetter"
             android:layout_alignLeft="@+id/btnOpenLetter"
             android:layout_alignStart="@+id/btnOpenLetter"
-            android:layout_marginBottom="5dp"
-            android:onClick="RemoveUnnecessaryLetters">
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Убрать лишние буквы"
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="#ffffffff"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:layout_centerVertical="true"/>
 
             <RelativeLayout
-                android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -156,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:text="100"
                     android:textColor="#ffffffff"
-                    android:textSize="17sp"
+                    android:textSize="25sp"
                     android:layout_alignTop="@+id/imageView7"
                     android:layout_toLeftOf="@+id/imageView7"
                     android:layout_toStartOf="@+id/imageView7"
@@ -164,11 +163,10 @@
                     />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/coin"
                     android:layout_marginRight="3dp"
-                    android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -176,13 +174,13 @@
                     android:id="@+id/imageView7" />
             </RelativeLayout>
 
-            </RelativeLayout>
+        </RelativeLayout>
 
 
         <RelativeLayout
 
-            android:layout_width="280dp"
-            android:layout_height="40dp"
+            android:layout_width="370dp"
+            android:layout_height="60dp"
             android:background="@drawable/btncon"
             android:id="@+id/btnOpenWord"
             android:layout_below="@+id/btnRemoveUnnecessary"
@@ -193,14 +191,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Отгадать слово"
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="#ffffffff"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:layout_centerVertical="true"/>
 
             <RelativeLayout
-                android:layout_width="60dp"
-                android:layout_height="40dp"
+                android:layout_width="85dp"
+                android:layout_height="60dp"
                 android:background="@drawable/baks"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -211,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:text="200"
                     android:textColor="#ffffffff"
-                    android:textSize="17sp"
+                    android:textSize="25sp"
                     android:layout_alignTop="@+id/imageView8"
                     android:layout_toLeftOf="@+id/imageView8"
                     android:layout_toStartOf="@+id/imageView8"
@@ -219,8 +217,8 @@
                     />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@drawable/coin"
                     android:layout_marginRight="3dp"
                     android:textSize="20sp"

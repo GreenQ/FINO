@@ -31,7 +31,8 @@
 
         <activity
             android:name=".GameActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity android:name=".WinActivity"
@@ -39,7 +40,8 @@
 
         <activity
             android:name="com.example.greenq.fino.MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 
