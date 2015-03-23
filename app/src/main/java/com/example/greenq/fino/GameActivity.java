@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -61,9 +62,13 @@ public class GameActivity extends Activity {
     Button imageLetter13;
     TextView textView;
     TextView textViewCurrentLevel;
+    TextView textViewGold;
     int DefaultLevel = 1;
+    int DefaultGold = 200;
     SharedPreferences preferences;
     SharedPreferences preferencesOpenedLetters;
+    SharedPreferences preferencesGold;
+    String Gold = "GOLD";
     String Lvl = "LVL";
     String openedLetters = "OPENED_LETTERS";
     String[] randLettersSet;
@@ -88,6 +93,7 @@ public class GameActivity extends Activity {
         setContentView(R.layout.game);
         preferences = this.getSharedPreferences(Lvl, Context.MODE_PRIVATE);
         preferencesOpenedLetters = this.getSharedPreferences(openedLetters, Context.MODE_PRIVATE);
+        preferencesGold = this.getSharedPreferences(Gold, Context.MODE_PRIVATE);
 
         imageLetter1 = (Button) findViewById(R.id.buttonLetter0);
         imageLetter2 = (Button) findViewById(R.id.buttonLetter1);
@@ -109,6 +115,10 @@ public class GameActivity extends Activity {
         image4 = (ImageButton) findViewById(R.id.imageView4);
         textViewCurrentLevel = (TextView) findViewById(R.id.textViewCurLevel);
         textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
+
+        textViewGold = (TextView) findViewById(R.id.textViewGold);
+        EditGoldAmount(50);
+        textViewGold.setText(String.valueOf(GetGoldAmount()));
 
         //RandLettersOCL = new View.OnClickListener() {
         //   @Override
@@ -219,7 +229,7 @@ public class GameActivity extends Activity {
                 popupWindow.dismiss();
             }});
 
-        Button btnOpenLetter = (Button)popupView.findViewById(R.id.btnOpenLetter);
+        RelativeLayout btnOpenLetter = (RelativeLayout)popupView.findViewById(R.id.btnOpenLetter);
         btnOpenLetter.setOnClickListener(new Button.OnClickListener(){
 
             @Override
@@ -238,7 +248,7 @@ public class GameActivity extends Activity {
                 popupWindow.dismiss();
             }});
 
-        Button btnOpenWord = (Button)popupView.findViewById(R.id.btnOpenWord);
+        RelativeLayout btnOpenWord = (RelativeLayout)popupView.findViewById(R.id.btnOpenWord);
         btnOpenWord.setOnClickListener(new Button.OnClickListener(){
 
             @Override
@@ -378,6 +388,8 @@ public class GameActivity extends Activity {
                // return;
             }*/
         }
+        EditGoldAmount(GetGoldAmount()-200);
+        textViewGold.setText(String.valueOf(GetGoldAmount()));
     }
 
     private int getAmountOfCorrectLetters()
@@ -898,9 +910,16 @@ public class GameActivity extends Activity {
         return 0;
     }
 
+    private boolean CheckGoldRange(int i)
+    {
+        if(i > 0 && i <99999)
+            return true;
+        else
+            return false;
+    }
     private boolean CheckLevelRange(int i)
     {
-        if(i > 0 && i <400)
+        if(i > 0 && i <7)
             return true;
         else
             return false;
@@ -911,6 +930,17 @@ public class GameActivity extends Activity {
         String[] openedLetters = preferencesOpenedLetters.getStringSet(preferencesOpenedLetters, openedLetters)
 
     }*/
+
+    public int GetGoldAmount()
+    {
+        int temp = preferences.getInt(Gold, 200);
+
+        if (CheckGoldRange(temp))
+            return temp;
+        else
+            return DefaultGold;
+    }
+
     public int GetCurrentLevel()
     {
         int temp = preferences.getInt(Lvl, 1) ;
@@ -927,6 +957,15 @@ public class GameActivity extends Activity {
         SharedPreferences.Editor editor = preferencesOpenedLetters.edit();
 
     }
+
+    private void EditGoldAmount(int i)
+    {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(Gold, i);
+        editor.commit();
+        DefaultGold = i;
+    }
+
     private void EditLevel(int i)
     {
         if (!CheckLevelRange(i))
