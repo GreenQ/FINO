@@ -5,27 +5,21 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.*;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.util.Date;
 
 public class MainActivity extends Activity {
     ImageView imgBtn;
@@ -178,6 +172,7 @@ public class MainActivity extends Activity {
             public void run() {
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 startActivityForResult(i, 1);
+                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
                 //finish();
             }
         }, SPLASH_TIME_OUT);
@@ -280,6 +275,7 @@ public class MainActivity extends Activity {
             num2 = data.getIntExtra(Number2Code);
         }*/
         super.onActivityResult(requestCode, resultCode, data);
+        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
         switch(requestCode) {
             case (1) : {
                 if (resultCode == Activity.RESULT_OK) {
