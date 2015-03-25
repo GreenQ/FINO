@@ -14,14 +14,15 @@
             android:background="@drawable/coni"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp">
+            android:layout_marginRight="5dp"
+            android:onClick="ShowGameshopPopUp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="100"
                 android:alpha="0.7"
-                android:id="@+id/textView2"
+                android:id="@+id/textViewGold"
                 android:layout_centerVertical="true"
                 android:textSize="28sp"
                 android:layout_marginRight="5dp"

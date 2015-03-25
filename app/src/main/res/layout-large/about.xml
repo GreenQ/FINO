@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:text="100"
                 android:alpha="0.7"
-                android:id="@+id/textView2"
+                android:id="@+id/textViewGold"
                 android:layout_centerVertical="true"
                 android:textSize="28sp"
                 android:layout_marginRight="5dp"
@@ -44,16 +44,17 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:background="@drawable/coni"
-            android:layout_marginLeft="5dp">
+            android:layout_marginLeft="5dp"
+            android:id="@+id/goBackFromPopup">
 
             <ImageButton
                 android:layout_width="45dp"
                 android:layout_height="40dp"
-                android:id="@+id/imageButton3"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:alpha="0.7"
-                android:background="@drawable/arr"/>
+                android:background="@drawable/arr"
+                android:id="@+id/btnGoBackFromPopup"/>
 
         </RelativeLayout>
 

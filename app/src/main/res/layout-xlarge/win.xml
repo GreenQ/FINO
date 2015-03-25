@@ -58,7 +58,7 @@
                 android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
                 android:textColor="#ffffffff"
                 android:textSize="50sp"
-                android:id="@+id/textView6"
+                android:id="@+id/textViewQuotation"
                 android:layout_centerHorizontal="true"
                 />
 

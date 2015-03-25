@@ -15,7 +15,9 @@
             android:background="@drawable/coni"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:id="@+id/relativeLayoutGold"
+            android:onClick="ShowGameshopPopUp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,7 +47,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:background="@drawable/coni"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:id="@+id/goBack"
+            android:onClick="goBack">
 
             <ImageButton
                 android:layout_width="65dp"
@@ -54,7 +58,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:alpha="0.7"
-                android:background="@drawable/arr"/>
+                android:background="@drawable/arr"
+                android:onClick="goBack"/>
 
         </RelativeLayout>
 

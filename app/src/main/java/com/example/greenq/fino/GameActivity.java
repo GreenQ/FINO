@@ -5,12 +5,15 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -47,29 +50,17 @@ public class GameActivity extends Activity {
     ImageButton image2;
     ImageButton image3;
     ImageButton image4;
-    Button imageLetter1;
-    Button imageLetter2;
-    Button imageLetter3;
-    Button imageLetter4;
-    Button imageLetter5;
-    Button imageLetter6;
-    Button imageLetter7;
-    Button imageLetter8;
-    Button imageLetter9;
-    Button imageLetter10;
-    Button imageLetter11;
-    Button imageLetter12;
-    Button imageLetter13;
     TextView textView;
     TextView textViewCurrentLevel;
     TextView textViewGold;
-    int DefaultLevel = 1;
-    int DefaultGold = 200;
-    SharedPreferences preferences;
+    public int DefaultLevel = 1;
+    public int DefaultGold = 200;
+    /*SharedPreferences preferences;
     SharedPreferences preferencesOpenedLetters;
     SharedPreferences preferencesGold;
     String Gold = "GOLD";
-    String Lvl = "LVL";
+    String Lvl = "LVL";*/
+    StoredPreferences storedPreferences;
     String openedLetters = "OPENED_LETTERS";
     String[] randLettersSet;
     String[] word;
@@ -79,6 +70,9 @@ public class GameActivity extends Activity {
     private Animator mCurrentAnimator;
     private final static int actualLettertId = 200;
     int occupiedContainerCounter = 0;
+    boolean openLetterUsed = false;
+    boolean removeUnnecessaryLettersUsed = false;
+    PopupWindow popupWindow;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,46 +85,23 @@ public class GameActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.game);
-        preferences = this.getSharedPreferences(Lvl, Context.MODE_PRIVATE);
-        preferencesOpenedLetters = this.getSharedPreferences(openedLetters, Context.MODE_PRIVATE);
-        preferencesGold = this.getSharedPreferences(Gold, Context.MODE_PRIVATE);
-
-        imageLetter1 = (Button) findViewById(R.id.buttonLetter0);
-        imageLetter2 = (Button) findViewById(R.id.buttonLetter1);
-        imageLetter3 = (Button) findViewById(R.id.buttonLetter2);
-        imageLetter4 = (Button) findViewById(R.id.buttonLetter3);
-        imageLetter5 = (Button) findViewById(R.id.buttonLetter4);
-        imageLetter6 = (Button) findViewById(R.id.buttonLetter5);
-        imageLetter7 = (Button) findViewById(R.id.buttonLetter6);
-        imageLetter8 = (Button) findViewById(R.id.buttonLetter7);
-        imageLetter9 = (Button) findViewById(R.id.buttonLetter8);
-        imageLetter10 = (Button) findViewById(R.id.buttonLetter9);
-        imageLetter11 = (Button) findViewById(R.id.buttonLetter10);
-        imageLetter12 = (Button) findViewById(R.id.buttonLetter11);
-        imageLetter13 = (Button) findViewById(R.id.buttonLetter12);
 
         image1 = (ImageButton) findViewById(R.id.imageView1);
         image2 = (ImageButton) findViewById(R.id.imageView2);
         image3 = (ImageButton) findViewById(R.id.imageView3);
         image4 = (ImageButton) findViewById(R.id.imageView4);
+
+        storedPreferences = new StoredPreferences(this, DefaultLevel, DefaultGold);
         textViewCurrentLevel = (TextView) findViewById(R.id.textViewCurLevel);
-        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
+        textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
 
         textViewGold = (TextView) findViewById(R.id.textViewGold);
-        EditGoldAmount(50);
-        textViewGold.setText(String.valueOf(GetGoldAmount()));
-
-        //RandLettersOCL = new View.OnClickListener() {
-        //   @Override
-
-        //};
-
-        //imageLetter1.setOnClickListener(RandLettersOCL);
+        //storedPreferences.EditGoldAmount(99999);
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
 
         CentralImagesOCL = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int curLevel = GetCurrentLevel();
                 switch (v.getId()) {
                     case R.id.imageView1:
                         /*EditLevel(GetCurrentLevel() + 1);
@@ -165,6 +136,7 @@ public class GameActivity extends Activity {
         image4.setOnClickListener(CentralImagesOCL);
 
         DrawLevel();
+        checkCurrentApi();
     }
 
     private void ShowWinPopUp()
@@ -172,17 +144,15 @@ public class GameActivity extends Activity {
         LayoutInflater layoutInflater
                 = (LayoutInflater)getBaseContext()
                 .getSystemService(LAYOUT_INFLATER_SERVICE);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         View popupView = layoutInflater.inflate(R.layout.win, null);
-        final PopupWindow popupWindow = new PopupWindow(
+        final PopupWindow popupWindowWin = new PopupWindow(
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
-
-
-       printGuessedWord(popupWindow);
+        printGuessedWord(popupWindowWin);
+        printQuotation(popupWindowWin);
         Button btnDismiss = (Button)popupView.findViewById(R.id.buttonClose);
         btnDismiss.setOnClickListener(new Button.OnClickListener(){
 
@@ -190,12 +160,19 @@ public class GameActivity extends Activity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 NextLevelClick(null);
-                popupWindow.dismiss();
+                popupWindowWin.dismiss();
             }});
 
-        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
-    }
+        popupWindowWin.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+        }
 
+    private void printQuotation(PopupWindow popupWindow)
+    {//return imageView.getResources().getIdentifier("w" + storedPreferences.GetCurrentLevel() + "_" + String.valueOf(btnNum), "drawable", this.getPackageName());
+
+        TextView quotation = (TextView) popupWindow.getContentView().findViewById(R.id.textViewQuotation);
+        String quote = getResources().getString(getResources().getIdentifier("q" + storedPreferences.GetCurrentLevel(), "string", this.getPackageName()));
+        quotation.setText(quote);
+    }
     private void printGuessedWord(PopupWindow popupWindow)
     {
         //setContentView(R.layout.win);
@@ -215,8 +192,8 @@ public class GameActivity extends Activity {
                 .getSystemService(LAYOUT_INFLATER_SERVICE);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        View popupView = layoutInflater.inflate(R.layout.hints, null);
-        final PopupWindow popupWindow = new PopupWindow(
+        final View popupView = layoutInflater.inflate(R.layout.hints, null);
+        popupWindow = new PopupWindow(
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
@@ -230,26 +207,63 @@ public class GameActivity extends Activity {
             }});
 
         RelativeLayout btnOpenLetter = (RelativeLayout)popupView.findViewById(R.id.btnOpenLetter);
-        btnOpenLetter.setOnClickListener(new Button.OnClickListener(){
-
+        OnClickListener openLetterOcl = new OnClickListener() {
             @Override
             public void onClick(View v) {
-               // new android.os.Handler().postDelayed(new Runnable() {
-                  //  @Override
-                   // public void run() {
-                   //
-                openLetter();
-                if (checkWordCorrectness()) {
-                    ShowWinPopUp();
+                if(isEnoughGold(50)) {
+                    openLetter();
+                    if (checkWordCorrectness()) {
+                        //ShowWinPopUp();
+                    }
+                    popupWindow.dismiss();
                 }
-                        //finish();
-                   // }
-                //}, 3000);
-                popupWindow.dismiss();
-            }});
+                else
+                {
+                    popupWindow.dismiss();
+                    ShowGameshopPopUp(null);
+                }
+            }
+        };
+        btnOpenLetter.setOnClickListener(openLetterOcl);
 
         RelativeLayout btnOpenWord = (RelativeLayout)popupView.findViewById(R.id.btnOpenWord);
-        btnOpenWord.setOnClickListener(new Button.OnClickListener(){
+        OnClickListener openWordOCL = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isEnoughGold(200)) {
+                    openWord();
+                    if (checkWordCorrectness()) {
+
+                        ShowWinPopUp();
+                    }
+                    popupWindow.dismiss();
+                }
+                else
+                {
+                    popupWindow.dismiss();
+                    ShowGameshopPopUp(null);
+                }
+            }
+        };
+        btnOpenWord.setOnClickListener(openWordOCL);
+
+        RelativeLayout btnRemoveUnnecessary = (RelativeLayout) popupView.findViewById(R.id.btnRemoveUnnecessary);
+        OnClickListener removeUnnecessaryOCL = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isEnoughGold(200)) {
+                    RemoveUnnecessaryLetters(null);
+                    popupWindow.dismiss();
+                }
+                else
+                {
+                    popupWindow.dismiss();
+                    ShowGameshopPopUp(null);
+                }
+            }
+        };
+        btnRemoveUnnecessary.setOnClickListener(removeUnnecessaryOCL);
+        /*btnOpenWord.setOnClickListener(new Button.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -268,7 +282,7 @@ public class GameActivity extends Activity {
                 //}, 3000);
                 popupWindow.dismiss();
             }});
-
+*/
         /*Button removeUnnecessarryLetters = (Button) findViewById(R.id.btnRemoveUnnecessary);
         removeUnnecessarryLetters.setOnClickListener(new Button.OnClickListener(){
 
@@ -280,7 +294,41 @@ public class GameActivity extends Activity {
 
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
+    public void ShowGameshopPopUp(View view)
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        View popupView = layoutInflater.inflate(R.layout.gameshop, null);
+        popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        //popupWindow.setBackgroundDrawable(getDrawable(R.drawable.fon2));
+
+        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //NextLevelClick(null);
+                popupWindow.dismiss();
+            }});
+
+
+        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+    }
+
+    private boolean isEnoughGold(int price)
+    {
+        if(storedPreferences.GetGoldAmount() < price)
+            return false;
+        else
+            return true;
+    }
     public void RemoveUnnecessaryLetters(View view)
     {
         int lettersAmount = 0;
@@ -323,6 +371,7 @@ public class GameActivity extends Activity {
                     }
                 }
             }
+            removeUnnecessaryLettersUsed = true;
         }
 
         for(int i = 0; i < storedLetters.length; i++)
@@ -335,6 +384,9 @@ public class GameActivity extends Activity {
                tempActualButton.setVisibility(View.INVISIBLE);
             }
         }
+        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()-150);
+        DefaultGold = storedPreferences.GetGoldAmount();
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
 
     private int getLastOccupiedArrayIndex(int currentIndex, String[][] array, String key)
@@ -388,8 +440,9 @@ public class GameActivity extends Activity {
                // return;
             }*/
         }
-        EditGoldAmount(GetGoldAmount()-200);
-        textViewGold.setText(String.valueOf(GetGoldAmount()));
+        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()-200);
+        DefaultGold = storedPreferences.GetGoldAmount();
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
 
     private int getAmountOfCorrectLetters()
@@ -450,11 +503,13 @@ public class GameActivity extends Activity {
 
         int length = getAmountOfCorrectLetters();
 
-        CreateGuessWordContainers(GetCurrentLevel());
+        CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
         //String[] temp = getParticallyGuessedLetters(length);
-        SetLetterImages(randLettersSet);
+        //if(!removeUnnecessaryLettersUsed) {
+            SetLetterImages(randLettersSet);
 
-        occupiedContainerCounter = 0;
+            occupiedContainerCounter = 0;
+       // }
 
         for(int i = 0; i < length+1; i++) {
 
@@ -503,13 +558,17 @@ public class GameActivity extends Activity {
             }
 
         }*/
+        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()-50);
+        DefaultGold = storedPreferences.GetGoldAmount();
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
 
     private void DrawLevel()
     {
-        DefaultLevel = GetCurrentLevel();
-        SetImagesByLevel(GetCurrentLevel());
-        CreateGuessWordContainers(GetCurrentLevel());
+        DefaultGold = storedPreferences.GetGoldAmount();
+        DefaultLevel = storedPreferences.GetCurrentLevel();
+        SetImagesByLevel(storedPreferences.GetCurrentLevel());
+        CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
         GuessWordHandler wordHandler = new GuessWordHandler();
         letters = new Letters();
         randLettersSet = letters.GetRandomStrings(word);
@@ -525,11 +584,12 @@ public class GameActivity extends Activity {
         buttonLetterCounter = 0;
         occupiedContainerCounter = 0;
 
-        EditLevel(GetCurrentLevel() + 1);
-        SetImagesByLevel(GetCurrentLevel());
-        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
-        CreateGuessWordContainers(GetCurrentLevel());
-
+        storedPreferences.EditLevel(storedPreferences.GetCurrentLevel() + 1);
+        SetImagesByLevel(storedPreferences.GetCurrentLevel());
+        textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
+        CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
+        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+25);
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
         DrawLevel();
     }
 
@@ -548,10 +608,10 @@ public class GameActivity extends Activity {
         buttonLetterCounter = 0;
         occupiedContainerCounter = 0;
 
-        EditLevel(GetCurrentLevel() - 1);
-        SetImagesByLevel(GetCurrentLevel());
-        textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
-        CreateGuessWordContainers(GetCurrentLevel());
+        storedPreferences.EditLevel(storedPreferences.GetCurrentLevel() - 1);
+        SetImagesByLevel(storedPreferences.GetCurrentLevel());
+        textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
+        CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
 
         DrawLevel();
     }
@@ -759,13 +819,7 @@ public class GameActivity extends Activity {
                 public void onClick(View v) {
 
                     if (((Button) v).getText() != "") {
-
-                        //String name = getResources().getResourceName(v.getId());
-                        int containerId = v.getId();//.substring(String.valueOf(v.getId()).length() - 2, String.valueOf(v.getId()).length());
-                        //for(int i = 0; i < 12; i++) {
-
-//                        storedLetters[containerId][1] = "";
-                        //                  }
+                        int containerId = v.getId();
 
                         int actualLetterIndex = getActualLettertArrayIndex(containerId);
                         int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
@@ -777,78 +831,27 @@ public class GameActivity extends Activity {
                         storedLetters[actualLetterIndex][1] = "";
                         btnTag.setText("");
                         occupiedContainerCounter--;
-                        //int id = getResources().getIdentifier(String.valueOf(200 + buttonLetterCounter), "id", getPackageName());
-                        //Button temp = (Button) findViewById(id);
-                        //temp.setText(((Button) findViewById(R.id.buttonLetter0)).getText());
                     }
                 }
             });
-            //btnTag.setScaleX(0.5f);
-            //btnTag.setScaleY(0.5f);
 
             btnTag.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION_PARENT, 12);
 
             btnTag.setPadding(0,0,0,0);
-            //btnTag.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-            //btnTag = View.inflate(getBaseContext(), layout, )
-            //txt.setText("Düğme");
 
             btnTag.setLayoutParams(new LinearLayout.LayoutParams(AbsoluteLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            //btnTag.setImageResource(R.drawable.w1_5);//setText("Button " + (j + 1 + (i * 4)));
             btnTag.setBackgroundColor(Color.BLACK);
-
-            //btnTag.isInEditMode();
-            //btnTag.
-            //getEditableText().aappend("ss");
-            //btnTag.setText("ss");
-            //btnTag.set
-            //btnTag.setTag(j, "guessLetter");
-            //getResources().
-            //btnTag.setBackgroundColor(Color.WHITE);
-            //btnTag.setMaxWidth(5);
-            //btnTag.setMaxHeight(5);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(btnTag.getLayoutParams());
-            //ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(btnTag.getLayoutParams());
-
-            //float scaleRatio = getResources().getDisplayMetrics().density;
-            //int dps = 10;
-            //int pixels = (int) (dps * 7 + 0.5f);
-
             params.width = getResources().getDimensionPixelSize(R.dimen.guess_letter_width);
             params.height = getResources().getDimensionPixelSize(R.dimen.guess_letter_height);
-           // params.width = 70;
-           // params.
-            //params.gravity = Gravity.CENTER_HORIZONTAL;
             params.setMargins(2,2,2,2);
-            //params.setMargin()
-
-            //btnTag.
-            // еще там был margin lef 5
-            /*
-            android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/imageButton25"
-        android:background="#ffffffff"
-        android:layout_toRightOf="@+id/imageButton24"
-        android:layout_toEndOf="@+id/imageButton24"
-        android:layout_marginLeft="5dp"
-            */
-           // btnTag.setId(j);
             row.setGravity(Gravity.CENTER);
             row.addView(btnTag, params);
 
 
         }
-
         createEaraserButton(row);
-        //LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(row.getLayoutParams());
-
-        //row.setScaleX(25);
-        //row.setScaleY(25);
-
         layout.addView(row);
-
-
     }
 
     private void createEaraserButton(LinearLayout row)
@@ -860,125 +863,31 @@ public class GameActivity extends Activity {
         btnTag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-//тут закончил
-                CreateGuessWordContainers(GetCurrentLevel());
-               /* for(int i = 0; i < 13; i++) {
-                    if(storedLetters[i][1] != null) {
-                       // int containerId = v.getId();
-                        //int actualLetterIndex = getActualLettertArrayIndex(containerId);
-                        //int id = getResources().getIdentifier("buttonLetter" + actualLetterIndex, "id", getPackageName());
-                        Button temp = (Button) findViewById(Integer.valueOf(storedLetters[i][1]));
-                        temp.setText("");
-
-
-                        storedLetters[i][1] = null;
-                    }
-                }*/
-               //storedLetters = null;
+                CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
                 occupiedContainerCounter = 0;
                 SetLetterImages(randLettersSet);
                 }
 
         });
-        //btnTag.setScaleX(0.5f);
-        //btnTag.setScaleY(0.5f);
 
         btnTag.setTextSize(TypedValue.COMPLEX_UNIT_FRACTION_PARENT, 12);
-
         btnTag.setPadding(0,0,0,0);
-
         btnTag.setLayoutParams(new LinearLayout.LayoutParams(AbsoluteLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        btnTag.setBackgroundColor(Color.BLACK);
+        btnTag.setBackgroundResource(R.drawable.lastik);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(btnTag.getLayoutParams());
-
         params.width = getResources().getDimensionPixelSize(R.dimen.guess_letter_width);
         params.height = getResources().getDimensionPixelSize(R.dimen.guess_letter_height);
-        params.setMargins(2,2,2,2);
+        params.setMargins(getResources().getDimensionPixelSize(R.dimen.eraser_margin_left),2,2,2);
         row.setGravity(Gravity.CENTER);
         row.addView(btnTag, params);
-
-
     }
+
     private int getActualLettertArrayIndex(int guessLetterIndex){
         for(int i = 0; i < 13; i++) {
             if(storedLetters[i][1] == String.valueOf(guessLetterIndex))
                 return i;
         }
         return 0;
-    }
-
-    private boolean CheckGoldRange(int i)
-    {
-        if(i > 0 && i <99999)
-            return true;
-        else
-            return false;
-    }
-    private boolean CheckLevelRange(int i)
-    {
-        if(i > 0 && i <7)
-            return true;
-        else
-            return false;
-    }
-
-    /*public String[] GetOpenedLettersForLevel(int lvl)
-    {
-        String[] openedLetters = preferencesOpenedLetters.getStringSet(preferencesOpenedLetters, openedLetters)
-
-    }*/
-
-    public int GetGoldAmount()
-    {
-        int temp = preferences.getInt(Gold, 200);
-
-        if (CheckGoldRange(temp))
-            return temp;
-        else
-            return DefaultGold;
-    }
-
-    public int GetCurrentLevel()
-    {
-        int temp = preferences.getInt(Lvl, 1) ;
-
-        if (CheckLevelRange(temp))
-            return temp;
-        else
-            return DefaultLevel;
-        //return preferences.getInt(curLevel, 1);
-    }
-
-    private void EditOpenedLettersForLevel(int lvl)
-    {
-        SharedPreferences.Editor editor = preferencesOpenedLetters.edit();
-
-    }
-
-    private void EditGoldAmount(int i)
-    {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(Gold, i);
-        editor.commit();
-        DefaultGold = i;
-    }
-
-    private void EditLevel(int i)
-    {
-        if (!CheckLevelRange(i))
-            return;
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(Lvl, i);
-        editor.commit();
-        DefaultLevel = i;
-    }
-
-    private void CreateWord(int word)
-    {
-
     }
 
     private void zoomImageFromThumb(final View thumbView, int imageResId) {
@@ -1108,11 +1017,46 @@ public class GameActivity extends Activity {
 
     private int GetImgId(ImageView imageView, int btnNum)
     {
-        //return (Integer) imageView.getTag();
-        //return (Integer) imageView.getTag();
-        return imageView.getResources().getIdentifier("w" + GetCurrentLevel() + "_" + String.valueOf(btnNum), "drawable", this.getPackageName());
-        //return imageView.getId();
-
-// return getDrawable(imageView.getId());
+        return imageView.getResources().getIdentifier("w" + storedPreferences.GetCurrentLevel() + "_" + String.valueOf(btnNum), "drawable", this.getPackageName());
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        if (popupWindow != null && popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            goBack(null);
+        }
+    }
+
+    public void goBack(View view)
+    {
+        Intent output = new Intent();
+        output.putExtra("CurrentLevel", DefaultLevel);
+        output.putExtra("CurrentGoldAmount", DefaultGold);
+        setResult(RESULT_OK, output);
+        finish();
+    }
+
+    private void checkCurrentApi()
+    {
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("Current API version: " + Integer.valueOf(Build.VERSION.SDK_INT));
+        dlgAlert.setTitle("App Title");
+        dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                //dismiss the dialog
+            }
+        });
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();
+    }
+   /* @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            num1 = data.getIntExtra(Number1Code);
+            num2 = data.getIntExtra(Number2Code);
+        }
+    }*/
 }
