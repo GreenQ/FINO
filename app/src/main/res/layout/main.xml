@@ -10,7 +10,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:id="@+id/header_panel">
+        android:id="@+id/header_panel"
+        android:alpha="1.0">
 
         <RelativeLayout
             android:layout_width="90dp"

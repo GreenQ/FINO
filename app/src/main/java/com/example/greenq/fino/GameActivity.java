@@ -73,6 +73,7 @@ public class GameActivity extends Activity {
     boolean openLetterUsed = false;
     boolean removeUnnecessaryLettersUsed = false;
     PopupWindow popupWindow;
+    boolean thumbViewHidden = true;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -891,6 +892,7 @@ public class GameActivity extends Activity {
     }
 
     private void zoomImageFromThumb(final View thumbView, int imageResId) {
+
         // If there's an animation in progress, cancel it immediately and proceed with this one.
         if (mCurrentAnimator != null) {
             mCurrentAnimator.cancel();
@@ -938,7 +940,11 @@ public class GameActivity extends Activity {
 
         // Hide the thumbnail and show the zoomed-in view. When the animation begins,
         // it will position the zoomed-in view in the place of the thumbnail.
-        thumbView.setAlpha(0f);
+
+        if(!thumbViewHidden) {
+            thumbView.setAlpha(0f);
+            thumbViewHidden = true;
+        }
         expandedImageView.setVisibility(View.VISIBLE);
 
         // Set the pivot point for SCALE_X and SCALE_Y transformations to the top-left corner of
@@ -1007,12 +1013,14 @@ public class GameActivity extends Activity {
                         thumbView.setAlpha(1f);
                         expandedImageView.setVisibility(View.GONE);
                         mCurrentAnimator = null;
+                        thumbViewHidden = true;
                     }
                 });
                 set.start();
                 mCurrentAnimator = set;
             }
         });
+
     }
 
     private int GetImgId(ImageView imageView, int btnNum)
