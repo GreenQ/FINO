@@ -70,4 +70,41 @@ public class DailyCoins {
         }
         return 0;
     }
+
+    public static int getAmountOfSequencialVisits(long date, Locale locale, int amountOfSequentialVisits) {
+
+        Date currentDates = new Date(System.currentTimeMillis());
+        Date dates = new Date(date);
+        String currentDate = String.valueOf(currentDates);
+        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yy", locale);
+
+        try {
+            Date dtCurrent = new Date(df.format(currentDates));
+            // использовать dtCurrent.getTime - кол-во милисекунд, эквивалентных 1, 2 и 3 дням
+
+            Date dtCompareWith = new Date(df.format(dates));
+            // dtCompareWith.setTime(dtCompareWith.getTime() - 432000000L);
+
+            Date date1daysBefore = new Date();
+            date1daysBefore.setTime(dtCurrent.getTime()/*-86400000L*/);
+
+
+            //if(dtCompareWith.equals(dtCurrent.getTime()))
+            if(dtCompareWith.equals(date1daysBefore)) {
+
+                if (amountOfSequentialVisits < 7)
+                    return amountOfSequentialVisits + 1;
+
+                return amountOfSequentialVisits;
+            }
+            else if (dtCurrent.after(dtCompareWith))
+                return 0;
+            else
+                return 10;
+        }
+        catch (Exception e) {
+            //  Log.e("DATE_EQUAL_TO_LESS_THAN_TODAY", "Date Parsing Exception:" + e.getMessage());
+        }
+        return 0;
+    }
 }

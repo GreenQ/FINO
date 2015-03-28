@@ -138,7 +138,7 @@ public class GameActivity extends Activity {
         image4.setOnClickListener(CentralImagesOCL);
 
         DrawLevel();
-        checkCurrentApi();
+        //checkCurrentApi();
     }
 
     private void ShowWinPopUp()

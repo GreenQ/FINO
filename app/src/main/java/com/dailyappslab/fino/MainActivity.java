@@ -109,47 +109,57 @@ public class MainActivity extends Activity {
     private void getDailyCoins()
     {
 
-        int daysFromLastVisit = DailyCoins.dateVadidation(storedPreferences.GetLastVisitDate(), getResources().getConfiguration().locale);
+        int daysFromLastVisit = DailyCoins.getAmountOfSequencialVisits(storedPreferences.GetLastVisitDate(), getResources().getConfiguration().locale, storedPreferences.GetSequencialVisitsAmount());
         switch (daysFromLastVisit)
         {
-            case 7:
+            case 0:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+10);
+                storedPreferences.EditSeqvencialVisitAmount(0);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(10);
+                //showAmountOfAddedGold(10);
+                break;
+            case 10:
+                break;
+            case 7:
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+40);
+                storedPreferences.EditLastVisitDate(System.currentTimeMillis());
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
+                showAmountOfAddedGold(40);
                 break;
             case 6:
-                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+15);
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+35);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(15);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
+                showAmountOfAddedGold(35);
                 break;
             case 5:
-                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+20);
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+30);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(20);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
+                showAmountOfAddedGold(30);
                 break;
             case 4:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+25);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
                 showAmountOfAddedGold(25);
                 break;
             case 3:
-                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+30);
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+20);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(30);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
+                showAmountOfAddedGold(20);
                 break;
             case 2:
-                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+35);
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+15);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(35);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
+                showAmountOfAddedGold(15);
                 break;
             case 1:
-                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+40);
-                storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                showAmountOfAddedGold(40);
-                break;
-            case 8:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+10);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
                 showAmountOfAddedGold(10);
                 break;
             default:
