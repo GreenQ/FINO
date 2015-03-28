@@ -46,6 +46,8 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
+        <activity android:name="com.example.greenq.fino.MarketActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
     <uses-permission

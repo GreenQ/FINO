@@ -177,6 +177,25 @@ public class MainActivity extends Activity {
             }
         }, SPLASH_TIME_OUT);
     }
+    public void gameshopButtonClick(View v)
+    {
+        Log.d("animButton", "Click");
+        animation.stop();
+        animation.start();
+        Intent i = new Intent (MainActivity.this, MarketActivity.class);
+        //i = new Intent(main.this, )
+        //startActivity(i);
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this, MarketActivity.class);
+                //startActivityForResult(i, 1);
+                startActivity(i);
+                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                //finish();
+            }
+        }, SPLASH_TIME_OUT);
+    }
 
 
     public void ShowGameshopPopUp(View view)

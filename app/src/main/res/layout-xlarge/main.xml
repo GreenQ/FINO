@@ -116,7 +116,8 @@
         android:layout_alignLeft="@+id/imageButtonPlay"
         android:layout_alignStart="@+id/imageButtonPlay"
         android:layout_marginTop="20dp"
-        android:background="@drawable/istore"/>
+        android:background="@drawable/istore"
+        android:onClick="gameshopButtonClick"/>
 
     <ImageView
         android:layout_width="100dp"
