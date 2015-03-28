@@ -6,21 +6,30 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="65dp">
 
         <RelativeLayout
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:background="@drawable/coni"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
+            android:id="@+id/relativeLayoutGold"
             android:onClick="ShowGameshopPopUp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/plus"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="99999"
+                android:text="100"
                 android:alpha="0.7"
                 android:id="@+id/textViewGold"
                 android:layout_centerVertical="true"
@@ -46,7 +55,7 @@
 
         <RelativeLayout
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/coni"
@@ -55,10 +64,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200"
+                android:text="0"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:textColor="#ffffffff"
-                android:textSize="55sp"
+                android:textSize="45sp"
                 android:id="@+id/textViewCurLevel"
                 android:alpha="0.7"/>
 

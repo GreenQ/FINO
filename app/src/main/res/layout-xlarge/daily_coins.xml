@@ -9,8 +9,8 @@
         android:alpha="0.5"></RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="210dp"
+        android:layout_width="500dp"
+        android:layout_height="420dp"
         android:background="@drawable/bestbuy"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -20,7 +20,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:background="@drawable/shadow"
             android:id="@+id/relativeLayout">
 
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ежедневное награждение"
-                android:textSize="17sp"
+                android:textSize="35sp"
                 android:textColor="#ffffff"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -41,33 +41,33 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="70dp"
             android:text="Закрыть"
             android:textColor="#FFFFFFFF"
             android:id="@+id/btnClose"
-            android:textSize="12sp"
+            android:textSize="25sp"
             android:layout_gravity="center_horizontal"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/shadow2"/>
 
         <RelativeLayout
-            android:layout_width="210dp"
-            android:layout_height="60dp"
+            android:layout_width="420dp"
+            android:layout_height="120dp"
             android:background="@drawable/btncon"
             android:id="@+id/btnOpenLetter"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="День 1"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="#ffffffff"
-                android:textSize="30sp"
+                android:textSize="60sp"
                 android:layout_centerVertical="true"
                 />
 
@@ -77,13 +77,13 @@
 
 
         <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:background="@drawable/day"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="20dp">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -96,16 +96,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:textColor="#ffffffff"
-                    android:textSize="40sp"
+                    android:textSize="80sp"
                     />
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:background="@drawable/coin"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="15dp"
                     android:textColor="#ffffff"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Заходите чаще и получайте больше монет"
-            android:textSize="10sp"
+            android:textSize="20sp"
             android:textColor="#ffffffff"
             android:layout_above="@+id/btnClose"
             android:layout_alignRight="@+id/btnOpenLetter"

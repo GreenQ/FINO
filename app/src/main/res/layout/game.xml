@@ -11,7 +11,7 @@
         android:id="@+id/header_panel">
 
         <RelativeLayout
-            android:layout_width="90dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
             android:background="@drawable/coni"
             android:layout_centerVertical="true"
@@ -20,11 +20,13 @@
             android:id="@+id/relativeLayoutGold"
             android:onClick="ShowGameshopPopUp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="+"/>
+<ImageView
+    android:layout_width="15dp"
+    android:layout_height="15dp"
+    android:background="@drawable/plus"
+    android:layout_alignParentLeft="true"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,22 +120,22 @@
     </RelativeLayout>
 
     <RelativeLayout android:id="@+id/container" android:layout_width="match_parent" android:layout_height="350dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="10dp" android:gravity="center">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="10dp" android:gravity="center" android:layout_marginTop="10dp">
             <!--
              This is an example layout containing thumbnail image buttons that, when pressed,
                          zoom in to show more detail. All of the zooming and animation logic is in
                          the ZoomActivity class.
             -->
             <AbsoluteLayout android:layout_width="330dp" android:layout_height="330dp" android:layout_centerHorizontal="true">
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff20195d" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="2dp"/>
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="170dp" android:background="#ff20195d" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff20195d" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
+                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="2dp"/>
+                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="170dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
+                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_x="170dp"
                     android:layout_y="170dp"
-                    android:background="#ff20195d"
+                    android:background="#ff384653"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="5dp"
@@ -149,7 +151,7 @@
                     android:layout_centerInParent="true"
                     android:layout_x="0dp"
                     android:layout_y="0dp"
-                    android:background="#ff000000"
+                    android:background="#ff384653"
                     android:padding="3dp"/>
             </AbsoluteLayout>
         </LinearLayout>

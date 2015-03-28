@@ -24,23 +24,6 @@
             android:background="@drawable/shadow"
             android:id="@+id/relativeLayout">
 
-            <RelativeLayout
-                android:layout_width="70dp"
-                android:layout_height="80dp"
-                android:background="@drawable/vopros">
-
-                <TextView
-                    android:layout_width="25dp"
-                    android:layout_height="60dp"
-                    android:text="\?"
-                    android:textSize="50sp"
-                    android:textColor="#ffffff"
-                    android:layout_marginTop="5dp"
-                    android:layout_centerHorizontal="true"
-                    />
-
-            </RelativeLayout>
-
 
 
             <TextView

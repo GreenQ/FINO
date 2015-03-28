@@ -25,12 +25,7 @@
             android:background="@drawable/shadow"
             android:id="@+id/relativeLayout">
 
-            <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:background="@drawable/coin"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
