@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import com.dailyappslab.fino.R;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends Activity {
     ImageView imgBtn;
     ImageView buttonImage;
@@ -33,7 +35,13 @@ public class MainActivity extends Activity {
     int DefaultGold = 200;
     TextView textViewCurrentLevel;
     TextView textViewGold;
+    int goldBonus;
+    TextView textViewgoldBonus;
+    TextView textViewDays;
+    int days;
     PopupWindow popupWindow;
+    PopupWindow popupWindowCoins;
+    boolean wasShown = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +57,7 @@ public class MainActivity extends Activity {
 
 
         storedPreferences = new StoredPreferences(this, DefaultLevel, DefaultGold);
-        getDailyCoins();
+        //getDailyCoins();
         textViewCurrentLevel = (TextView) findViewById(R.id.textViewCurLevel);
         textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
 
@@ -60,6 +68,8 @@ public class MainActivity extends Activity {
         buttonImage = (ImageView) findViewById(R.id.imageButtonPlay);
         buttonImage.setBackgroundResource(R.drawable.btnanim);
 //загрузка объекта анимации:
+
+
         animation = (AnimationDrawable) buttonImage.getBackground();
 //анимация будет проигрываться только 1 раз:
 
@@ -89,9 +99,19 @@ public class MainActivity extends Activity {
 
 
         //ShowWinPopUp();
-
+        //getDailyCoins();
+        //ShowDailyCoins();
+        //ShowAboutPopUp(null);
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        if(hasFocus && !wasShown) {
+            getDailyCoins();
+            wasShown = true;
+        }
+    }
     private void showAmountOfAddedGold(int amount)
     {
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
@@ -114,9 +134,11 @@ public class MainActivity extends Activity {
         {
             case 0:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+10);
-                storedPreferences.EditSeqvencialVisitAmount(0);
+                storedPreferences.EditSeqvencialVisitAmount(1);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
                 //showAmountOfAddedGold(10);
+                goldBonus = 10;
+                ShowDailyCoins();
                 break;
             case 10:
                 break;
@@ -124,48 +146,62 @@ public class MainActivity extends Activity {
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+40);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
                 storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(40);
+                //showAmountOfAddedGold(40);
+                goldBonus = 40;
+                ShowDailyCoins();
                 break;
             case 6:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+35);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(35);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount() + 1);
+                //showAmountOfAddedGold(35);
+                goldBonus = 35;
+                ShowDailyCoins();
                 break;
             case 5:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+30);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(30);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount() + 1);
+                //showAmountOfAddedGold(30);
+                goldBonus = 30;
+                ShowDailyCoins();
                 break;
             case 4:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+25);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(25);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount() + 1);
+                //showAmountOfAddedGold(25);
+                goldBonus = 25;
+                ShowDailyCoins();
                 break;
             case 3:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+20);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(20);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount() + 1);
+                //showAmountOfAddedGold(20);
+                goldBonus = 20;
+                ShowDailyCoins();
                 break;
             case 2:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+15);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
-                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(15);
+                storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount() + 1);
+                //showAmountOfAddedGold(15);
+                goldBonus = 15;
+                ShowDailyCoins();
                 break;
             case 1:
                 storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+10);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());
                 storedPreferences.EditSeqvencialVisitAmount(storedPreferences.GetSequencialVisitsAmount()+1);
-                showAmountOfAddedGold(10);
+                //showAmountOfAddedGold(10);
+                goldBonus = 10;
+                ShowDailyCoins();
                 break;
             default:
                 /*storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+10);
                 storedPreferences.EditLastVisitDate(System.currentTimeMillis());*/
-                showAmountOfAddedGold(0);
+                //showAmountOfAddedGold(0);
                 break;
         }
         storedPreferences.EditLastVisitDate(System.currentTimeMillis());
@@ -188,6 +224,7 @@ public class MainActivity extends Activity {
                 //finish();
             }
         }, SPLASH_TIME_OUT);
+        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
     public void gameshopButtonClick(View v)
     {
@@ -207,6 +244,7 @@ public class MainActivity extends Activity {
                 //finish();
             }
         }, SPLASH_TIME_OUT);
+
     }
 
 
@@ -236,6 +274,41 @@ public class MainActivity extends Activity {
 
 
         popupWindow.showAtLocation(findViewById(R.id.rootLayoutMain), 0,0,-10);
+    }
+
+    public void ShowDailyCoins()
+    {
+        LayoutInflater layoutInflater
+                = (LayoutInflater)getBaseContext()
+                .getSystemService(LAYOUT_INFLATER_SERVICE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        View popupViewCoins = layoutInflater.inflate(R.layout.daily_coins, null);
+
+        popupWindowCoins = new PopupWindow(
+                popupViewCoins,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        //popupWindow.setBackgroundDrawable(getDrawable(R.drawable.fon2));
+
+        textViewgoldBonus = (TextView) popupViewCoins.findViewById(R.id.textViewCoins);
+        textViewgoldBonus.setText(String.valueOf(goldBonus));
+
+        textViewDays = (TextView) popupViewCoins.findViewById(R.id.textViewDay);
+        textViewDays.setText("День " + String.valueOf(storedPreferences.GetSequencialVisitsAmount()));
+
+        Button btnDismiss = (Button)popupViewCoins.findViewById(R.id.btnClose);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //NextLevelClick(null);
+                popupWindowCoins.dismiss();
+            }});
+
+        popupWindowCoins.showAtLocation(findViewById(R.id.rootLayoutMain), 0,0,-10);
+        //popupWindowCoins.showAsDropDown(findViewById(R.id.rootLayoutMain));
     }
 
     public void ShowAboutPopUp(View view)

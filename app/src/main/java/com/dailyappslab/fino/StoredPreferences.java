@@ -52,6 +52,14 @@ public class StoredPreferences extends Activity {
             return false;
     }
 
+    private boolean CheckSeqVisAmRange(int i)
+    {
+        if(i > -1 && i < 8)
+            return true;
+        else
+            return false;
+    }
+
     /*public String[] GetOpenedLettersForLevel(int lvl)
     {
         String[] openedLetters = preferencesOpenedLetters.getStringSet(preferencesOpenedLetters, openedLetters)
@@ -99,6 +107,8 @@ public class StoredPreferences extends Activity {
 
     public void EditSeqvencialVisitAmount(int seqVisAm)
     {
+        if(!CheckSeqVisAmRange(seqVisAm))
+            return;
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(SequencialVisitsAmount, seqVisAm);
         editor.commit();

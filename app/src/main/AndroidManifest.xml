@@ -53,6 +53,7 @@
         <activity android:name="com.dailyappslab.fino.WinActivity"
            />
 
+
         <activity
             android:name="com.dailyappslab.fino.MainActivity"
             android:label="@string/app_name"

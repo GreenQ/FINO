@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
@@ -27,11 +28,15 @@ public class MarketActivity extends Activity {
     private String currentPriseTag ="";
     private boolean readyToPurchase;
     private BillingProcessor bps;
+    StoredPreferences storedPreferences;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameshop);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         btn1000 = ( RelativeLayout ) findViewById( R.id.m1 );
         btn2500 = ( RelativeLayout ) findViewById( R.id.m2 );
@@ -124,6 +129,7 @@ public class MarketActivity extends Activity {
         {
             //Application.getInstance().sendGAnalitics( "prise " + currentPriseTag  );
             bps.consumePurchase(currentPriseTag);
+            storedPreferences.EditGoldAmount(currentPrise);
             //Application.getInstance().getUserAccount().setUserPoint( currentPrise );
             currentPriseTag = "";
             currentPrise = 0;

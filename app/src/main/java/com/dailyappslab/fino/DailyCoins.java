@@ -86,7 +86,8 @@ public class DailyCoins {
             // dtCompareWith.setTime(dtCompareWith.getTime() - 432000000L);
 
             Date date1daysBefore = new Date();
-            date1daysBefore.setTime(dtCurrent.getTime()/*-86400000L*/);
+            date1daysBefore.setTime(dtCurrent.getTime()-86400000L);
+            //dtCompareWith.setTime(dtCurrent.getTime()/* - 432000000L */);
 
 
             //if(dtCompareWith.equals(dtCurrent.getTime()))
@@ -97,7 +98,7 @@ public class DailyCoins {
 
                 return amountOfSequentialVisits;
             }
-            else if (dtCurrent.after(dtCompareWith))
+            else if (dtCompareWith.before(date1daysBefore))
                 return 0;
             else
                 return 10;

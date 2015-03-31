@@ -69,6 +69,7 @@
                 android:textColor="#ffffffff"
                 android:textSize="60sp"
                 android:layout_centerVertical="true"
+                android:id="@+id/textViewDay"
                 />
 
 
@@ -99,6 +100,7 @@
                     android:layout_marginLeft="20dp"
                     android:textColor="#ffffffff"
                     android:textSize="80sp"
+                    android:id="@+id/textViewCoins"
                     />
 
                 <ImageView
