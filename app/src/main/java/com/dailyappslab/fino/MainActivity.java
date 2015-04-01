@@ -226,26 +226,26 @@ public class MainActivity extends Activity {
         }, SPLASH_TIME_OUT);
         textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
-    public void gameshopButtonClick(View v)
-    {
-        Log.d("animButton", "Click");
-        animation.stop();
-        animation.start();
-        Intent i = new Intent (MainActivity.this, MarketActivity.class);
+  //  public void gameshopButtonClick(View v)
+    //{
+      //  Log.d("animButton", "Click");
+        //animation.stop();
+        //animation.start();
+        //Intent i = new Intent (MainActivity.this, MarketActivity.class);
         //i = new Intent(main.this, )
         //startActivity(i);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(MainActivity.this, MarketActivity.class);
+        //new Handler().postDelayed(new Runnable() {
+          //  @Override
+            //public void run() {
+              //  Intent i = new Intent(MainActivity.this, MarketActivity.class);
                 //startActivityForResult(i, 1);
-                startActivity(i);
-                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                //startActivity(i);
+                //overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
                 //finish();
-            }
-        }, SPLASH_TIME_OUT);
+           // }
+        //}, SPLASH_TIME_OUT);
 
-    }
+    //}
 
 
     public void ShowGameshopPopUp(View view)
