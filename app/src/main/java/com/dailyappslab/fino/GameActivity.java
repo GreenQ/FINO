@@ -145,7 +145,7 @@ public class GameActivity extends Activity {
             //adView.setAdSize(AdSize.BANNER);
             //adView.setAdUnitId("ca-app-pub-3376890691318599/3908610460");
             AdRequest adRequest = new AdRequest.Builder().build();
-
+//
 
             adView.loadAd(adRequest);
         }
