@@ -1,6 +1,6 @@
 package com.dailyappslab.fino;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -11,7 +11,7 @@ import java.util.ListIterator;
  * Created by GreenQ on 22.02.2015.
  */
 public class Picture {
-    //String path[] = new String[4];
+    /*//String path[] = new String[4];
     List<String> sources = new List<String>() {
         @Override
         public void add(int location, String object) {
@@ -148,5 +148,5 @@ public class Picture {
         sources.add("@+res/assets/w" + wordId + "_2.jpg");
         sources.add("@+res/assets/w" + wordId + "_3.jpg");
         sources.add("@+res/assets/w" + wordId + "_4.jpg");
-    }
+    }*/
 }

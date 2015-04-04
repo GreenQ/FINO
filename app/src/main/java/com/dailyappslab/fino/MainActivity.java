@@ -8,6 +8,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -17,11 +18,21 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.google.android.gms.ads.*;
+
+
+//import ads.adapter.*;
+import com.google.ads.*;
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
 
 import com.dailyappslab.fino.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 
 import org.w3c.dom.Text;
 
@@ -42,7 +53,7 @@ public class MainActivity extends Activity {
     PopupWindow popupWindow;
     PopupWindow popupWindowCoins;
     boolean wasShown = false;
-
+    AdView adView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,11 +108,43 @@ public class MainActivity extends Activity {
         animation.setOneShot(true);
 
 
-
+       /* adView = new AdView(this);
+        adView.setAdUnitId("ca-app-pub-3376890691318599/3908610460");
+        adView.setAdSize(AdSize.BANNER); //Размер баннера
+        LinearLayout layout = (LinearLayout)findViewById(R.id.admob);
+        layout.addView(adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        /*AdRequest adRequest =new com.google.android.gms.ads.AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("0123456789ABCDEF").build();*/
+        //adView.loadAd(adRequest);
         //ShowWinPopUp();
         //getDailyCoins();
         //ShowDailyCoins();
         //ShowAboutPopUp(null);
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        try
+        {
+        //adView.setAdSize(AdSize.BANNER);
+        //adView.setAdUnitId("ca-app-pub-3376890691318599/3908610460");
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+
+            adView.loadAd(adRequest);
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occured" + ex.getMessage());
+            dlgAlert.setTitle("Error occured");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
     }
 
     @Override
@@ -111,6 +154,11 @@ public class MainActivity extends Activity {
             getDailyCoins();
             wasShown = true;
         }
+
+        /*ads.adapter. ad = new ru.chinaprices.lib.ads.AdMob(activity, adMobId);
+
+        ru.chinaprices.lib.ads.AdManager manager = new AdManager(ad);
+        manager.show(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);*/
     }
     private void showAmountOfAddedGold(int amount)
     {
@@ -229,22 +277,14 @@ public class MainActivity extends Activity {
     public void gameshopButtonClick(View v)
     {
         Log.d("animButton", "Click");
-        animation.stop();
-        animation.start();
         Intent i = new Intent (MainActivity.this, MarketActivity.class);
-        //i = new Intent(main.this, )
-        //startActivity(i);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent(MainActivity.this, MarketActivity.class);
-                //startActivityForResult(i, 1);
                 startActivity(i);
-                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
-                //finish();
             }
         }, SPLASH_TIME_OUT);
-
     }
 
 

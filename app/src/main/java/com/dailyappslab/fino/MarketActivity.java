@@ -30,6 +30,10 @@ public class MarketActivity extends Activity {
     private BillingProcessor bps;
     StoredPreferences storedPreferences;
 
+    public MarketActivity()
+    {
+
+    }
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);

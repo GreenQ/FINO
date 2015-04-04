@@ -23,7 +23,7 @@ public class Word {
     }
     public Picture getWord()
     {
-        picture = new Picture(wordId);
-        return picture;
+       // picture = new Picture(wordId);
+        return null;
     }
 }

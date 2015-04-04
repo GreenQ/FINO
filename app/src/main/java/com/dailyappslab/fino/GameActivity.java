@@ -32,6 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dailyappslab.fino.R;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.Scanner;
@@ -138,6 +139,29 @@ public class GameActivity extends Activity {
         image4.setOnClickListener(CentralImagesOCL);
 
         DrawLevel();
+        AdView adView = (AdView)this.findViewById(R.id.adView);
+        try
+        {
+            //adView.setAdSize(AdSize.BANNER);
+            //adView.setAdUnitId("ca-app-pub-3376890691318599/3908610460");
+            AdRequest adRequest = new AdRequest.Builder().build();
+
+
+            adView.loadAd(adRequest);
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occured" + ex.getMessage());
+            dlgAlert.setTitle("Error occured");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
         //checkCurrentApi();
     }
 
