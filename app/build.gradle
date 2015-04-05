@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:4.0.30'
     //compile files('libs/StartADLib-1.0.1.jar')
     compile 'com.google.code.gson:gson:2.2.4@jar'
+    compile files('libs/google-play-services.jar')
 }

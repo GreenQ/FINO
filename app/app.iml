@@ -89,6 +89,7 @@
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-4.0.30" level="project" />
+    <orderEntry type="library" exported="" name="google-play-services" level="project" />
     <orderEntry type="library" exported="" name="anjlab-iabv3-current" level="project" />
     <orderEntry type="library" exported="" name="StartADLib-1.0.1" level="project" />
   </component>
