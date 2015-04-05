@@ -35,6 +35,7 @@ import com.dailyappslab.fino.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.startad.lib.SADView;
 
 import java.util.Scanner;
 import java.util.Timer;
@@ -85,7 +86,7 @@ public class GameActivity extends Activity {
     boolean thumbViewHidden = true;
     private InterstitialAd interstitial;
     Timer timer;
-
+    SADView sadView;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,6 +251,15 @@ public class GameActivity extends Activity {
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
+        try
+        {
+            sadView = new SADView(this, "5521303021b94d2b00000000");
+            LinearLayout layout = (LinearLayout) popupView.findViewById(R.id.admob);
+            layout.addView(this.sadView);
+            sadView.loadAd(SADView.LANGUAGE_RU);
+        }
+        catch (Exception ex)
+        {}
 
         printGuessedWord(popupWindowWin);
         printQuotation(popupWindowWin);
@@ -265,7 +275,7 @@ public class GameActivity extends Activity {
 
         popupWindowWin.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
         try {
-           // if(interstitial.isLoaded())
+            if(interstitial.isLoaded())
                 interstitial.show();
            // DelayedAdsShow();
         }
