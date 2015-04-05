@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    >
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,13 +13,19 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Отлично!"
             android:textSize="40dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+
             android:id="@+id/textView3"
             android:textColor="#ffffffff"/>
         <TextView
@@ -34,10 +39,12 @@
             android:id="@+id/textView4" />
 
         <TextView
+            android:background="@drawable/wor"
+            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="А Ф Р И К А"
-            android:textColor="#ffffffff"
+            android:textColor="#ffffff"
             android:textSize="30sp"
 
             android:layout_marginTop="15dp"
@@ -50,20 +57,25 @@
             android:layout_height="wrap_content"
             android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
             android:textColor="#ffffffff"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="40dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="75dp"
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
-            android:id="@+id/textViewQuotation" />
+            android:id="@+id/textViewQuotation"
+            android:layout_alignParentEnd="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentRight="false" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewQuotation"
             android:layout_centerHorizontal="true"
-            android:id="@+id/relativeLayout3">
+            android:id="@+id/relativeLayout3"
+            android:padding="5dp">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,19 +105,20 @@
             android:id="@+id/buttonClose"
             android:textSize="20sp"
             android:textColor="#ffffffff"
-            android:background="#2b394a"
-            android:layout_marginTop="20dp"
+            android:background="@drawable/next"
+            android:layout_marginTop="5dp"
             android:layout_below="@+id/relativeLayout3"
-            android:layout_alignLeft="@+id/guessWordTextView"
-            android:layout_alignStart="@+id/guessWordTextView" />
-
+            android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
 
         </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/ripple_material_dark"
-        android:id="@+id/admob"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/admob"
+        android:layout_alignParentBottom="true">
+
+    </LinearLayout>
 </RelativeLayout>

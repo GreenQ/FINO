@@ -83,7 +83,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textColor="#ffffffff"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 android:id="@+id/textViewCurLevel"
                 android:alpha="0.7"/>
 

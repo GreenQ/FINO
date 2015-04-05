@@ -115,7 +115,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/ripple_material_dark"
-        android:id="@+id/admob"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/admob"
+        android:layout_alignParentBottom="true"></LinearLayout>
 </RelativeLayout>

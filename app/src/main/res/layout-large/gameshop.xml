@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="400dp"
     android:layout_height="485dp"
-    android:background="#00F8F8F8"
+    android:background="@drawable/lay"
     >
 
     <RelativeLayout
