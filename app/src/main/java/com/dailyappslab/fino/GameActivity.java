@@ -34,8 +34,15 @@ import android.widget.TextView;
 import com.dailyappslab.fino.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by GreenQ on 21.02.2015.
@@ -76,6 +83,10 @@ public class GameActivity extends Activity {
     boolean removeUnnecessaryLettersUsed = false;
     PopupWindow popupWindow;
     boolean thumbViewHidden = true;
+    private InterstitialAd interstitial;
+    Timer timer;
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,6 +174,69 @@ public class GameActivity extends Activity {
             dlgAlert.create().show();
         }
         //checkCurrentApi();
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId("ca-app-pub-3376890691318599/6862076865");
+        //request
+// Создаём запрос к AdMob
+        AdRequest adRequesti = new AdRequest.Builder().build();
+// Начинаем загружать объявление
+       interstitial.loadAd(adRequesti);
+
+       //ShowInterPageAds();
+        //interstitial.show();
+        //AdRequest adRequesti = new AdRequest.Builder().build();
+
+        //timer = new Timer();
+        //interpageAdsTask
+        //DelayedAdsShow();
+
+//        try
+//        {
+//            ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+//            exec.scheduleAtFixedRate(new Runnable() {
+//                @Override
+//                public void run() {
+//                    //if(interstitial.isLoaded())
+//                        interstitial.show();
+//                }
+//            }, 5, 5, TimeUnit.SECONDS);
+//        }
+//        catch (Exception exception)
+//        {
+//            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+//            dlgAlert.setMessage(exception.getMessage());
+//            dlgAlert.setTitle("Error occured");
+//            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                    //dismiss the dialog
+//                }
+//            });
+//            dlgAlert.setCancelable(true);
+//            dlgAlert.create().show();
+//        }
+
+    }
+
+    public void DelayedAdsShow()
+    {
+        ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+            exec.scheduleAtFixedRate(new Runnable() {
+                @Override
+                public void run() {
+                    //if(interstitial.isLoaded())
+                        interstitial.show();
+                }
+            }, 5, 5, TimeUnit.SECONDS);
+    }
+
+    public void ShowInterPageAds()
+    {
+            /*AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice("04ced67b")
+                    .build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        interstitial.loadAd(adRequest);
+
     }
 
     private void ShowWinPopUp()
@@ -190,6 +264,24 @@ public class GameActivity extends Activity {
             }});
 
         popupWindowWin.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+        try {
+           // if(interstitial.isLoaded())
+                interstitial.show();
+           // DelayedAdsShow();
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occured" + ex.getMessage());
+            dlgAlert.setTitle("Error occured");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
         }
 
     private void printQuotation(PopupWindow popupWindow)

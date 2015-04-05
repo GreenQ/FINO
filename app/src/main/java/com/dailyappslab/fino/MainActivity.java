@@ -33,7 +33,7 @@ import com.anjlab.android.iab.v3.TransactionDetails;
 import com.dailyappslab.fino.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
-
+import com.startad.lib.SADView;
 import org.w3c.dom.Text;
 
 public class MainActivity extends Activity {
@@ -54,6 +54,8 @@ public class MainActivity extends Activity {
     PopupWindow popupWindowCoins;
     boolean wasShown = false;
     AdView adView;
+    SADView sadView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,10 +129,17 @@ public class MainActivity extends Activity {
         {
         //adView.setAdSize(AdSize.BANNER);
         //adView.setAdUnitId("ca-app-pub-3376890691318599/3908610460");
-        AdRequest adRequest = new AdRequest.Builder().build();
+        //AdRequest adRequest = new AdRequest.Builder().build();
 
 
-            adView.loadAd(adRequest);
+          //  adView.loadAd(adRequest);
+
+            sadView = new SADView(this, "5521303021b94d2b00000000");
+            LinearLayout layout = (LinearLayout)findViewById(R.id.admob);
+
+            // Add the adView to it
+            layout.addView(this.sadView);
+            sadView.loadAd(SADView.LANGUAGE_RU);
         }
         catch (Exception ex)
         {
@@ -145,6 +154,8 @@ public class MainActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
+
+
     }
 
     @Override

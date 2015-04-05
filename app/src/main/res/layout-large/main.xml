@@ -126,4 +126,5 @@
     android:layout_height="30dp"
     android:background="@color/ripple_material_dark"
     android:id="@+id/admob"></LinearLayout>
+
 </RelativeLayout>
