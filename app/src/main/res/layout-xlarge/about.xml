@@ -16,7 +16,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:id="@+id/relativeLayoutGold"
-            android:onClick="ShowGameshopPopUp">
+            android:onClick="ShowGameShop">
 
             <ImageView
                 android:layout_width="25dp"

@@ -2,4 +2,5 @@
 <resources>
     <color name="class_zero_background">#7f040000</color>
     <color name="transparent">#00000000</color>
+    <color name="dialogbg">#00F8F8F8</color>
 </resources>

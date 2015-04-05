@@ -13,6 +13,8 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -168,53 +170,15 @@ public class GameActivity extends Activity {
             dlgAlert.setTitle("Error occured");
             dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    //dismiss the dialog
                 }
             });
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
-        //checkCurrentApi();
         interstitial = new InterstitialAd(this);
         interstitial.setAdUnitId("ca-app-pub-3376890691318599/6862076865");
-        //request
-// Создаём запрос к AdMob
         AdRequest adRequesti = new AdRequest.Builder().build();
-// Начинаем загружать объявление
        interstitial.loadAd(adRequesti);
-
-       //ShowInterPageAds();
-        //interstitial.show();
-        //AdRequest adRequesti = new AdRequest.Builder().build();
-
-        //timer = new Timer();
-        //interpageAdsTask
-        //DelayedAdsShow();
-
-//        try
-//        {
-//            ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
-//            exec.scheduleAtFixedRate(new Runnable() {
-//                @Override
-//                public void run() {
-//                    //if(interstitial.isLoaded())
-//                        interstitial.show();
-//                }
-//            }, 5, 5, TimeUnit.SECONDS);
-//        }
-//        catch (Exception exception)
-//        {
-//            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-//            dlgAlert.setMessage(exception.getMessage());
-//            dlgAlert.setTitle("Error occured");
-//            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int which) {
-//                    //dismiss the dialog
-//                }
-//            });
-//            dlgAlert.setCancelable(true);
-//            dlgAlert.create().show();
-//        }
 
     }
 
@@ -275,7 +239,7 @@ public class GameActivity extends Activity {
 
         popupWindowWin.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
         try {
-            if(interstitial.isLoaded())
+         // if(interstitial.isLoaded())
                 interstitial.show();
            // DelayedAdsShow();
         }
@@ -422,32 +386,18 @@ public class GameActivity extends Activity {
 
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
+
     public void ShowGameshopPopUp(View view)
     {
-        LayoutInflater layoutInflater
-                = (LayoutInflater)getBaseContext()
-                .getSystemService(LAYOUT_INFLATER_SERVICE);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        View popupView = layoutInflater.inflate(R.layout.gameshop, null);
-        popupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        //popupWindow.setBackgroundDrawable(getDrawable(R.drawable.fon2));
-
-        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
-        btnDismiss.setOnClickListener(new OnClickListener(){
-
+        Log.d("animButton", "Click");
+        Intent i = new Intent (GameActivity.this, MarketActivity.class);
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                //NextLevelClick(null);
-                popupWindow.dismiss();
-            }});
-
-
-        popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
+            public void run() {
+                Intent i = new Intent(GameActivity.this, MarketActivity.class);
+                startActivity(i);
+            }
+        }, 100);
     }
 
     private boolean isEnoughGold(int price)

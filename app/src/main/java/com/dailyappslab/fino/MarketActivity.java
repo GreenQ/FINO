@@ -30,17 +30,14 @@ public class MarketActivity extends Activity {
     private BillingProcessor bps;
     StoredPreferences storedPreferences;
 
-    public MarketActivity()
-    {
 
-    }
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameshop);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+          //      WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         btn1000 = ( RelativeLayout ) findViewById( R.id.m1 );
         btn2500 = ( RelativeLayout ) findViewById( R.id.m2 );

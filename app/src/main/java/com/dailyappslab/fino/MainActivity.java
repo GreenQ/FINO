@@ -154,8 +154,6 @@ public class MainActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
-
-
     }
 
     @Override
@@ -285,6 +283,7 @@ public class MainActivity extends Activity {
         }, SPLASH_TIME_OUT);
         textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
+
     public void gameshopButtonClick(View v)
     {
         Log.d("animButton", "Click");
@@ -364,39 +363,16 @@ public class MainActivity extends Activity {
 
     public void ShowAboutPopUp(View view)
     {
-        LayoutInflater layoutInflater
-                = (LayoutInflater)getBaseContext()
-                .getSystemService(LAYOUT_INFLATER_SERVICE);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        View popupView = layoutInflater.inflate(R.layout.about, null);
-        popupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        RelativeLayout btnBack = (RelativeLayout) popupView.findViewById(R.id.goBackFromPopup);
-        View.OnClickListener closeOCL = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popupWindow.dismiss();
-                    }
-                };
-        Button btnDismiss = (Button)popupView.findViewById(R.id.btnClose);
-        ImageButton imgBtnBack = (ImageButton) popupView.findViewById(R.id.btnGoBackFromPopup);
-        imgBtnBack.setOnClickListener(closeOCL);
-        btnDismiss.setOnClickListener(closeOCL);
-        btnBack.setOnClickListener(closeOCL);
-
-        TextView curLevel = (TextView) popupWindow.getContentView().findViewById(R.id.textViewCurLevel);
-        curLevel.setText(textViewCurrentLevel.getText());
-
-        TextView curGold = (TextView) popupWindow.getContentView().findViewById(R.id.textViewGold);
-        curGold.setText(textViewGold.getText());
-
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setTouchable(true);
-        popupWindow.showAtLocation(findViewById(R.id.rootLayoutMain), 0,0,-10);
+        Log.d("animButton", "Click");
+        Intent i = new Intent (MainActivity.this, AboutUsActivity.class);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this, AboutUsActivity.class);
+                startActivity(i);
+            }
+        }, SPLASH_TIME_OUT);
     }
 
     @Override
