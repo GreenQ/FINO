@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="ga_trackingId">UA-61200838-1</string>
     <string name="base64cod">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAskYAgFXg1D61L2kYBlqRNcH0lASDbmOxv4+EntfXGoLi6LlguAQCTo518I/HeE1CuUlx9dIcEvS/HBj/Yonf3mxl8Snhd+aWgltphVnOfHKcPufdOdgi/f5vpaEOP8/Ii9SDA4nwQdFKQAcvqRe+zoRRMGtiXbM9LvQRFr6JXnzEmqMICyJnpuPpRU4XAevm/6egaHpApG27ODW39m3L+jO4q8H9UcxhQV7fIL5qs3ljIwrxYgs7PkzytRhFzOS54UEhPVAJhXfYi/FN1/km2M61EsWG6pNRyF7PQO704om6CU2RA+qzSZqEmFpvjCgbTgyGRnIrGM/F0qsF3VY3SQIDAQAB</string>
     <string name="app_name">4 картинки 1 слово</string>
     <string name="hello_world">Hello world!</string>

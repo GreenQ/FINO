@@ -33,6 +33,9 @@ import com.anjlab.android.iab.v3.TransactionDetails;
 import com.dailyappslab.fino.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.startad.lib.SADView;
 import org.w3c.dom.Text;
 
@@ -140,6 +143,23 @@ public class MainActivity extends Activity {
             // Add the adView to it
             layout.addView(this.sadView);
             sadView.loadAd(SADView.LANGUAGE_RU);
+
+            ((Application) getApplication()).getTracker(Application.TrackerName.APP_TRACKER);
+
+            //Application application = new Application(this);
+//            Tracker t = application.getTracker(Application.TrackerName.APP_TRACKER);
+//            t.setScreenName("MainActivity");
+//            t.send(new HitBuilders.AppViewBuilder().build());
+          //  Tracker t = (application.getTracker(
+            //        Application.TrackerName.APP_TRACKER));
+
+            // Set screen name.
+            // Where path is a String representing the screen name.
+            //t.setScreenName("MainActivity");
+
+            // Send a screen view.
+            //t.send(new HitBuilders.AppViewBuilder().build());
+
         }
         catch (Exception ex)
         {
@@ -154,7 +174,21 @@ public class MainActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
+
     }
+
+    @Override
+    public void onStart()
+    {
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
+
+    @Override
+    public void onStop()
+    {
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+    }
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus)
