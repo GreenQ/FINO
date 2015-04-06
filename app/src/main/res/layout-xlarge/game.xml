@@ -42,7 +42,7 @@
             <ImageView
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:background="@drawable/coin"
+                android:background="@drawable/coins"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/imageView"
@@ -109,11 +109,11 @@
                          the ZoomActivity class.
             -->
             <RelativeLayout android:layout_width="700dp" android:layout_height="700dp" android:layout_centerHorizontal="true">
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff20195d" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:background="#ff20195d" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff20195d" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:layout_y="170dp" android:background="#ff20195d" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginLeft="5dp" android:layout_marginBottom="5dp" android:id="@+id/imageView4" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageView android:id="@+id/expanded_image" android:layout_width="700dp" android:layout_height="700dp" android:visibility="invisible" android:contentDescription="@string/description_zoom_touch_close" android:layout_centerInParent="true" android:layout_x="0dp" android:layout_y="0dp" android:padding="5dp" android:background="#ff20195d"/>
+                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="4dp"/>
+                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:layout_y="170dp" android:background="#ff384653" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginLeft="5dp" android:layout_marginBottom="5dp" android:id="@+id/imageView4" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageView android:id="@+id/expanded_image" android:layout_width="700dp" android:layout_height="700dp" android:visibility="invisible" android:contentDescription="@string/description_zoom_touch_close" android:layout_centerInParent="true" android:layout_x="0dp" android:layout_y="0dp" android:padding="5dp" android:background="#ff384653"/>
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

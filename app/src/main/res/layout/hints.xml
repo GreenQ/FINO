@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="300dp"
-        android:layout_height="220dp"
+        android:layout_height="245dp"
         android:background="@drawable/bestbuy"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Магазин"
+                    android:text="Подсказки"
                     android:textSize="25sp"
                     android:textColor="#ffffff"
                     android:layout_centerHorizontal="true"
@@ -59,8 +59,8 @@
             android:id="@+id/btnOpenLetter"
             android:layout_below="@+id/relativeLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -85,16 +85,15 @@
                     android:text="50"
                     android:textColor="#ffffffff"
                     android:textSize="17sp"
-                    android:layout_alignTop="@+id/imageView6"
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/imageView6"
-                    android:layout_toStartOf="@+id/imageView6"
                     android:layout_marginRight="3dp"
                     />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/coin"
+                    android:background="@drawable/coins"
                     android:layout_marginRight="3dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
@@ -116,7 +115,7 @@
             android:layout_below="@+id/btnOpenLetter"
             android:layout_alignLeft="@+id/btnOpenLetter"
             android:layout_alignStart="@+id/btnOpenLetter"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:onClick="RemoveUnnecessaryLetters">
 
             <TextView
@@ -142,16 +141,15 @@
                     android:text="100"
                     android:textColor="#ffffffff"
                     android:textSize="17sp"
-                    android:layout_alignTop="@+id/imageView7"
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/imageView7"
-                    android:layout_toStartOf="@+id/imageView7"
                     android:layout_marginRight="3dp"
                     />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/coin"
+                    android:background="@drawable/coins"
                     android:layout_marginRight="3dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
@@ -197,16 +195,15 @@
                     android:text="200"
                     android:textColor="#ffffffff"
                     android:textSize="17sp"
-                    android:layout_alignTop="@+id/imageView8"
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/imageView8"
-                    android:layout_toStartOf="@+id/imageView8"
                     android:layout_marginRight="3dp"
                     />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/coin"
+                    android:background="@drawable/coins"
                     android:layout_marginRight="3dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"

@@ -17,7 +17,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:id="@+id/relativeLayoutGold"
-            android:onClick="ShowGameshopPopUp">
+            android:onClick="gameshopButtonClick">
 
             <ImageView
                 android:layout_width="20dp"
@@ -42,7 +42,7 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/coin"
+                android:background="@drawable/coins"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/imageView"

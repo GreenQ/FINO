@@ -3,12 +3,8 @@
 
     <item>
         <layer-list>
-            <item android:left="3dp" android:top="3dp">
-                <shape>
-                    <corners android:radius="100dp" />
-                    <solid android:color="#ffdcdcdc" />
-                </shape>
-            </item>
+
+
             <item android:bottom="0dp" android:right="0dp">
                 <shape>
                     <gradient android:angle="270"

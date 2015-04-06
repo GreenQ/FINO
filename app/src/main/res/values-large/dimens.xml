@@ -4,6 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="guess_letter_height">45dp</dimen>
     <dimen name="guess_letter_width">45dp</dimen>
-    <dimen name="actual_letter_text_size">25dp</dimen>
+
     <dimen name="eraser_margin_left">10dp</dimen>
 </resources>

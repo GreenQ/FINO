@@ -10,9 +10,10 @@
         android:alpha="0.7"></RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,10 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="А Ф Р И К А"
+            android:padding="15dp"
             android:textColor="#ffffffff"
             android:textSize="90sp"
-
+            android:background="@drawable/wor"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:id="@+id/guessWordTextView" />
@@ -53,7 +56,7 @@
             android:layout_marginRight="20dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
                 android:textColor="#ffffffff"
@@ -62,52 +65,56 @@
                 android:layout_centerHorizontal="true"
                 />
 
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relativeLayout2">
-
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25"
-                android:textColor="#FFFFFF"
-                android:textSize="100sp"
-                android:id="@+id/textView5"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"/>
+                android:layout_centerHorizontal="true"
+                android:id="@+id/relativeLayout2"
+                android:layout_below="@+id/textViewQuotation">
 
-            <ImageView
-                android:layout_width="152dp"
-                android:layout_height="100dp"
-                android:background="@drawable/coins"
-                android:id="@+id/imageView5"
-                android:layout_alignBottom="@+id/textView5"
-                android:layout_toRightOf="@+id/textView5"
-                android:layout_toEndOf="@+id/textView5"
-                android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textColor="#FFFFFF"
+                    android:textSize="100sp"
+                    android:id="@+id/textView5"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/coins"
+                    android:id="@+id/imageView5"
+                    android:layout_alignBottom="@+id/textView5"
+                    android:layout_toRightOf="@+id/textView5"
+                    android:layout_toEndOf="@+id/textView5"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+            <Button
+                android:layout_width="370dp"
+                android:layout_height="130dp"
+                android:text="Продолжить"
+                android:id="@+id/buttonClose"
+                android:textSize="40sp"
+                android:textColor="#ffffffff"
+                android:background="@drawable/next"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
 
 
 
-        <Button
-            android:layout_width="370dp"
-            android:layout_height="130dp"
-            android:text="Продолжить"
-            android:id="@+id/buttonClose"
-            android:textSize="40sp"
-            android:textColor="#ffffffff"
-            android:background="#2b394a"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/relativeLayout2"
-            android:layout_centerHorizontal="true" />
+
+
+
+
 
 
     </RelativeLayout>

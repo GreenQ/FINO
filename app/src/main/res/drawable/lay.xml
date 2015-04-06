@@ -3,12 +3,16 @@
 
     <item>
         <layer-list>
-            <item android:left="0dp" android:top="0dp">
+
+
+            <item android:bottom="0dp" android:right="0dp">
                 <shape>
-                    <corners android:radius="20dp" />
+
+
+                    <corners android:radius="100dp" />
+
                 </shape>
             </item>
-
         </layer-list>
     </item>
 
