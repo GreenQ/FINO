@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    tools:context=".MainActivity"
+    android:background="@drawable/fullfon"
+    android:id="@+id/rootLayoutMain">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/header_panel"
+        android:alpha="1.0">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/coni"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="3dp"
+            android:onClick="gameshopButtonClick">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/plus"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:alpha="0.7"
+                android:id="@+id/textViewGold"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_marginRight="5dp"
+                android:textColor="#ffffffff"
+                android:layout_toLeftOf="@+id/imageView"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/coins"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="65dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/coni"
+            android:id="@+id/cifra">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffffff"
+                android:textSize="22sp"
+                android:id="@+id/textViewCurLevel"
+                android:alpha="0.7"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/imageButtonPlay"
+        android:background="@drawable/btnanim"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="animButtonClick"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:id="@+id/button"
+        android:layout_below="@+id/imageButtonPlay"
+        android:layout_alignLeft="@+id/imageButtonPlay"
+        android:layout_alignStart="@+id/imageButtonPlay"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/istore"
+        android:onClick="gameshopButtonClick"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignRight="@+id/imageButtonPlay"
+        android:layout_alignEnd="@+id/imageButtonPlay"
+        android:layout_marginRight="10dp"
+        android:onClick="ShowAboutPopUp"
+        android:background="@drawable/infa"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admob"
+        android:layout_alignParentBottom="true">
+
+    </LinearLayout>
+
+</RelativeLayout>

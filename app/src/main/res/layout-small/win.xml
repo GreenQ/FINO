@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.7"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Отлично!"
+                android:textSize="40dp"
+                android:layout_centerHorizontal="true"
+
+                android:id="@+id/textView3"
+                android:textColor="#ffffffff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вы отгадали"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textView4" />
+
+            <TextView
+                android:background="@drawable/wor"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="А Ф Р И К А"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/textView4"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/guessWordTextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="75dp"
+                android:layout_below="@+id/textView4"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textViewQuotation"
+                android:layout_alignParentEnd="false"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_alignParentRight="false" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewQuotation"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/relativeLayout3"
+                android:padding="5dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40sp"
+                    android:layout_centerVertical="true" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/coins"
+                    android:id="@+id/imageView5"
+                    android:layout_marginLeft="50dp"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+
+
+
+            <Button
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:text="Продолжить"
+                android:id="@+id/buttonClose"
+                android:textSize="20sp"
+                android:textColor="#ffffffff"
+                android:background="@drawable/next"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/relativeLayout3"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admob"
+        android:layout_alignParentBottom="true">
+
+    </LinearLayout>
+</RelativeLayout>

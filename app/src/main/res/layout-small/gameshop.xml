@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00F8F8F8"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.5"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="345dp"
+        android:background="@drawable/bestbuy"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shadow"
+            android:id="@+id/relativeLayout">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магазин"
+                android:textSize="25sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/textView8" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="41dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m1"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:id="@+id/textView7" />
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.99 $"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" /></RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shadow2"
+            android:text="Закрыть"
+            android:id="@+id/btnClose"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_below="@+id/m5"
+            />
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="41dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m2"
+            android:layout_below="@+id/m1"
+            android:layout_alignLeft="@+id/m1"
+            android:layout_alignStart="@+id/m1"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2500 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"/>
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.99 $"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" /></RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="41dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m3"
+            android:layout_below="@+id/m2"
+            android:layout_alignLeft="@+id/m2"
+            android:layout_alignStart="@+id/m2"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"/>
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2.99 $"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" /></RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="41dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m4"
+            android:layout_below="@+id/m3"
+            android:layout_alignLeft="@+id/m3"
+            android:layout_alignStart="@+id/m3"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"/>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5.99 $"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" /></RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="230dp"
+            android:layout_height="41dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/m5"
+            android:layout_below="@+id/m4"
+            android:layout_alignLeft="@+id/m4"
+            android:layout_alignStart="@+id/m4"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25000 монет"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"/>
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9.99 $"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" /></RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

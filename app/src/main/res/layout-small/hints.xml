@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.5"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="245dp"
+        android:background="@drawable/bestbuy"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shadow"
+            android:id="@+id/relativeLayout">
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Подсказки"
+                android:textSize="25sp"
+                android:textColor="#ffffff"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/textView8" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Закрыть"
+            android:textColor="#FFFFFFFF"
+            android:id="@+id/btnClose"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shadow2"/>
+
+        <RelativeLayout
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/btnOpenLetter"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Открыть букву"
+                android:layout_marginLeft="3dp"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"/>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50"
+                    android:textColor="#ffffffff"
+                    android:textSize="17sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imageView6"
+                    android:layout_marginRight="3dp"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/coins"
+                    android:layout_marginRight="3dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/imageView6" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/btnRemoveUnnecessary"
+            android:layout_below="@+id/btnOpenLetter"
+            android:layout_alignLeft="@+id/btnOpenLetter"
+            android:layout_alignStart="@+id/btnOpenLetter"
+            android:layout_marginBottom="10dp"
+            android:onClick="RemoveUnnecessaryLetters">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Убрать лишние буквы"
+                android:layout_marginLeft="3dp"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"/>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="#ffffffff"
+                    android:textSize="17sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imageView7"
+                    android:layout_marginRight="3dp"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/coins"
+                    android:layout_marginRight="3dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/imageView7" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btncon"
+            android:id="@+id/btnOpenWord"
+            android:layout_below="@+id/btnRemoveUnnecessary"
+            android:layout_alignLeft="@+id/btnRemoveUnnecessary"
+            android:layout_alignStart="@+id/btnRemoveUnnecessary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Отгадать слово"
+                android:layout_marginLeft="3dp"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                android:layout_centerVertical="true"/>
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/baks"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="#ffffffff"
+                    android:textSize="17sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imageView8"
+                    android:layout_marginRight="3dp"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/coins"
+                    android:layout_marginRight="3dp"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/imageView8" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
