@@ -162,6 +162,8 @@ public class GameActivity extends Activity {
 //
 
             adView.loadAd(adRequest);
+
+            ShowRateUs();
         }
         catch (Exception ex)
         {
@@ -261,9 +263,13 @@ public class GameActivity extends Activity {
     private void printQuotation(PopupWindow popupWindow)
     {//return imageView.getResources().getIdentifier("w" + storedPreferences.GetCurrentLevel() + "_" + String.valueOf(btnNum), "drawable", this.getPackageName());
 
-        TextView quotation = (TextView) popupWindow.getContentView().findViewById(R.id.textViewQuotation);
-        String quote = getResources().getString(getResources().getIdentifier("q" + storedPreferences.GetCurrentLevel(), "string", this.getPackageName()));
-        quotation.setText(quote);
+        try {
+            TextView quotation = (TextView) popupWindow.getContentView().findViewById(R.id.textViewQuotation);
+            String quote = getResources().getString(getResources().getIdentifier("q" + storedPreferences.GetCurrentLevel(), "string", this.getPackageName()));
+            quotation.setText(quote);
+        }
+        catch(Exception exception)
+        {}
     }
     private void printGuessedWord(PopupWindow popupWindow)
     {
@@ -387,6 +393,21 @@ public class GameActivity extends Activity {
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
 
+    public void ShowRateUs()
+    {
+        boolean s = storedPreferences.AskForRate();
+        if(storedPreferences.AskForRate()) {
+            //Log.d("animButton", "Click");
+            Intent i = new Intent(GameActivity.this, RateUsActivity.class);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(GameActivity.this, RateUsActivity.class);
+                    startActivity(i);
+                }
+            }, 1000*60*5);
+        }
+    }
     public void ShowGameshopPopUp(View view)
     {
         Log.d("animButton", "Click");
@@ -655,20 +676,34 @@ public class GameActivity extends Activity {
 
     public void NextLevelClick(View view)
     {
-        randLettersSet = null;
-        word = null;
-        storedLetters = null;
-        letters = null;
-        buttonLetterCounter = 0;
-        occupiedContainerCounter = 0;
+        try {
+            randLettersSet = null;
+            word = null;
+            storedLetters = null;
+            letters = null;
+            buttonLetterCounter = 0;
+            occupiedContainerCounter = 0;
 
-        storedPreferences.EditLevel(storedPreferences.GetCurrentLevel() + 1);
-        SetImagesByLevel(storedPreferences.GetCurrentLevel());
-        textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
-        CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
-        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()+25);
-        textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
-        DrawLevel();
+            storedPreferences.EditLevel(storedPreferences.GetCurrentLevel() + 1);
+            SetImagesByLevel(storedPreferences.GetCurrentLevel());
+            textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
+            CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
+            storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount() + 25);
+            textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
+            DrawLevel();
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occured" + ex.getMessage());
+            dlgAlert.setTitle("Error occured");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
     }
 
     public void NextLevel()

@@ -2,8 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="guess_letter_height">30dp</dimen>
-    <dimen name="guess_letter_width">30dp</dimen>
+    <dimen name="guess_letter_height">29dp</dimen>
+    <dimen name="guess_letter_width">29dp</dimen>
     <dimen name="actual_letter_text_size">15dp</dimen>
     <dimen name="eraser_margin_left">5dp</dimen>
 </resources>

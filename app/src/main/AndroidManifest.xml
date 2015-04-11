@@ -71,6 +71,10 @@
             android:theme="@style/Theme.AppCompat.Dialog"
             android:screenOrientation="portrait"></activity>
 
+        <activity android:name="com.dailyappslab.fino.RateUsActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:screenOrientation="portrait"></activity>
+
         <activity android:name="com.dailyappslab.fino.AboutUsActivity"
             android:screenOrientation="portrait"></activity>
 

@@ -17,10 +17,12 @@ public class StoredPreferences extends Activity {
     String Lvl = "LVL";
     String LastVisitDate = "LAST_VISIT_DATE";
     String SequencialVisitsAmount = "SEQUENCIAL_VISIT_AMOUNT";
+    String AskForRate = "ASK_RATE";
     long DefaultLastVisitDate;
     int DefaultLevel;
     int DefaultGold;
     int DefaultSeqVisAm;
+    boolean DefaultRateAsk;
 
     StoredPreferences(Context context, int DefaultLevel, int DefaultGold)
     {
@@ -46,7 +48,7 @@ public class StoredPreferences extends Activity {
     }
     private boolean CheckLevelRange(int i)
     {
-        if(i > 0 && i <9)
+        if(i > 0 && i <201)
             return true;
         else
             return false;
@@ -65,6 +67,12 @@ public class StoredPreferences extends Activity {
         String[] openedLetters = preferencesOpenedLetters.getStringSet(preferencesOpenedLetters, openedLetters)
 
     }*/
+
+    public boolean AskForRate()
+    {
+        boolean temp = preferences.getBoolean(AskForRate, true);
+        return temp;
+    }
 
     public int GetSequencialVisitsAmount()
     {
@@ -103,6 +111,13 @@ public class StoredPreferences extends Activity {
     {
         SharedPreferences.Editor editor = preferencesOpenedLetters.edit();
 
+    }
+
+    public void EditAskForRate()
+    {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(AskForRate, false);
+        editor.commit();
     }
 
     public void EditSeqvencialVisitAmount(int seqVisAm)

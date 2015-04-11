@@ -144,7 +144,7 @@ public class MainActivity extends Activity {
             layout.addView(this.sadView);
             sadView.loadAd(SADView.LANGUAGE_RU);
 
-            ((Application) getApplication()).getTracker(Application.TrackerName.APP_TRACKER);
+            //((Application) getApplication()).getTracker(Application.TrackerName.APP_TRACKER);
 
             //Application application = new Application(this);
 //            Tracker t = application.getTracker(Application.TrackerName.APP_TRACKER);
@@ -177,17 +177,17 @@ public class MainActivity extends Activity {
 
     }
 
-    @Override
-    public void onStart()
-    {
-        GoogleAnalytics.getInstance(this).reportActivityStart(this);
-    }
-
-    @Override
-    public void onStop()
-    {
-        GoogleAnalytics.getInstance(this).reportActivityStop(this);
-    }
+//    @Override
+//    public void onStart()
+//    {
+//        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+//    }
+//
+//    @Override
+//    public void onStop()
+//    {
+//        GoogleAnalytics.getInstance(this).reportActivityStop(this);
+//    }
 
 
     @Override
