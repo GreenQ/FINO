@@ -152,6 +152,7 @@ public class GameActivity extends Activity {
         image3.setOnClickListener(CentralImagesOCL);
         image4.setOnClickListener(CentralImagesOCL);
 
+        //storedPreferences.EditLevel(199);
         DrawLevel();
         AdView adView = (AdView)this.findViewById(R.id.adView);
         try
@@ -208,6 +209,8 @@ public class GameActivity extends Activity {
 
     private void ShowWinPopUp()
     {
+
+
         LayoutInflater layoutInflater
                 = (LayoutInflater)getBaseContext()
                 .getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -234,7 +237,8 @@ public class GameActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+                if(storedPreferences.GetCurrentLevel() == 200)
+                    storedPreferences.EditFirstPackCompletness();
                 NextLevelClick(null);
                 popupWindowWin.dismiss();
             }});
@@ -688,7 +692,8 @@ public class GameActivity extends Activity {
             SetImagesByLevel(storedPreferences.GetCurrentLevel());
             textViewCurrentLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
             CreateGuessWordContainers(storedPreferences.GetCurrentLevel());
-            storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount() + 25);
+            if(!storedPreferences.IsFirstPackFinished())
+                storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount() + 15);
             textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
             DrawLevel();
         }

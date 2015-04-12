@@ -18,6 +18,7 @@ public class StoredPreferences extends Activity {
     String LastVisitDate = "LAST_VISIT_DATE";
     String SequencialVisitsAmount = "SEQUENCIAL_VISIT_AMOUNT";
     String AskForRate = "ASK_RATE";
+    String IsFirstPackFinished = "FIRST_PACK_DONE";
     long DefaultLastVisitDate;
     int DefaultLevel;
     int DefaultGold;
@@ -68,6 +69,12 @@ public class StoredPreferences extends Activity {
 
     }*/
 
+    public boolean IsFirstPackFinished()
+    {
+        boolean temp = preferences.getBoolean(IsFirstPackFinished, false);
+        return temp;
+    }
+
     public boolean AskForRate()
     {
         boolean temp = preferences.getBoolean(AskForRate, true);
@@ -117,6 +124,13 @@ public class StoredPreferences extends Activity {
     {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(AskForRate, false);
+        editor.commit();
+    }
+
+    public void EditFirstPackCompletness()
+    {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(IsFirstPackFinished, true);
         editor.commit();
     }
 
