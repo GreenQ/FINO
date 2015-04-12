@@ -353,7 +353,7 @@ public class GameActivity extends Activity {
         OnClickListener removeUnnecessaryOCL = new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isEnoughGold(200)) {
+                if(isEnoughGold(100)) {
                     RemoveUnnecessaryLetters(null);
                     popupWindow.dismiss();
                 }
