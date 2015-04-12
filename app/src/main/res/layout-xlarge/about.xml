@@ -114,17 +114,7 @@
         android:layout_height="wrap_content"
         android:textSize="42sp"
         android:textColor="#ffaeabad"
-        android:text="Страница о себе... Но что же вам сказать о нас? Врятли вы нажмете на кнопку о нас, а тем более прочитаете эту бесполезную информацию, но все же мы решили написать всякую лабуду о себе, типо какие мы классные девелоперы и обезательно оставим свое мыло для того что бы вы якобы писали туда свои жалобы и предложения, но вы настолько ленивые юзеры что даже не поплагодарите разрабов за бесплатную игру своим положительным коментом в гуглплее. Всем спасибо за внимание!"/>
+        android:text=""/>
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:background="#ff2b394a"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:text="Закрыть этот экран навсегда"
-        android:textSize="28sp"
-        android:textColor="#ffffff"
-        android:id="@+id/btnClose"
-        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

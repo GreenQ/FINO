@@ -116,15 +116,5 @@
         android:textColor="#ffaeabad"
         android:text=""/>
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:background="#ff2b394a"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:text="Закрыть этот экран навсегда"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:id="@+id/btnClose"
-        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

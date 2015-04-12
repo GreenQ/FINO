@@ -59,7 +59,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="А в Африке капец как жарко - что дохнут мухи и слоны"
+                android:text="_"
                 android:textColor="#ffffffff"
                 android:textSize="35sp"
 
@@ -77,7 +77,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="25"
+                    android:text="15"
                     android:textColor="#FFFFFF"
                     android:textSize="70sp"
                     android:id="@+id/textView5"
