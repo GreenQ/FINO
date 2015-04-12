@@ -27,7 +27,8 @@
                 android:layout_centerHorizontal="true"
 
                 android:id="@+id/textView3"
-                android:textColor="#ffffffff"/>
+                android:textColor="#ffffffff"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,7 +67,8 @@
                 android:id="@+id/textViewQuotation"
                 android:layout_alignParentEnd="false"
                 android:layout_alignWithParentIfMissing="false"
-                android:layout_alignParentRight="false" />
+                android:layout_alignParentRight="false"
+                android:textStyle="italic" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
