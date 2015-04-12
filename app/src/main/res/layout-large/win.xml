@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="_"
                 android:textColor="#ffffffff"
-                android:textSize="35sp"
+                android:textSize="30sp"
 
                 android:id="@+id/textViewQuotation"
                 android:layout_centerHorizontal="true"
