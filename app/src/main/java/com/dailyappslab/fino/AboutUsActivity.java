@@ -39,11 +39,11 @@ public class AboutUsActivity extends Activity {
             }
         };
         StoredPreferences storedPreferences = new StoredPreferences(this, 0, 0);
-        Button btnDismiss = (Button) findViewById(R.id.btnClose);
+        //Button btnDismiss = (Button) findViewById(R.id.btnClose);
         ImageButton imgBtnBack = (ImageButton)  findViewById(R.id.btnGoBackFromPopup);
         imgBtnBack.setOnClickListener(closeOCL);
-        btnDismiss.setOnClickListener(closeOCL);
-        btnBack.setOnClickListener(closeOCL);
+        //btnDismiss.setOnClickListener(closeOCL);
+        //btnBack.setOnClickListener(closeOCL);
 
         TextView curLevel = (TextView) findViewById(R.id.textViewCurLevel);
         curLevel.setText(String.valueOf(storedPreferences.GetCurrentLevel()));
