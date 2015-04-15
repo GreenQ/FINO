@@ -487,7 +487,7 @@ public class GameActivity extends Activity {
                tempActualButton.setVisibility(View.INVISIBLE);
             }
         }
-        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()-150);
+        storedPreferences.EditGoldAmount(storedPreferences.GetGoldAmount()-100);
         DefaultGold = storedPreferences.GetGoldAmount();
         textViewGold.setText(String.valueOf(storedPreferences.GetGoldAmount()));
     }
