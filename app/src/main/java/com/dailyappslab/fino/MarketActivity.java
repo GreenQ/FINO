@@ -46,67 +46,56 @@ public class MarketActivity extends Activity {
         btn25000 = ( RelativeLayout ) findViewById( R.id.m5 );
         btnClose = (Button) findViewById(R.id.btnClose);
 
-
-        if( btn25000 != null )
-        {
-            btn25000.setOnClickListener( new View.OnClickListener() {
+        btn25000.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickPrised(25000, "4p1wruc25000" );
                 }
             });
-        }
 
-        if( btn10000 != null )
-        {
-            btn10000.setOnClickListener( new View.OnClickListener() {
+        btn10000.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickPrised(10000, "4p1wruc10000"  );
                 }
             });
-        }
 
-        if( btn5000 != null )
-        {
-            btn5000.setOnClickListener( new View.OnClickListener() {
+        btn5000.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickPrised(5000, "4p1wruc5000" );
                 }
             });
-        }
 
-        if( btn2500 != null )
-        {
-            btn2500.setOnClickListener( new View.OnClickListener() {
+        btn2500.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickPrised(2500, "4p1wruc2500" );
                 }
 
             });
-        }
 
-        if( btn1000 != null )
-        {
-            btn1000.setOnClickListener( new View.OnClickListener() {
+        btn1000.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickPrised(1000 , "4p1wruc1000" );
                 }
             });
-        }
 
-        if( btnClose != null )
-        {
-            btnClose.setOnClickListener( clickListener );
-        }
+        btnClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ( bps != null)
+                        bps.release();
+                    finish();
+                }
+            });
+
 
         bps = new BillingProcessor( this ,  getResources().getString( R.string.base64cod), new BillingProcessor.IBillingHandler() {
             @Override
             public void onProductPurchased(String productId, TransactionDetails details) {
-//                showToast("onProductPurchased: " + productId);
+
             }
             @Override
             public void onBillingError(int errorCode, Throwable error) {
@@ -128,10 +117,8 @@ public class MarketActivity extends Activity {
         bps.loadOwnedPurchasesFromGoogle();
         if(  bps.isPurchased( currentPriseTag ) )
         {
-            //Application.getInstance().sendGAnalitics( "prise " + currentPriseTag  );
             bps.consumePurchase(currentPriseTag);
             storedPreferences.EditGoldAmount(currentPrise);
-            //Application.getInstance().getUserAccount().setUserPoint( currentPrise );
             currentPriseTag = "";
             currentPrise = 0;
         }
@@ -155,7 +142,6 @@ public class MarketActivity extends Activity {
 
     private void clickPrised(int integer , String id )
     {
-
         currentPrise = integer;
         currentPriseTag = id;
         if (!readyToPurchase) {
@@ -163,13 +149,6 @@ public class MarketActivity extends Activity {
             return;
         }
         bps.purchase( currentPriseTag );
-//        bps.purchase("android.test.purchased");
-
-//        bps.getPurchaseTransactionDetails("coins_100");
-//        bps.release();
-//        Application.getInstance().getUserAccount().setUserPoint( integer );
-//        Intent intent = new Intent();
-//        setResult( Activity.RESULT_OK, intent );
 //        finish();
     }
 
@@ -186,18 +165,4 @@ public class MarketActivity extends Activity {
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();
     }
-
-    View.OnClickListener clickListener = new View.OnClickListener()
-    {
-        @Override
-        public void onClick(View view)
-        {
-            Intent intent = new Intent();
-            intent.putExtra("test" , "test2");
-            setResult( Activity.RESULT_OK, intent );
-            if ( bps != null)
-                bps.release();
-            finish();
-        }
-    };
 }

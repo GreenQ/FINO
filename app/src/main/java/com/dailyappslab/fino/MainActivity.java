@@ -145,12 +145,13 @@ public class MainActivity extends Activity {
             sadView.loadAd(SADView.LANGUAGE_RU);
 
             //((Application) getApplication()).getTracker(Application.TrackerName.APP_TRACKER);
+           // ((AppTracker) getApplication()).getTracker(AppTracker.TrackerName.APP_TRACKER);
 
-            //Application application = new Application(this);
-//            Tracker t = application.getTracker(Application.TrackerName.APP_TRACKER);
+//            Application application = new Application();
+//            Tracker t =  application.getTracker(Application.TrackerName.APP_TRACKER);
 //            t.setScreenName("MainActivity");
 //            t.send(new HitBuilders.AppViewBuilder().build());
-          //  Tracker t = (application.getTracker(
+            //Tracker t = (application.getTracker(
             //        Application.TrackerName.APP_TRACKER));
 
             // Set screen name.
@@ -180,14 +181,44 @@ public class MainActivity extends Activity {
 //    @Override
 //    public void onStart()
 //    {
-//        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+//        try {
+//            GoogleAnalytics.getInstance(this).reportActivityStart(this);
+//        }
+//        catch (Exception ex)
+//        {
+//            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+//            dlgAlert.setMessage("Error occured" + ex.getMessage());
+//            dlgAlert.setTitle("Error occured");
+//            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                    //dismiss the dialog
+//                }
+//            });
+//            dlgAlert.setCancelable(true);
+//            dlgAlert.create().show();
+//        }
 //    }
 //
 //    @Override
 //    public void onStop()
 //    {
+//        try{
 //        GoogleAnalytics.getInstance(this).reportActivityStop(this);
 //    }
+//    catch (Exception ex)
+//    {
+//        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+//        dlgAlert.setMessage("Error occured" + ex.getMessage());
+//        dlgAlert.setTitle("Error occured");
+//        dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                //dismiss the dialog
+//            }
+//        });
+//        dlgAlert.setCancelable(true);
+//        dlgAlert.create().show();
+//    }
+//}
 
 
     @Override
