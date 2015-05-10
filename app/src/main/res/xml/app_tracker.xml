@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyDashes">
 
-    <string name="ga_trackingId">UA-61200838-1</string>
+    <string name="ga_trackingId">UA-61200838-2</string>
     <bool name="ga_autoActivityTracking">true</bool>
-    <screenName name="com.dailyappslab.fino.MainActivity">
-        MainActivity
-    </screenName>
-    <screenName name="com.dailyappslab.fino.GameActivity">
-        GameActivity
-    </screenName>
+
+    <!-- The screen names that will appear in reports -->
+    <string name="com.dailyappslab.fino.MainActivity">Main Activity</string>
 </resources>

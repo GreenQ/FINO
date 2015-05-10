@@ -38,14 +38,30 @@ public class Application extends android.app.Application {
     }
 
     synchronized Tracker getTracker(TrackerName trackerId) {
-        if (!mTrackers.containsKey(trackerId)) {
+        try {
+            if (!mTrackers.containsKey(trackerId)) {
 
-            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-            Tracker t = (trackerId == TrackerName.APP_TRACKER) ? analytics.newTracker(R.xml.app_tracker)
-                    : (trackerId == TrackerName.GLOBAL_TRACKER) ? analytics.newTracker(PROPERTY_ID)
-                    : analytics.newTracker(R.xml.ecommerce_tracker);
-            mTrackers.put(trackerId, t);
+                GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+                Tracker t = (trackerId == TrackerName.APP_TRACKER) ? analytics.newTracker(R.xml.app_tracker)
+                        : (trackerId == TrackerName.GLOBAL_TRACKER) ? analytics.newTracker(PROPERTY_ID)
+                        : analytics.newTracker(R.xml.ecommerce_tracker);
+                mTrackers.put(trackerId, t);
 
+            }
+            return mTrackers.get(trackerId);
+        }
+        catch (Exception ex)
+        {
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Error occured" + ex.getMessage());
+            dlgAlert.setTitle("Error occured");
+            dlgAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //dismiss the dialog
+                }
+            });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
         }
         return mTrackers.get(trackerId);
     }

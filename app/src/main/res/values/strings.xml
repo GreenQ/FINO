@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="ga_trackingId">UA-61200838-1</string>
+    <string name="ga_trackingId">UA-61200838-2</string>
     <string name="base64cod">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAskYAgFXg1D61L2kYBlqRNcH0lASDbmOxv4+EntfXGoLi6LlguAQCTo518I/HeE1CuUlx9dIcEvS/HBj/Yonf3mxl8Snhd+aWgltphVnOfHKcPufdOdgi/f5vpaEOP8/Ii9SDA4nwQdFKQAcvqRe+zoRRMGtiXbM9LvQRFr6JXnzEmqMICyJnpuPpRU4XAevm/6egaHpApG27ODW39m3L+jO4q8H9UcxhQV7fIL5qs3ljIwrxYgs7PkzytRhFzOS54UEhPVAJhXfYi/FN1/km2M61EsWG6pNRyF7PQO704om6CU2RA+qzSZqEmFpvjCgbTgyGRnIrGM/F0qsF3VY3SQIDAQAB</string>
     <string name="app_name">4 картинки 1 слово</string>
     <string name="hello_world">Hello world!</string>
@@ -87,7 +87,7 @@
     <string name="w79" id="79">СЫРОЙ</string>
     <string name="w80" id="80">ТКАНЬ</string>
     <string name="w81" id="81">ЧУЧЕЛО</string>
-    <string name="w82" id="82">ПРОЗРАЧНОСТЬ</string>
+    <string name="w82" id="82">ПРОЗРАЧНЫЙ</string>
     <string name="w83" id="83">АЛЮМИНИЙ</string>
     <string name="w84" id="84">ИГРАТЬ</string>
     <string name="w85" id="85">НАСЕКОМОЕ</string>
@@ -169,7 +169,7 @@
     <string name="w161" id="161">ЛОШАДЬ</string>
     <string name="w162" id="162">ПАРАД</string>
     <string name="w163" id="163">КОЛЛАЖ</string>
-    <string name="w164" id="164">ВОЛНЫ</string>
+    <string name="w164" id="164">СВЕЧА</string>
     <string name="w165" id="165">СКУКА</string>
     <string name="w166" id="166">ВЕСЁЛЫЙ</string>
     <string name="w167" id="167">КЛЯТВА</string>
@@ -206,6 +206,56 @@
     <string name="w198" id="198">АЭРОПОРТ</string>
     <string name="w199" id="199">ВОДИТЕЛЬ</string>
     <string name="w200" id="200">ОТТЕПЕЛЬ</string>
+    <string name="w201" id="200">КОРИЧНЕВЫЙ</string>
+    <string name="w202" >СВИСТОК</string>
+    <string name="w203" >ЛИДЕР</string>
+    <string name="w204"  >КАРТОН</string>
+    <string name="w205"  >ГРАНИЦА</string>
+    <string name="w206"  >ПОЖАРНЫЙ</string>
+    <string name="w207"  >ОЗЕРО</string>
+    <string name="w208"  >ОДИНАКОВЫЕ</string>
+    <string name="w209"  >СТОЛ</string>
+    <string name="w210"  >РЕСУРСЫ</string>
+    <string name="w211"  >НЕГАТИВ</string>
+    <string name="w212"  >ИГРУШКА</string>
+    <string name="w213"  >СБОРКА</string>
+    <string name="w214"  >ВНУТРЕННИЙ</string>
+    <string name="w215"  >МАТЕМАТИКА</string>
+    <string name="w216"  >БИРЮЗОВЫЙ</string>
+    <string name="w217"  >ШВЕЙЦАРИЯ</string>
+    <string name="w218"  >ДОСТУП</string>
+    <string name="w219"  >УВЛЕЧЕНИЕ</string>
+    <string name="w220"  >ИЗГИБ</string>
+    <string name="w221"  >СУВЕНИР</string>
+    <string name="w222"  >РЕСТОРАН</string>
+    <string name="w223"  >ЗАЛ</string>
+    <string name="w224"  >ДИКИЙ</string>
+    <string name="w225"  >ГЕОМЕТРИЯ</string>
+    <string name="w226"  >НАДЁЖНОСТЬ</string>
+    <string name="w227"  >ПОЧТА</string>
+    <string name="w228"  >ЖАРЕНЫЙ</string>
+    <string name="w229"  >ПЛЕТЕНИЕ</string>
+    <string name="w230"  >ПРОФИЛЬ</string>
+    <string name="w231"  >ЖОКЕЙ</string>
+    <string name="w232"  >ДУБАИ</string>
+    <string name="w233"  >ЗАКЛАДКА</string>
+    <string name="w234"  >ПОЛОВИНА</string>
+    <string name="w235"  >НАЧИНКА</string>
+    <string name="w236"  >ТРЮК</string>
+    <string name="w237"  >ВИЛКА</string>
+    <string name="w238"  >ПУЗЫРИ</string>
+    <string name="w239"  >КЛЕТКА</string>
+    <string name="w240"  >ЧИП</string>
+    <string name="w241"  >ДЖУНГЛИ</string>
+    <string name="w242"  >ОСТРЫЙ</string>
+    <string name="w243"  >КАРТОФЕЛЬ</string>
+    <string name="w244"  >ЗАЩИТА</string>
+    <string name="w245"  >КОМНАТА</string>
+    <string name="w246"  >ЗВЕЗДА</string>
+    <string name="w247"  >ЗЕРНО</string>
+    <string name="w248"  >ПРОХЛАДНЫЙ</string>
+    <string name="w249"  >ЙОГУРТ</string>
+    <string name="w250"  >КОЛА</string>
 
 
     <string name="currentLevel">1</string>
