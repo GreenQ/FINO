@@ -18,7 +18,7 @@ public class StoredPreferences extends Activity {
     String LastVisitDate = "LAST_VISIT_DATE";
     String SequencialVisitsAmount = "SEQUENCIAL_VISIT_AMOUNT";
     String AskForRate = "ASK_RATE";
-    String IsFirstPackFinished = "FIRST_PACK_DONE";
+    String IsFirstPackFinished = "SECOND_PACK_DONE";
     long DefaultLastVisitDate;
     int DefaultLevel;
     int DefaultGold;
@@ -49,7 +49,7 @@ public class StoredPreferences extends Activity {
     }
     private boolean CheckLevelRange(int i)
     {
-        if(i > 0 && i <201)
+        if(i > 0 && i <251)
             return true;
         else
             return false;

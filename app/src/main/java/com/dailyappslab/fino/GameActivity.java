@@ -237,7 +237,7 @@ public class GameActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                if(storedPreferences.GetCurrentLevel() == 200)
+                if(storedPreferences.GetCurrentLevel() == 250)
                     storedPreferences.EditFirstPackCompletness();
                 NextLevelClick(null);
                 popupWindowWin.dismiss();
