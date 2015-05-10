@@ -101,24 +101,24 @@
 
     </RelativeLayout>
 
-    <RelativeLayout android:id="@+id/container" android:layout_width="match_parent" android:layout_height="710dp" android:layout_marginTop="75dp">
+    <RelativeLayout android:id="@+id/container" android:layout_width="match_parent" android:layout_height="680dp" android:layout_marginTop="75dp">
         <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="10dp" android:gravity="center">
             <!--
              This is an example layout containing thumbnail image buttons that, when pressed,
                          zoom in to show more detail. All of the zooming and animation logic is in
                          the ZoomActivity class.
             -->
-            <RelativeLayout android:layout_width="700dp" android:layout_height="700dp" android:layout_centerHorizontal="true">
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageButton android:layout_width="340dp" android:layout_height="340dp" android:layout_x="170dp" android:layout_y="170dp" android:background="#ff384653" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginLeft="5dp" android:layout_marginBottom="5dp" android:id="@+id/imageView4" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
-                <ImageView android:id="@+id/expanded_image" android:layout_width="700dp" android:layout_height="700dp" android:visibility="invisible" android:contentDescription="@string/description_zoom_touch_close" android:layout_centerInParent="true" android:layout_x="0dp" android:layout_y="0dp" android:padding="5dp" android:background="#ff384653"/>
+            <RelativeLayout android:layout_width="660dp" android:layout_height="660dp" android:layout_centerHorizontal="true">
+                <ImageButton android:layout_width="320dp" android:layout_height="320dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="4dp"/>
+                <ImageButton android:layout_width="320dp" android:layout_height="320dp" android:layout_x="170dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageButton android:layout_width="320dp" android:layout_height="320dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageButton android:layout_width="320dp" android:layout_height="320dp" android:layout_x="170dp" android:layout_y="170dp" android:background="#ff384653" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_marginLeft="5dp" android:layout_marginBottom="5dp" android:id="@+id/imageView4" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="4dp"/>
+                <ImageView android:id="@+id/expanded_image" android:layout_width="660dp" android:layout_height="660dp" android:visibility="invisible" android:contentDescription="@string/description_zoom_touch_close" android:layout_centerInParent="true" android:layout_x="0dp" android:layout_y="0dp" android:padding="5dp" android:background="#ff384653"/>
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
     <LinearLayout
-        android:layout_marginTop="795dp"
+        android:layout_marginTop="765dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
@@ -133,7 +133,7 @@
 
 
     <RelativeLayout
-        android:layout_marginTop="855dp"
+        android:layout_marginTop="820dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
@@ -148,7 +148,7 @@
             android:layout_alignParentStart="true"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
-            android:onClick="onClick"/>
+            android:onClick="onClickActualLetter"/>
 
         <Button
             android:layout_width="90dp"
@@ -159,7 +159,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/buttonLetter0"
             android:layout_toEndOf="@+id/buttonLetter0"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -170,7 +170,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/buttonLetter1"
             android:layout_toEndOf="@+id/buttonLetter1"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -181,7 +181,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/buttonLetter2"
             android:layout_toEndOf="@+id/buttonLetter2"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -192,7 +192,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/buttonLetter3"
             android:layout_toEndOf="@+id/buttonLetter3"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -204,7 +204,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/buttonLetter4"
             android:layout_toEndOf="@+id/buttonLetter4"
-            android:onClick="onClick"
+            android:onClick="onClickActualLetter"
             />
 
         <Button
@@ -229,7 +229,7 @@
             android:layout_toLeftOf="@+id/buttonLetter1"
             android:layout_toStartOf="@+id/buttonLetter1"
             android:layout_marginTop="100dp"
-            android:onClick="onClick"/>
+            android:onClick="onClickActualLetter"/>
 
         <Button
             android:layout_width="90dp"
@@ -240,7 +240,7 @@
             android:layout_alignTop="@+id/buttonLetter6"
             android:layout_toLeftOf="@+id/buttonLetter2"
             android:layout_toStartOf="@+id/buttonLetter2"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -251,7 +251,7 @@
             android:layout_alignTop="@+id/buttonLetter7"
             android:layout_toLeftOf="@+id/buttonLetter3"
             android:layout_toStartOf="@+id/buttonLetter3"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -262,7 +262,7 @@
             android:layout_alignTop="@+id/buttonLetter8"
             android:layout_toLeftOf="@+id/buttonLetter4"
             android:layout_toStartOf="@+id/buttonLetter4"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -273,7 +273,7 @@
             android:layout_alignTop="@+id/buttonLetter9"
             android:layout_alignLeft="@+id/buttonLetter4"
             android:layout_alignStart="@+id/buttonLetter4"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -284,7 +284,7 @@
             android:layout_alignTop="@+id/buttonLetter10"
             android:layout_toLeftOf="@+id/imageButton8"
             android:layout_toStartOf="@+id/imageButton8"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
         <Button
             android:layout_width="90dp"
@@ -295,7 +295,7 @@
             android:layout_alignTop="@+id/buttonLetter11"
             android:layout_alignLeft="@+id/imageButton8"
             android:layout_alignStart="@+id/imageButton8"
-            android:onClick="onClick" />
+            android:onClick="onClickActualLetter" />
 
     </RelativeLayout>
 
