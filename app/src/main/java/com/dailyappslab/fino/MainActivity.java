@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
 
           //  adView.loadAd(adRequest);
 
-            sadView = new SADView(this, "5521303021b94d2b00000000");
+            sadView = new SADView(this, getResources().getString(R.string.sadViewMiniBanner));
             LinearLayout layout = (LinearLayout)findViewById(R.id.admob);
 
             // Add the adView to it

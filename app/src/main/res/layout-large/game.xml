@@ -324,7 +324,7 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adUnitId="ca-app-pub-3376890691318599/3908610460"
+        ads:adUnitId="@string/admobMiniBannerId"
         ads:adSize="SMART_BANNER"/>
 
     </LinearLayout>
