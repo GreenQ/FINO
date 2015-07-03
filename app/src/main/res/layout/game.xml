@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="25dp"
         android:id="@+id/header_panel">
 
         <RelativeLayout
@@ -20,13 +20,13 @@
             android:id="@+id/relativeLayoutGold"
             android:onClick="ShowGameshopPopUp">
 
-<ImageView
-    android:layout_width="15dp"
-    android:layout_height="15dp"
-    android:background="@drawable/plus"
-    android:layout_alignParentLeft="true"
-    android:layout_centerVertical="true"
-    android:layout_marginLeft="5dp"/>
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:background="@drawable/plus"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,43 +35,43 @@
                 android:alpha="0.7"
                 android:id="@+id/textViewGold"
                 android:layout_centerVertical="true"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:layout_marginRight="5dp"
                 android:textColor="#ffffffff"
                 android:layout_toLeftOf="@+id/imageView"/>
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:background="@drawable/coins"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/imageView"
                 android:layout_marginRight="5dp"/>
 
-            </RelativeLayout>
+        </RelativeLayout>
 
-<RelativeLayout
-    android:layout_width="60dp"
-    android:layout_height="30dp"
-    android:layout_centerVertical="true"
-    android:background="@drawable/coni"
-    android:layout_marginLeft="3dp"
-    android:id="@+id/goBack"
-    android:onClick="goBack">
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/coni"
+            android:layout_marginLeft="3dp"
+            android:id="@+id/goBack"
+            android:onClick="goBack">
 
-    <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="12dp"
-        android:id="@+id/imageButton3"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:alpha="0.7"
-        android:background="@drawable/arr"
-        android:onClick="goBack"/>
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="12dp"
+                android:id="@+id/imageButton3"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:alpha="0.7"
+                android:background="@drawable/arr"
+                android:onClick="goBack"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
 
 
 
@@ -84,15 +84,15 @@
             android:id="@+id/cifra">
 
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textColor="#ffffffff"
-            android:textSize="22sp"
-            android:id="@+id/textViewCurLevel"
-            android:alpha="0.7"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                android:id="@+id/textViewCurLevel"
+                android:alpha="0.7"/>
 
         </RelativeLayout>
 
@@ -103,22 +103,22 @@
 
     </RelativeLayout>
 
-    <RelativeLayout android:id="@+id/container" android:layout_width="match_parent" android:layout_height="350dp" android:layout_marginTop="40dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="10dp" android:gravity="center" android:layout_marginTop="10dp">
+    <RelativeLayout android:id="@+id/container" android:layout_width="match_parent" android:layout_height="300dp" android:layout_below="@+id/header_panel" android:layout_marginTop="10dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"  android:gravity="center" >
             <!--
              This is an example layout containing thumbnail image buttons that, when pressed,
                          zoom in to show more detail. All of the zooming and animation logic is in
                          the ZoomActivity class.
             -->
-            <AbsoluteLayout android:layout_width="330dp" android:layout_height="330dp" android:layout_centerHorizontal="true">
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="2dp"/>
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="170dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
-                <ImageButton android:layout_width="160dp" android:layout_height="160dp" android:layout_x="0dp" android:layout_y="170dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
+            <RelativeLayout android:layout_width="285dp" android:layout_height="285dp" android:layout_centerHorizontal="true">
+                <ImageButton android:layout_width="140dp" android:layout_height="140dp" android:layout_x="0dp" android:layout_y="0dp" android:background="#ff384653" android:layout_marginBottom="5dp" android:id="@+id/imageView1" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:padding="2dp"/>
+                <ImageButton android:layout_width="140dp" android:layout_height="140dp" android:layout_x="135dp" android:background="#ff384653" android:adjustViewBounds="false" android:baselineAlignBottom="false" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginLeft="5dp" android:id="@+id/imageView2" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
+                <ImageButton android:layout_width="140dp" android:layout_height="140dp" android:layout_x="0dp" android:layout_y="137dp" android:background="#ff384653" android:clickable="false" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/imageView3" android:layout_marginRight="1dp" android:scaleType="centerCrop" android:padding="2dp"/>
                 <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_x="170dp"
-                    android:layout_y="170dp"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_x="135dp"
+                    android:layout_y="135dp"
                     android:background="#ff384653"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
@@ -137,32 +137,32 @@
                     android:layout_y="0dp"
                     android:background="#ff384653"
                     android:padding="3dp"/>
-            </AbsoluteLayout>
+            </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
-<LinearLayout
-    android:layout_marginTop="395dp"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:gravity="center"
-    android:id="@+id/guessWordsLayout"
-    android:orientation="vertical">
+    <LinearLayout
+        android:layout_marginTop="335dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:id="@+id/guessWordsLayout"
+        android:orientation="vertical">
 
 
 
-</LinearLayout>
+    </LinearLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="365dp"
         >
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter0"
             android:layout_marginLeft="5dp"
             android:layout_alignParentLeft="true"
@@ -172,8 +172,8 @@
             android:onClick="onClickActualLetter"/>
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter1"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -183,8 +183,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter2"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -194,8 +194,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter3"
             android:background="#e16fcfc0"
             android:layout_marginLeft="5dp"
@@ -205,8 +205,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter4"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -216,8 +216,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter5"
             android:layout_marginLeft="5dp"
             android:background="#e16fcfc0"
@@ -226,11 +226,11 @@
             android:layout_toRightOf="@+id/buttonLetter4"
             android:layout_toEndOf="@+id/buttonLetter4"
             android:onClick="onClickActualLetter"
-             />
+            />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/imageButton8"
             android:textColor="#ffffffff"
             android:background="#b5fffe00"
@@ -242,19 +242,19 @@
             android:text="\?"/>
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter6"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
             android:layout_toLeftOf="@+id/buttonLetter1"
             android:layout_toStartOf="@+id/buttonLetter1"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="40dp"
             android:onClick="onClickActualLetter"/>
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter7"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -264,8 +264,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter8"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -275,8 +275,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter9"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -286,8 +286,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter10"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -297,8 +297,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/buttonLetter11"
             android:background="#e16fcfc0"
             android:textColor="#ffffffff"
@@ -308,8 +308,8 @@
             android:onClick="onClickActualLetter" />
 
         <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:textColor="#ffffffff"
             android:id="@+id/buttonLetter12"
             android:background="#e16fcfc0"
@@ -333,7 +333,7 @@
             ads:adUnitId="ca-app-pub-3376890691318599/3908610460"
             ads:adSize="SMART_BANNER"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
 
 
