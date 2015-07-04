@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dailyappslab.fino"
-    android:versionCode="12"
-    android:versionName="1.11" >
+    android:versionCode="13"
+    android:versionName="1.12" >
 
 
 
@@ -57,8 +57,8 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.dailyappslab.fino.WinActivity"
-           />
+        <activity android:name=".WinActivity"
+            android:theme="@style/AppThemeDialog"></activity>
 
 
         <activity

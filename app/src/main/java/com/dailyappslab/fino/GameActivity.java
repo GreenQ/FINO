@@ -102,6 +102,8 @@ public class GameActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.game);
+        Globals.RestartingIntent = getIntent();
+        Globals.GameAct = this;
 
         image1 = (ImageButton) findViewById(R.id.imageView1);
         image2 = (ImageButton) findViewById(R.id.imageView2);
@@ -164,7 +166,7 @@ public class GameActivity extends Activity {
 
             adView.loadAd(adRequest);
 
-            ShowRateUs();
+           // ShowRateUs();
         }
         catch (Exception ex)
         {
@@ -178,10 +180,15 @@ public class GameActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
-        interstitial = new InterstitialAd(this);
-        interstitial.setAdUnitId("ca-app-pub-3376890691318599/6862076865");
+//        interstitial = new InterstitialAd(this);
+//        interstitial.setAdUnitId(getResources().getString(R.string.admobInterstitialBannerId));
+//        AdRequest adRequesti = new AdRequest.Builder().build();
+//       interstitial.loadAd(adRequesti);
+
+        Globals.interstitialAd = new InterstitialAd(this);
+        Globals.interstitialAd.setAdUnitId(getResources().getString(R.string.admobInterstitialBannerId));
         AdRequest adRequesti = new AdRequest.Builder().build();
-       interstitial.loadAd(adRequesti);
+        Globals.interstitialAd.loadAd(adRequesti);
 
     }
 
@@ -207,6 +214,13 @@ public class GameActivity extends Activity {
 
     }
 
+    private void StartWinActivity()
+    {
+        Intent i = new Intent(GameActivity.this, WinActivity.class);
+        startActivity(i);
+
+    }
+
     private void ShowWinPopUp()
     {
 
@@ -222,7 +236,7 @@ public class GameActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         try
         {
-            sadView = new SADView(this, "5521303021b94d2b00000000");
+            sadView = new SADView(this, getResources().getString(R.string.sadViewMiniBanner));
             LinearLayout layout = (LinearLayout) popupView.findViewById(R.id.admob);
             layout.addView(this.sadView);
             sadView.loadAd(SADView.LANGUAGE_RU);
@@ -239,7 +253,12 @@ public class GameActivity extends Activity {
             public void onClick(View v) {
                 if(storedPreferences.GetCurrentLevel() == 250)
                     storedPreferences.EditFirstPackCompletness();
-                NextLevelClick(null);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        NextLevelClick(null);
+                    }
+                }, 1000);
                 popupWindowWin.dismiss();
             }});
 
@@ -336,7 +355,9 @@ public class GameActivity extends Activity {
                     openWord();
                     if (checkWordCorrectness()) {
 
-                        ShowWinPopUp();
+                        StartWinActivity();
+                        NextLevelClick(null);
+                        //ShowWinPopUp();
                     }
                     popupWindow.dismiss();
                 }
@@ -396,6 +417,7 @@ public class GameActivity extends Activity {
 
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
+
 
     public void ShowRateUs()
     {
@@ -860,7 +882,14 @@ public class GameActivity extends Activity {
                         SetImagesByLevel(GetCurrentLevel());
                         textViewCurrentLevel.setText(String.valueOf(GetCurrentLevel()));
                         CreateGuessWordContainers(GetCurrentLevel());*/
-                        ShowWinPopUp();
+                        StartWinActivity();
+                        Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        NextLevelClick(null);
+                    }
+                }, 1000);
+                        //ShowWinPopUp();
                         //NextLevel();
                     }
                 //}
