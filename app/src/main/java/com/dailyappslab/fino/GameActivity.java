@@ -166,7 +166,7 @@ public class GameActivity extends Activity {
 
             adView.loadAd(adRequest);
 
-            ShowRateUs();
+           // ShowRateUs();
         }
         catch (Exception ex)
         {
@@ -417,6 +417,7 @@ public class GameActivity extends Activity {
 
         popupWindow.showAtLocation(findViewById(R.id.rootLayout), 0,0,-10);
     }
+
 
     public void ShowRateUs()
     {

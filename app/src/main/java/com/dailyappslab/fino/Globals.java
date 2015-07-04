@@ -12,4 +12,5 @@ public class Globals {
     public static InterstitialAd interstitialAd;
     public static Intent RestartingIntent;
     public static Activity GameAct;
+    public static boolean RateRequestDone;
 }

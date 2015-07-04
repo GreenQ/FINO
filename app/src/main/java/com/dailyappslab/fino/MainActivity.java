@@ -175,6 +175,8 @@ public class MainActivity extends Activity {
             dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
+        Globals.RateRequestDone = true;
+        ShowRateUs();
 
     }
 
@@ -246,6 +248,26 @@ public class MainActivity extends Activity {
         });
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();
+    }
+
+    public void ShowRateUs()
+    {
+        boolean s = storedPreferences.AskForRate();
+        if(storedPreferences.AskForRate()) {
+            if (Globals.RateRequestDone == true) {
+                Globals.RateRequestDone = false;
+                //Log.d("animButton", "Click");
+                //Intent i = new Intent(MainActivity.this, RateUsActivity.class);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(MainActivity.this, RateUsActivity.class);
+                        overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                        startActivity(i);
+                    }
+                }, 1000 * 60 * 5);
+            }
+        }
     }
 
     private void getDailyCoins()

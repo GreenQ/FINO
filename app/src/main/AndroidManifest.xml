@@ -58,7 +58,8 @@
         </activity>
 
         <activity android:name=".WinActivity"
-            android:theme="@style/AppThemeDialog"></activity>
+
+            ></activity>
 
 
         <activity
