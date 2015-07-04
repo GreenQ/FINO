@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/transparent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#000000"
-        android:alpha="0.7"></RelativeLayout>
+        android:alpha="0.85"></RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -92,7 +93,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/coins"
                     android:id="@+id/imageView5"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="60dp"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>
