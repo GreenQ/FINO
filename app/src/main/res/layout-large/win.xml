@@ -2,12 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="#00000000"
-    >
+
+    android:id="@+id/mainLayout">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#a4000000"></RelativeLayout>
+        android:background="#a4000000"
+        android:id="@+id/nestedLayout"></RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -61,7 +63,7 @@
                 android:text="_"
                 android:textColor="#ffffffff"
                 android:textSize="30sp"
-
+                android:gravity="center_horizontal"
                 android:id="@+id/textViewQuotation"
                 android:layout_centerHorizontal="true"
                 android:textStyle="italic" />
