@@ -3,4 +3,6 @@
     <color name="class_zero_background">#7f040000</color>
     <color name="transparent">#00000000</color>
     <color name="dialogbg">#00F8F8F8</color>
+    <color name="mainLayoutColor">#00000000</color>
+    <color name="nestedLayoutColor">#a4000000</color>
 </resources>

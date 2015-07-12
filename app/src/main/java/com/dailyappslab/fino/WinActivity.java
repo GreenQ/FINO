@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dailyappslab.fino.R;
@@ -44,6 +45,11 @@ public class WinActivity extends Activity{
 
         if(Globals.interstitialAd.isLoaded())
             Globals.interstitialAd.show();
+
+//        RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        RelativeLayout nestedLayout = (RelativeLayout) findViewById(R.id.nestedLayout);
+//        mainLayout.setBackgroundColor(getResources().getColor(R.color.mainLayoutColor));
+//        nestedLayout.setBackgroundColor(getResources().getColor(R.color.nestedLayoutColor));
 
 
     }
