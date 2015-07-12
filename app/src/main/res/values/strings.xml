@@ -7,6 +7,10 @@
     <string name="admobInterstitialBannerId">ca-app-pub-3376890691318599/6862076865</string>
     <string name="sadViewMiniBanner">5521303021b94d2b00000000</string>
 
+
+    <string name="text_c">#ffffffff</string>
+    <string name="kvadrat">#e16fcfc0</string>
+
     <string name="app_name">4 картинки 1 слово</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

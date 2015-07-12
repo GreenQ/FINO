@@ -22,9 +22,10 @@
     </style>
 
 
-    <style name="AppThemeDialog2" parent="@style/Theme.AppCompat.Light.Dialog">
+    <style name="AppThemeDialog2" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/dialogbg</item>
+        <item name="android:background">#a4000000</item>
         <!--<item name="windowCloseOnTouchOutside">false</item>-->
         <item name="android:layout_margin">0dp</item>
         <item name="android:layout_marginLeft">0dp</item>

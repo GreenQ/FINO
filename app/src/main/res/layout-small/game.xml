@@ -8,6 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
+        android:background="@drawable/top_panel"
         android:id="@+id/header_panel">
 
         <RelativeLayout
